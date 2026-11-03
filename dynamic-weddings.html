@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weddings & Cinematography | Lumen & Frame Multi-Page Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pitch: '#0A0D14',
+                        darkCard: '#121724',
+                        darkBorder: '#1F293D',
+                        accentGold: '#F59E0B',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0A0D14; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .nav-link-active {
+            color: #F59E0B !important;
+            border-bottom: 2px solid #F59E0B;
+        }
+    </style>
+</head>
+<body class="bg-pitch text-slate-100 antialiased selection:bg-accentGold selection:text-black">
+
+    <!-- Top Ribbon -->
+    <div class="bg-gradient-to-r from-darkCard via-darkBorder to-darkCard border-b border-darkBorder py-2 px-6 text-xs flex justify-between items-center">
+        <span class="text-gray-300"><i class="fa-solid fa-crown text-accentGold mr-1.5"></i> Fine Art Royal Wedding Cinematography & Heirloom Photography</span>
+        <a href="dynamic-pricing-calculator.html" class="text-accentGold font-bold hover:underline">Calculate Wedding Package &rarr;</a>
+    </div>
+
+    <!-- Common Multi-Page Header -->
+    <header class="sticky top-0 z-50 bg-pitch/95 backdrop-blur-xl border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="dynamic-home.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accentGold to-amber-600 flex items-center justify-center text-black font-extrabold text-lg shadow-lg shadow-accentGold/20">
+                    <i class="fa-solid fa-camera-retro"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white font-serif">LUMEN <span class="text-accentGold">&</span> FRAME</span>
+                    <span class="block text-[9px] uppercase tracking-[0.25em] text-gray-400 font-semibold">Weddings Division</span>
+                </div>
+            </a>
+
+            <nav class="hidden xl:flex items-center space-x-7 text-xs uppercase tracking-wider font-bold text-gray-300">
+                <a href="dynamic-home.html" class="hover:text-accentGold py-2 transition">Home</a>
+                <a href="dynamic-weddings.html" class="nav-link-active py-2 transition">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-accentGold py-2 transition">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentGold py-2 transition">Events & Galas</a>
+                <a href="dynamic-portfolio.html" class="hover:text-accentGold py-2 transition">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="hover:text-accentGold py-2 transition text-accentGold"><i class="fa-solid fa-calculator mr-1"></i> Quote Calculator</a>
+                <a href="dynamic-reviews.html" class="hover:text-accentGold py-2 transition">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentGold py-2 transition">Contact</a>
+            </nav>
+
+            <a href="dynamic-pricing-calculator.html" class="px-5 py-2.5 rounded-full bg-accentGold hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition">
+                Book Wedding Team
+            </a>
+        </div>
+    </header>
+
+    <!-- Wedding Hero -->
+    <section class="py-20 bg-gradient-to-b from-darkCard/80 to-pitch border-b border-darkBorder text-center">
+        <div class="max-w-5xl mx-auto px-6">
+            <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-accentGold/10 border border-accentGold/30 text-accentGold text-xs font-bold uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-ring"></i>
+                <span>Fine Art Wedding Cinematography & Photography</span>
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-serif font-bold text-white leading-tight mb-6">
+                Editorial Nuptials & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accentGold via-yellow-200 to-amber-500 italic font-serif">Feature Film Magic</span>
+            </h1>
+            <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed mb-8">
+                From cliffside Italian elopements to 3-day royal palace celebrations. We film on RED 8K cinema cameras with custom orchestral scoring and 35mm analog nostalgia.
+            </p>
+            <div class="flex justify-center gap-4">
+                <button onclick="openWeddingVideo()" class="px-8 py-4 rounded-full bg-accentGold hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition shadow-lg shadow-accentGold/20 flex items-center">
+                    <i class="fa-solid fa-circle-play mr-2 text-base"></i> Watch 4K Film Trailer
+                </button>
+                <a href="#wedding-retouch" class="px-8 py-4 rounded-full bg-darkCard border border-darkBorder hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider transition">
+                    Test Color Grading Slider &darr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Before / After Wedding Slider -->
+    <section id="wedding-retouch" class="py-20 border-b border-darkBorder">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-accentGold">DaVinci Resolve Color Grade</span>
+                <h3 class="text-2xl sm:text-4xl font-serif font-bold text-white mt-1">Interactive Before & After Retouch</h3>
+                <p class="text-xs text-gray-400 mt-2">Drag the handle to see the transition from uncompressed camera RAW to our signature golden sunset grade.</p>
+            </div>
+
+            <div class="relative h-[420px] sm:h-[480px] rounded-3xl overflow-hidden border border-darkBorder shadow-2xl user-select-none" id="wSliderBox">
+                <!-- Graded -->
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Graded" class="w-full h-full object-cover filter contrast-125 saturate-125 brightness-105">
+                <span class="absolute top-4 right-4 bg-black/80 border border-accentGold/40 text-accentGold px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider z-0">
+                    After: Master Golden Grade
+                </span>
+
+                <!-- Raw -->
+                <div class="absolute top-0 left-0 h-full w-1/2 overflow-hidden border-r-4 border-accentGold shadow-2xl z-10" id="wBeforeLayer">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="RAW" class="w-full h-full object-cover filter grayscale-[65%] brightness-125 contrast-75" style="width: 960px; max-width: none;">
+                    <span class="absolute top-4 left-4 bg-black/80 border border-gray-600 text-gray-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider z-20">
+                        Before: Flat Sensor RAW
+                    </span>
+                </div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-between gap-4 max-w-md mx-auto">
+                <span class="text-xs text-gray-400 font-bold uppercase">RAW Log</span>
+                <input type="range" min="0" max="100" value="50" oninput="document.getElementById('wBeforeLayer').style.width = this.value + '%'" class="w-full h-2 bg-darkBorder rounded-lg appearance-none cursor-pointer accent-accentGold">
+                <span class="text-xs text-accentGold font-bold uppercase">Master Grade</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding Collections -->
+    <section class="py-20 bg-darkCard/40">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-accentGold">Wedding Investment</span>
+                <h3 class="text-3xl font-serif font-bold text-white mt-1">Wedding Photography & Cinema Packages</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Package 1 -->
+                <div class="p-8 rounded-3xl bg-pitch border border-darkBorder flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase text-gray-400">Essential</span>
+                        <h4 class="text-xl font-serif font-bold text-white mt-1">The Intimate</h4>
+                        <div class="text-3xl font-mono font-bold text-accentGold mt-3 mb-6">$3,800</div>
+                        <ul class="text-xs text-gray-300 space-y-3">
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> 8 Hours Comprehensive Coverage</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> 2 Senior Photographers</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> 500+ Hand-Retouched High Res Photos</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> 48-Hour Sneak Peek Highlights</li>
+                        </ul>
+                    </div>
+                    <a href="dynamic-pricing-calculator.html" class="mt-8 block text-center py-3 rounded-full border border-darkBorder hover:border-accentGold text-xs uppercase font-bold text-white transition">
+                        Customize in Calculator &rarr;
+                    </a>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="p-8 rounded-3xl bg-pitch border-2 border-accentGold flex flex-col justify-between relative shadow-2xl shadow-accentGold/10">
+                    <span class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-accentGold text-black text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full">
+                        Most Booked
+                    </span>
+                    <div>
+                        <span class="text-xs font-bold uppercase text-accentGold">Signature Cinema</span>
+                        <h4 class="text-xl font-serif font-bold text-white mt-1">The Royal Premiere</h4>
+                        <div class="text-3xl font-mono font-bold text-accentGold mt-3 mb-6">$6,500</div>
+                        <ul class="text-xs text-gray-300 space-y-3">
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> 2 Full Days Complete Nuptials</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> 3 Photographers + 2 Cinematographers</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> 10-Min 4K Cinematic Feature Film</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> 4K Drone Aerial Footage Included</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> Italian Handcrafted Leather Album</li>
+                        </ul>
+                    </div>
+                    <a href="dynamic-pricing-calculator.html" class="mt-8 block text-center py-3 rounded-full bg-accentGold hover:bg-yellow-400 text-xs uppercase font-extrabold text-black transition">
+                        Customize in Calculator &rarr;
+                    </a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="p-8 rounded-3xl bg-pitch border border-darkBorder flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase text-gray-400">Global Destination</span>
+                        <h4 class="text-xl font-serif font-bold text-white mt-1">The Grand Odyssey</h4>
+                        <div class="text-3xl font-mono font-bold text-accentGold mt-3 mb-6">$10,500+</div>
+                        <ul class="text-xs text-gray-300 space-y-3">
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> Multi-Day International Nuptials</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> Full 6-Person Production Crew</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> 35mm Real Motion Film Reel</li>
+                            <li><i class="fa-solid fa-check text-accentGold mr-2"></i> Same-Day Edit Shown at Reception</li>
+                        </ul>
+                    </div>
+                    <a href="dynamic-pricing-calculator.html" class="mt-8 block text-center py-3 rounded-full border border-darkBorder hover:border-accentGold text-xs uppercase font-bold text-white transition">
+                        Customize in Calculator &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulated Video Modal -->
+    <div id="wVideoModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-darkCard border border-darkBorder max-w-3xl w-full rounded-3xl p-6 relative">
+            <button onclick="closeWeddingVideo()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4"><i class="fa-solid fa-film text-accentGold mr-2"></i> Lake Como 4K Cinematic Master Teaser</h4>
+            <div class="aspect-video rounded-2xl overflow-hidden bg-black flex items-center justify-center relative">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Video frame" class="w-full h-full object-cover filter brightness-75">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-16 h-16 rounded-full bg-accentGold text-black flex items-center justify-center text-xl shadow-2xl">
+                        <i class="fa-solid fa-play ml-1"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 flex justify-between items-center text-xs text-gray-400">
+                <span>Color-Graded in DaVinci Studio • ARRI Alexa Mini LF</span>
+                <a href="dynamic-contact.html" class="text-accentGold font-bold hover:underline">Check Your Wedding Date &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Common Footer -->
+    <footer class="bg-pitch border-t border-darkBorder py-12 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-left">
+                <span class="font-serif font-bold text-white text-base">LUMEN & FRAME</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">Weddings & Cinematography Division</p>
+            </div>
+            <div class="flex flex-wrap gap-4 text-gray-400">
+                <a href="dynamic-home.html" class="hover:text-accentGold">Home</a>
+                <a href="dynamic-weddings.html" class="text-accentGold font-bold">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-accentGold">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentGold">Events</a>
+                <a href="dynamic-portfolio.html" class="hover:text-accentGold">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="hover:text-accentGold">Pricing</a>
+                <a href="dynamic-reviews.html" class="hover:text-accentGold">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentGold">Contact</a>
+            </div>
+            <div>&copy; 2026 Lumen & Frame Studios.</div>
+        </div>
+    </footer>
+
+    <script>
+        function openWeddingVideo() { document.getElementById('wVideoModal').classList.remove('hidden'); }
+        function closeWeddingVideo() { document.getElementById('wVideoModal').classList.add('hidden'); }
+    </script>
+
+</body>
+</html>
+

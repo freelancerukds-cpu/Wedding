@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little Whispers Studio | Newborn, Baby & Maternity Photography</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blush: {
+                            50: '#FDF8F6',
+                            100: '#FCE7F3',
+                            200: '#FBCFE8',
+                            300: '#F9A8D4',
+                            400: '#F472B6',
+                            500: '#EC4899',
+                        },
+                        peachCream: {
+                            50: '#FFFDF9',
+                            100: '#FAF5ED',
+                            200: '#F4EAE0',
+                            300: '#EAD8C7'
+                        },
+                        babySage: '#99AF93',
+                        cocoa: '#2C221E'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        cursive: ['Caveat', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #FFFDF9; color: #2C221E; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .soft-card-shadow {
+            box-shadow: 0 10px 30px -5px rgba(244, 114, 182, 0.08), 0 4px 15px -3px rgba(0, 0, 0, 0.03);
+        }
+        .soft-card-shadow:hover {
+            box-shadow: 0 20px 40px -5px rgba(244, 114, 182, 0.16);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-peachCream-50 text-cocoa antialiased selection:bg-blush-200 selection:text-cocoa">
+
+    <!-- Sweet Announcement Ribbon -->
+    <div class="bg-blush-100/70 border-b border-blush-200 text-xs py-2 px-4 text-center text-cocoa font-medium">
+        <span class="inline-flex items-center">
+            <i class="fa-solid fa-heart text-blush-400 mr-2 text-xs"></i>
+            <span>Sanitized & Cozy 28°C Heated Baby Studio</span>
+            <span class="mx-3 text-blush-300">•</span>
+            <span>Now reserving Maternity & Newborn Due Dates for 2026</span>
+            <span class="mx-3 text-blush-300">•</span>
+            <a href="#contact" class="text-blush-500 font-bold hover:underline ml-1">Reserve by Due Date &rarr;</a>
+        </span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-peachCream-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-11 h-11 rounded-full bg-blush-100 flex items-center justify-center text-blush-500 text-lg shadow-sm">
+                    <i class="fa-solid fa-baby"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-serif font-bold text-cocoa tracking-tight">Little <span class="text-blush-400 italic">Whispers</span></span>
+                    <span class="block text-[10px] tracking-[0.2em] text-gray-500 uppercase font-medium">Newborn & Baby Studio</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-600">
+                <a href="#sessions" class="hover:text-blush-500 transition">Milestone Sessions</a>
+                <a href="#safety" class="hover:text-blush-500 transition">Baby Safety First</a>
+                <a href="#gallery" class="hover:text-blush-500 transition">Portfolio</a>
+                <a href="#packages" class="hover:text-blush-500 transition">Packages</a>
+                <a href="#parents" class="hover:text-blush-500 transition">Parent Love</a>
+                <a href="#faq" class="hover:text-blush-500 transition">FAQ</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="px-6 py-2.5 rounded-full bg-blush-400 hover:bg-blush-500 text-white font-semibold text-xs tracking-wider uppercase transition shadow-md shadow-blush-300/40">
+                    Book a Session
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-peachCream-100/60 to-peachCream-50">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-blush-100 border border-blush-200 text-blush-500 text-xs font-semibold uppercase tracking-wider mb-6">
+                    <i class="fa-solid fa-shield-heart text-blush-400"></i>
+                    <span>Certified Infant Safety Specialist & Master Baby Artist</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-serif text-cocoa leading-tight mb-6">
+                    Preserving the <span class="text-blush-400 italic font-serif">Gentle Magic</span> of Their First Days
+                </h1>
+                <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
+                    Those tiny fingers, sleepy yawns, and soft curls change in the blink of an eye. We craft pure, timeless newborn and baby portraits in a calm, stress-free haven designed for new parents.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <a href="#sessions" class="w-full sm:w-auto px-8 py-4 rounded-full bg-blush-400 hover:bg-blush-500 text-white font-semibold text-xs uppercase tracking-widest transition shadow-lg shadow-blush-300/40 text-center">
+                        Explore Baby Milestones
+                    </a>
+                    <a href="#safety" class="w-full sm:w-auto px-8 py-4 rounded-full border border-peachCream-300 bg-white hover:bg-peachCream-100 text-cocoa font-medium text-xs uppercase tracking-widest transition text-center">
+                        Our Baby Safety Pledge
+                    </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="mt-12 flex flex-wrap items-center gap-6 pt-8 border-t border-peachCream-200 text-xs text-gray-500">
+                    <div class="flex items-center"><i class="fa-solid fa-certificate text-blush-400 mr-2"></i> CPR & First Aid Certified</div>
+                    <div class="flex items-center"><i class="fa-solid fa-temperature-arrow-up text-blush-400 mr-2"></i> 28°C Warm Heated Room</div>
+                    <div class="flex items-center"><i class="fa-solid fa-wand-magic-sparkles text-blush-400 mr-2"></i> 150+ Organic Handcrafted Props</div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="relative z-10 rounded-3xl overflow-hidden border-8 border-white shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1000&q=80" alt="Newborn baby sleeping peaceful" class="w-full h-[520px] object-cover">
+                </div>
+                <!-- Cute Floating Badge -->
+                <div class="absolute -bottom-6 -left-6 z-20 bg-white p-5 rounded-2xl border border-blush-200 shadow-xl hidden sm:block max-w-xs">
+                    <div class="flex items-center space-x-3 mb-1">
+                        <div class="w-10 h-10 rounded-full bg-peachCream-100 flex items-center justify-center text-blush-400">
+                            <i class="fa-solid fa-hands-holding-child text-lg"></i>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-cocoa">100% Baby-Led Pacing</span>
+                            <span class="text-[11px] text-gray-500">Ample time for nursing & soothing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -top-6 -right-6 z-0 w-48 h-48 bg-blush-200/50 rounded-full blur-2xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Milestone Sessions Breakdown -->
+    <section id="sessions" class="py-24 bg-white border-t border-peachCream-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-blush-400 font-bold">Cherished Chapters</span>
+                <h2 class="text-3xl sm:text-5xl font-serif text-cocoa mt-2 mb-4">Milestone Photography Sessions</h2>
+                <p class="text-gray-500 text-sm">Every age brings brand new expressions and unforgettable wonder.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Session 1: Maternity -->
+                <div class="rounded-3xl bg-peachCream-50 border border-peachCream-200 overflow-hidden transition duration-300 soft-card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=600&q=80" alt="Maternity Photography" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-blush-400">28 - 34 Weeks</span>
+                            <h3 class="text-xl font-serif text-cocoa mt-1 mb-2">Maternity Glow</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed">
+                                Celebrate the incredible journey of pregnancy with our studio couture gowns and warm artistic lighting.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <span class="text-xs font-bold text-blush-500 block">From $450 • Gowns Included</span>
+                    </div>
+                </div>
+
+                <!-- Session 2: Posed Newborn -->
+                <div class="rounded-3xl bg-peachCream-50 border border-blush-200 overflow-hidden transition duration-300 soft-card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="Newborn Posed Photography" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-blush-400">Days 5 - 21</span>
+                            <h3 class="text-xl font-serif text-cocoa mt-1 mb-2">Sleepy Newborn</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed">
+                                Pure, sleepy womb-like poses wrapped in hypoallergenic organic knits, custom headbands, and wooden nests.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <span class="text-xs font-bold text-blush-500 block">From $550 • All Props Included</span>
+                    </div>
+                </div>
+
+                <!-- Session 3: Sitter Milestones -->
+                <div class="rounded-3xl bg-peachCream-50 border border-peachCream-200 overflow-hidden transition duration-300 soft-card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=600&q=80" alt="6-Month Sitter Baby" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-blush-400">6 - 9 Months</span>
+                            <h3 class="text-xl font-serif text-cocoa mt-1 mb-2">The Sitter Session</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed">
+                                Chubby baby thighs, toothless giggles, and sitting up tall! Capturing their sparkling emergent personalities.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <span class="text-xs font-bold text-blush-500 block">From $400 • Studio Wardrobe</span>
+                    </div>
+                </div>
+
+                <!-- Session 4: Cake Smash -->
+                <div class="rounded-3xl bg-peachCream-50 border border-peachCream-200 overflow-hidden transition duration-300 soft-card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="h-60 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80" alt="1st Birthday Cake Smash" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-6">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-blush-400">1st Birthday</span>
+                            <h3 class="text-xl font-serif text-cocoa mt-1 mb-2">Cake Smash & Splash</h3>
+                            <p class="text-xs text-gray-500 leading-relaxed">
+                                Custom themed balloon backdrops, organic artisan smash cake, followed by a warm bubbly vintage tub splash!
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <span class="text-xs font-bold text-blush-500 block">From $600 • Custom Cake & Tub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Baby Safety Pledge Section -->
+    <section id="safety" class="py-20 bg-peachCream-100/70 border-t border-peachCream-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="bg-white rounded-3xl p-8 sm:p-14 border border-peachCream-200 shadow-xl grid grid-cols-1 lg:grid-cols-3 gap-10 items-center">
+                <div class="lg:col-span-1 text-center lg:text-left">
+                    <div class="w-16 h-16 rounded-2xl bg-blush-100 text-blush-500 flex items-center justify-center text-2xl mx-auto lg:mx-0 mb-4">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-blush-400">Peace of Mind</span>
+                    <h3 class="text-2xl sm:text-3xl font-serif text-cocoa mt-1 mb-4">Our Baby Safety Promise</h3>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                        Nothing is more sacred than the comfort and safety of your newborn. Every pose is natural, supported, and never forced.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="flex items-start space-x-3">
+                        <div class="text-blush-400 text-lg mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                        <div>
+                            <h4 class="text-sm font-bold text-cocoa">Hospital-Grade Sterilization</h4>
+                            <p class="text-xs text-gray-500 mt-1">Every wrap, fur, and wooden bowl is steam-sanitized before each session.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="text-blush-400 text-lg mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                        <div>
+                            <h4 class="text-sm font-bold text-cocoa">Assistant Spotter on Duty</h4>
+                            <p class="text-xs text-gray-500 mt-1">A dedicated trained assistant stays within inches of baby at all times.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="text-blush-400 text-lg mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                        <div>
+                            <h4 class="text-sm font-bold text-cocoa">Digital Composite Safety</h4>
+                            <p class="text-xs text-gray-500 mt-1">Complex poses (like hands-under-chin) are always safe digital composites.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="text-blush-400 text-lg mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                        <div>
+                            <h4 class="text-sm font-bold text-cocoa">White Noise & Soothing Environment</h4>
+                            <p class="text-xs text-gray-500 mt-1">Calming heartbeat sound machines and gentle lighting keep baby peaceful.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages & Investment -->
+    <section id="packages" class="py-24 bg-white border-t border-peachCream-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-blush-400 font-bold">Transparent Pricing</span>
+                <h2 class="text-3xl sm:text-5xl font-serif text-cocoa mt-2 mb-4">Baby Session Collections</h2>
+                <p class="text-gray-500 text-sm">All collections include full styling, wardrobe access, and high-resolution digital files.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Package 1 -->
+                <div class="p-8 rounded-3xl bg-peachCream-50 border border-peachCream-200 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Essential Newborn</span>
+                        <h3 class="text-2xl font-serif text-cocoa mt-2">The Sweet Pea</h3>
+                        <p class="text-xs text-gray-500 mt-1 mb-6">Baby-only simple and serene setup.</p>
+                        <div class="text-3xl font-serif text-cocoa font-bold mb-6">$490</div>
+                        <ul class="space-y-3 text-xs text-gray-600">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> 2 Hours Studio Session</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> 3 Styled Prop Setups</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> 15 High-Resolution Retouched Digitals</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> Private Online Proofing Gallery</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 text-center py-3 rounded-full border border-blush-300 text-blush-500 font-bold text-xs uppercase tracking-wider hover:bg-blush-50 transition">
+                        Select Sweet Pea
+                    </a>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="p-8 rounded-3xl bg-blush-50 border-2 border-blush-400 flex flex-col justify-between relative shadow-xl">
+                    <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-blush-400 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">
+                        Parents' Favorite
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-blush-500">Complete Family & Baby</span>
+                        <h3 class="text-2xl font-serif text-cocoa mt-2">The Heirloom</h3>
+                        <p class="text-xs text-gray-500 mt-1 mb-6">Includes Mom, Dad & Sibling Portraits.</p>
+                        <div class="text-3xl font-serif text-blush-500 font-bold mb-6">$790</div>
+                        <ul class="space-y-3 text-xs text-gray-700">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> Up to 3.5 Hours Unrushed Session</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> Baby + Parents & Sibling Poses</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> 5 Styled Baby Setups + Family Wardrobe</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> 30 Hand-Retouched Digitals</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> 8x8 Linen Baby Milestone Album</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 text-center py-3 rounded-full bg-blush-400 hover:bg-blush-500 text-white font-bold text-xs uppercase tracking-wider transition shadow-md shadow-blush-300/50">
+                        Book Heirloom Session
+                    </a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="p-8 rounded-3xl bg-peachCream-50 border border-peachCream-200 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-500">Full Year Plan</span>
+                        <h3 class="text-2xl font-serif text-cocoa mt-2">Watch Me Grow</h3>
+                        <p class="text-xs text-gray-500 mt-1 mb-6">Maternity + Newborn + 6-Mo + 1-Yr Cake Smash.</p>
+                        <div class="text-3xl font-serif text-cocoa font-bold mb-6">$1,690</div>
+                        <ul class="space-y-3 text-xs text-gray-600">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> 4 Full Studio Sessions Across Year 1</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> All Digitals from Every Session (100+)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> Custom Smash Cake & Tub Session</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-blush-400 mr-2"></i> 20-Page Luxury First Year Storybook</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 text-center py-3 rounded-full border border-blush-300 text-blush-500 font-bold text-xs uppercase tracking-wider hover:bg-blush-50 transition">
+                        Reserve 1-Year Plan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parent Testimonials -->
+    <section id="parents" class="py-20 bg-peachCream-50 border-t border-peachCream-200">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <span class="text-xs font-bold uppercase tracking-widest text-blush-400">From New Parents</span>
+            <h2 class="text-3xl sm:text-4xl font-serif text-cocoa mt-2 mb-12">Heartfelt Words</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <div class="bg-white p-8 rounded-3xl border border-peachCream-200 shadow-sm">
+                    <div class="flex text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-gray-600 leading-relaxed italic mb-4">
+                        "As a nervous first-time mom with a 10-day-old, I was amazed by how calm and gentle the team was. The studio was delightfully warm, and my baby slept right through all the setups. The photos are pure poetry!"
+                    </p>
+                    <span class="text-xs font-bold text-cocoa">Sophie & Baby Noah (Day 10)</span>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-peachCream-200 shadow-sm">
+                    <div class="flex text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-xs text-gray-600 leading-relaxed italic mb-4">
+                        "The cake smash session for our daughter Arya was the most fun afternoon ever! From the custom strawberry balloon garland to the splash bath pictures, we couldn't stop smiling. Highly recommended!"
+                    </p>
+                    <span class="text-xs font-bold text-cocoa">Kavita, Arjun & Arya (1st Birthday)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="contact" class="py-20 bg-white border-t border-peachCream-200">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-blush-400">Get In Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-serif text-cocoa mt-2 mb-3">Reserve by Your Baby's Due Date</h2>
+                <p class="text-xs text-gray-500">We recommend reserving during your 2nd or 3rd trimester to guarantee studio availability.</p>
+            </div>
+
+            <form class="space-y-5 bg-peachCream-50 p-8 rounded-3xl border border-peachCream-200" onsubmit="event.preventDefault(); alert('Congratulations! We have received your booking inquiry and will contact you within 24 hours to plan your baby session.');">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs font-bold text-cocoa uppercase mb-1">Parent's Name</label>
+                        <input type="text" required placeholder="e.g. Sarah Miller" class="w-full bg-white border border-peachCream-300 rounded-xl px-4 py-2.5 text-xs text-cocoa focus:outline-none focus:border-blush-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-cocoa uppercase mb-1">Phone Number / WhatsApp</label>
+                        <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full bg-white border border-peachCream-300 rounded-xl px-4 py-2.5 text-xs text-cocoa focus:outline-none focus:border-blush-400">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs font-bold text-cocoa uppercase mb-1">Email Address</label>
+                        <input type="email" required placeholder="sarah@example.com" class="w-full bg-white border border-peachCream-300 rounded-xl px-4 py-2.5 text-xs text-cocoa focus:outline-none focus:border-blush-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-cocoa uppercase mb-1">Baby's Due Date or Birthday</label>
+                        <input type="date" required class="w-full bg-white border border-peachCream-300 rounded-xl px-4 py-2.5 text-xs text-cocoa focus:outline-none focus:border-blush-400">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-cocoa uppercase mb-1">Session Type Desired</label>
+                    <select class="w-full bg-white border border-peachCream-300 rounded-xl px-4 py-2.5 text-xs text-cocoa focus:outline-none focus:border-blush-400">
+                        <option>Newborn Studio Session (0-21 Days)</option>
+                        <option>Maternity & Newborn Bundle</option>
+                        <option>6-Month Sitter Session</option>
+                        <option>1st Birthday Cake Smash & Splash</option>
+                        <option>First Year Watch Me Grow Plan</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-cocoa uppercase mb-1">Special Notes or Color Preferences</label>
+                    <textarea rows="3" placeholder="Tell us if you love neutrals, florals, or have any specific ideas..." class="w-full bg-white border border-peachCream-300 rounded-xl px-4 py-2.5 text-xs text-cocoa focus:outline-none focus:border-blush-400"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-full bg-blush-400 hover:bg-blush-500 text-white font-bold text-xs uppercase tracking-widest transition shadow-md shadow-blush-300/40">
+                    Submit Baby Session Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-peachCream-200 py-10 text-center text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-left">
+                <span class="font-serif font-bold text-cocoa text-base">LITTLE WHISPERS</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">Palette 02: Soft Blush Rose, Peach Cream & Warm Cocoa</p>
+            </div>
+            <div>
+                &copy; 2026 Little Whispers Baby Photography Studio. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+

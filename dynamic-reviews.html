@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Reviews & Feedback Wall | Lumen & Frame Multi-Page Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pitch: '#0A0D14',
+                        darkCard: '#121724',
+                        darkBorder: '#1F293D',
+                        accentGold: '#F59E0B',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0A0D14; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .nav-link-active {
+            color: #F59E0B !important;
+            border-bottom: 2px solid #F59E0B;
+        }
+    </style>
+</head>
+<body class="bg-pitch text-slate-100 antialiased selection:bg-accentGold selection:text-black">
+
+    <!-- Top Ribbon -->
+    <div class="bg-gradient-to-r from-darkCard via-darkBorder to-darkCard border-b border-darkBorder py-2 px-6 text-xs flex justify-between items-center">
+        <span class="text-gray-300"><i class="fa-solid fa-star text-amber-400 mr-1"></i> Rated 4.9 / 5.0 Across 320+ Verified Client Engagements</span>
+        <a href="dynamic-pricing-calculator.html" class="text-accentGold font-bold hover:underline">Calculate Your Event Package &rarr;</a>
+    </div>
+
+    <!-- Common Header -->
+    <header class="sticky top-0 z-50 bg-pitch/95 backdrop-blur-xl border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="dynamic-home.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accentGold to-amber-600 flex items-center justify-center text-black font-extrabold text-lg shadow-lg shadow-accentGold/20">
+                    <i class="fa-solid fa-comment-dots"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white font-serif">LUMEN <span class="text-accentGold">&</span> FRAME</span>
+                    <span class="block text-[9px] uppercase tracking-[0.25em] text-gray-400 font-semibold">Client Reviews</span>
+                </div>
+            </a>
+
+            <nav class="hidden xl:flex items-center space-x-7 text-xs uppercase tracking-wider font-bold text-gray-300">
+                <a href="dynamic-home.html" class="hover:text-accentGold py-2 transition">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-accentGold py-2 transition">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-accentGold py-2 transition">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentGold py-2 transition">Events & Galas</a>
+                <a href="dynamic-portfolio.html" class="hover:text-accentGold py-2 transition">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="hover:text-accentGold py-2 transition text-accentGold"><i class="fa-solid fa-calculator mr-1"></i> Quote Calculator</a>
+                <a href="dynamic-reviews.html" class="nav-link-active py-2 transition">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentGold py-2 transition">Contact</a>
+            </nav>
+
+            <a href="dynamic-contact.html" class="px-5 py-2.5 rounded-full bg-accentGold hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition">
+                Check Dates
+            </a>
+        </div>
+    </header>
+
+    <!-- Reviews Hero -->
+    <section class="py-16 bg-gradient-to-b from-darkCard/80 to-pitch border-b border-darkBorder text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-accentGold/10 border border-accentGold/30 text-accentGold text-xs font-bold uppercase tracking-widest mb-4">
+                <i class="fa-solid fa-heart"></i>
+                <span>Real Stories From Real Couples, Parents & Event Hosts</span>
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">The Live Experience Wall</h1>
+            <p class="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto mb-8">
+                Test typing a review in the form below. It updates live on screen instantaneously!
+            </p>
+
+            <div class="flex items-center justify-center space-x-2 text-amber-400 text-2xl mb-2">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <span class="text-xs text-gray-400">4.9 Average Rating • 320+ Verified Client Endorsements</span>
+        </div>
+    </section>
+
+    <!-- Reviews Main Grid -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Submit Form (Left 5 Cols) -->
+            <div class="lg:col-span-5 bg-darkCard p-8 rounded-3xl border border-darkBorder shadow-2xl">
+                <h3 class="text-lg font-bold text-white mb-2">Share Your Testimonial</h3>
+                <p class="text-xs text-gray-400 mb-6">Test the dynamic posting engine by submitting feedback below.</p>
+
+                <form onsubmit="handleWallSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Your Full Name</label>
+                        <input type="text" id="wName" required placeholder="e.g. Rachel & David Green" class="w-full bg-pitch border border-darkBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-accentGold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Service Experienced</label>
+                        <select id="wService" class="w-full bg-pitch border border-darkBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-accentGold">
+                            <option>Royal Wedding Nuptials & Cinema</option>
+                            <option>Baby Newborn & Cake Smash Studio</option>
+                            <option>Corporate Summit / Event Media</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Rating</label>
+                        <div class="flex space-x-2 text-xl text-amber-400 cursor-pointer" id="wStars">
+                            <i class="fa-solid fa-star" onclick="setWStars(1)"></i>
+                            <i class="fa-solid fa-star" onclick="setWStars(2)"></i>
+                            <i class="fa-solid fa-star" onclick="setWStars(3)"></i>
+                            <i class="fa-solid fa-star" onclick="setWStars(4)"></i>
+                            <i class="fa-solid fa-star" onclick="setWStars(5)"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Your Feedback</label>
+                        <textarea id="wFeedback" required rows="4" placeholder="How was your photoshoot experience?..." class="w-full bg-pitch border border-darkBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-accentGold"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full py-3.5 rounded-full bg-accentGold hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition shadow-md shadow-accentGold/20">
+                        Post Live Review &rarr;
+                    </button>
+                </form>
+            </div>
+
+            <!-- Review Feed (Right 7 Cols) -->
+            <div class="lg:col-span-7 space-y-4" id="wReviewFeed">
+                
+                <div class="p-6 rounded-2xl bg-darkCard border border-darkBorder">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-white text-sm">Amara & Dev • Udaipur Palace</span>
+                        <div class="text-amber-400 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <span class="text-[10px] px-2 py-0.5 rounded bg-accentGold/20 text-accentGold font-bold inline-block mb-2">Wedding Nuptials</span>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        "Lumen & Frame documented our 3-day Indian wedding effortlessly. The 4K cinematic film made both of our families cry joyful tears. Their crew was invisible yet caught every magic look."
+                    </p>
+                    <span class="text-[10px] text-gray-500 mt-3 block">Verified Couple • 3 days ago</span>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-darkCard border border-darkBorder">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-white text-sm">Elena & Baby Lucas</span>
+                        <div class="text-amber-400 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <span class="text-[10px] px-2 py-0.5 rounded bg-pink-500/20 text-pink-400 font-bold inline-block mb-2">Baby Studio</span>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        "As a nervous first-time mom with a 9-day-old, the heated 28°C studio room and patient soothing made all the difference. Our little boy slept peacefully the entire time!"
+                    </p>
+                    <span class="text-[10px] text-gray-500 mt-3 block">Verified Parents • 1 week ago</span>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-darkCard border border-darkBorder">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-bold text-white text-sm">Marcus Vance • Global Tech Expo</span>
+                        <div class="text-amber-400 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold inline-block mb-2">Event Gala</span>
+                    <p class="text-xs text-gray-300 leading-relaxed italic">
+                        "Their 2-hour photo press drop allowed our media relations team to get morning paper coverage before the conference even ended. Flawless execution."
+                    </p>
+                    <span class="text-[10px] text-gray-500 mt-3 block">Event Director • 2 weeks ago</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Common Footer -->
+    <footer class="bg-pitch border-t border-darkBorder py-12 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-left">
+                <span class="font-serif font-bold text-white text-base">LUMEN & FRAME</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">Reviews & Endorsements Division</p>
+            </div>
+            <div class="flex flex-wrap gap-4 text-gray-400">
+                <a href="dynamic-home.html" class="hover:text-accentGold">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-accentGold">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-accentGold">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentGold">Events</a>
+                <a href="dynamic-portfolio.html" class="hover:text-accentGold">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="hover:text-accentGold">Pricing</a>
+                <a href="dynamic-reviews.html" class="text-accentGold font-bold">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentGold">Contact</a>
+            </div>
+            <div>&copy; 2026 Lumen & Frame Studios.</div>
+        </div>
+    </footer>
+
+    <script>
+        let curStars = 5;
+        function setWStars(v) {
+            curStars = v;
+            const stars = document.querySelectorAll('#wStars i');
+            stars.forEach((s, idx) => {
+                if (idx < v) s.className = 'fa-solid fa-star';
+                else s.className = 'fa-regular fa-star text-gray-600';
+            });
+        }
+
+        function handleWallSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('wName').value;
+            const serv = document.getElementById('wService').value;
+            const fb = document.getElementById('wFeedback').value;
+
+            let starStr = '';
+            for (let i = 0; i < curStars; i++) starStr += '<i class="fa-solid fa-star"></i>';
+
+            const card = document.createElement('div');
+            card.className = 'p-6 rounded-2xl bg-darkCard border border-accentGold/60 shadow-xl';
+            card.innerHTML = `
+                <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-white text-sm">${name}</span>
+                    <div class="text-amber-400 text-xs">${starStr}</div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-accentGold/20 text-accentGold font-bold inline-block mb-2">${serv}</span>
+                <p class="text-xs text-gray-300 leading-relaxed italic">"${fb}"</p>
+                <span class="text-[10px] text-emerald-400 mt-2 block"><i class="fa-solid fa-check mr-1"></i> Just Posted Live</span>
+            `;
+
+            document.getElementById('wReviewFeed').prepend(card);
+            e.target.reset();
+            setWStars(5);
+            alert('Your review has been verified and posted live to the wall!');
+        }
+    </script>
+
+</body>
+</html>
+

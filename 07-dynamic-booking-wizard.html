@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimate & Book | Instant Photography Quote & Multi-Stage Booking Wizard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slateDark: '#0B0F19',
+                        slateCard: '#151D30',
+                        slateBorder: '#232E4A',
+                        accentAmber: '#F59E0B',
+                        accentEmerald: '#10B981',
+                        accentCyan: '#06B6D4'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0B0F19; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .wizard-active-step {
+            border-color: #F59E0B;
+            background: rgba(245, 158, 11, 0.15);
+            color: #F59E0B;
+        }
+        .wizard-completed-step {
+            border-color: #10B981;
+            background: rgba(16, 185, 129, 0.15);
+            color: #10B981;
+        }
+    </style>
+</head>
+<body class="bg-slateDark text-slate-100 antialiased selection:bg-accentAmber selection:text-black">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-slateDark/95 backdrop-blur-xl border-b border-slateBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-accentAmber text-black flex items-center justify-center font-bold text-lg shadow-lg shadow-accentAmber/20">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white">LENS<span class="text-accentAmber">QUOTE</span> PRO</span>
+                    <span class="block text-[9px] uppercase tracking-[0.25em] text-gray-400 font-semibold">Multi-Stage Media Estimator</span>
+                </div>
+            </a>
+
+            <div class="flex items-center space-x-6">
+                <div class="hidden sm:flex items-center text-xs text-gray-400">
+                    <span class="w-2.5 h-2.5 rounded-full bg-accentEmerald mr-2 animate-ping"></span>
+                    <span>Live Pricing Engine Active</span>
+                </div>
+                <a href="#wizard-section" class="px-5 py-2.5 rounded-full bg-accentAmber hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition shadow-md shadow-accentAmber/20">
+                    Build My Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro Banner -->
+    <section class="py-14 bg-gradient-to-b from-slateCard/50 to-slateDark border-b border-slateBorder text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-accentAmber/10 border border-accentAmber/30 text-accentAmber text-xs font-bold uppercase tracking-wider mb-4">
+                <i class="fa-solid fa-sliders"></i>
+                <span>Instant Transparent Pricing • Zero Sales Pressure</span>
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+                Configure Your Event Photography <br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accentAmber via-yellow-200 to-amber-500">In Real-Time</span>
+            </h1>
+            <p class="text-gray-400 text-sm sm:text-base max-w-2xl mx-auto font-light">
+                Select your event type, adjust duration sliders, toggle 4K cinema and drone add-ons, and watch your customized itemized quote calculate live on screen.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Wizard & Live Cost Breakdown Grid -->
+    <section id="wizard-section" class="py-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- LEFT 8 COLUMNS: Interactive Multi-Stage Wizard Form -->
+            <div class="lg:col-span-8 bg-slateCard rounded-3xl border border-slateBorder p-6 sm:p-10 shadow-2xl">
+                
+                <!-- Wizard Step Breadcrumbs -->
+                <div class="flex items-center justify-between mb-10 pb-6 border-b border-slateBorder overflow-x-auto text-xs">
+                    <div id="stepTab1" class="flex items-center space-x-2 font-bold cursor-pointer wizard-active-step px-3 py-1.5 rounded-full" onclick="goToStep(1)">
+                        <span class="w-6 h-6 rounded-full border flex items-center justify-center text-xs">1</span>
+                        <span>Event Type</span>
+                    </div>
+                    <div class="w-8 h-[1px] bg-slateBorder"></div>
+                    <div id="stepTab2" class="flex items-center space-x-2 font-bold cursor-pointer text-gray-500 px-3 py-1.5 rounded-full" onclick="goToStep(2)">
+                        <span class="w-6 h-6 rounded-full border border-gray-600 flex items-center justify-center text-xs">2</span>
+                        <span>Duration & Hours</span>
+                    </div>
+                    <div class="w-8 h-[1px] bg-slateBorder"></div>
+                    <div id="stepTab3" class="flex items-center space-x-2 font-bold cursor-pointer text-gray-500 px-3 py-1.5 rounded-full" onclick="goToStep(3)">
+                        <span class="w-6 h-6 rounded-full border border-gray-600 flex items-center justify-center text-xs">3</span>
+                        <span>Add-On Media</span>
+                    </div>
+                    <div class="w-8 h-[1px] bg-slateBorder"></div>
+                    <div id="stepTab4" class="flex items-center space-x-2 font-bold cursor-pointer text-gray-500 px-3 py-1.5 rounded-full" onclick="goToStep(4)">
+                        <span class="w-6 h-6 rounded-full border border-gray-600 flex items-center justify-center text-xs">4</span>
+                        <span>Final Quote</span>
+                    </div>
+                </div>
+
+                <!-- STAGE 1: Event Type Selection -->
+                <div id="stageContent1" class="space-y-6">
+                    <div>
+                        <span class="text-xs font-bold text-accentAmber uppercase tracking-wider">Step 1 of 4</span>
+                        <h2 class="text-2xl font-bold text-white mt-1 mb-2">What Type of Event Are You Celebrating?</h2>
+                        <p class="text-xs text-gray-400">Different events require specialized equipment, lens selections, and crew sizes.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- Option 1: Wedding -->
+                        <div onclick="selectEventType('wedding', 1800, 'Wedding & Nuptials', this)" class="event-type-card p-6 rounded-2xl border-2 border-accentAmber bg-accentAmber/10 cursor-pointer transition">
+                            <div class="w-12 h-12 rounded-xl bg-accentAmber text-black flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-ring"></i>
+                            </div>
+                            <h4 class="text-base font-bold text-white mb-1">Wedding & Nuptials</h4>
+                            <p class="text-xs text-gray-300">Full ceremonies, candid portraits, reception & traditions.</p>
+                            <span class="text-xs font-mono text-accentAmber block mt-4 font-bold">Base: $1,800</span>
+                        </div>
+
+                        <!-- Option 2: Baby -->
+                        <div onclick="selectEventType('baby', 550, 'Baby & Maternity Studio', this)" class="event-type-card p-6 rounded-2xl border-2 border-slateBorder bg-slateDark/60 hover:border-gray-500 cursor-pointer transition">
+                            <div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-baby"></i>
+                            </div>
+                            <h4 class="text-base font-bold text-white mb-1">Baby & Maternity</h4>
+                            <p class="text-xs text-gray-400">Newborns (0-21d), 6-month sitters, or 1st birthday cake smash.</p>
+                            <span class="text-xs font-mono text-gray-300 block mt-4 font-bold">Base: $550</span>
+                        </div>
+
+                        <!-- Option 3: Event -->
+                        <div onclick="selectEventType('event', 950, 'Corporate & Social Gala', this)" class="event-type-card p-6 rounded-2xl border-2 border-slateBorder bg-slateDark/60 hover:border-gray-500 cursor-pointer transition">
+                            <div class="w-12 h-12 rounded-xl bg-accentEmerald/20 text-accentEmerald flex items-center justify-center text-xl mb-4">
+                                <i class="fa-solid fa-glass-cheers"></i>
+                            </div>
+                            <h4 class="text-base font-bold text-white mb-1">Corporate & Gala</h4>
+                            <p class="text-xs text-gray-400">Conferences, keynote stages, VIP dinners, milestone birthdays.</p>
+                            <span class="text-xs font-mono text-gray-300 block mt-4 font-bold">Base: $950</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 flex justify-end">
+                        <button onclick="goToStep(2)" class="px-8 py-3.5 rounded-full bg-accentAmber text-black font-extrabold text-xs uppercase tracking-wider hover:bg-yellow-400 transition flex items-center">
+                            Next: Coverage Hours <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STAGE 2: Duration Hours Slider & Date -->
+                <div id="stageContent2" class="space-y-6 hidden">
+                    <div>
+                        <span class="text-xs font-bold text-accentAmber uppercase tracking-wider">Step 2 of 4</span>
+                        <h2 class="text-2xl font-bold text-white mt-1 mb-2">Coverage Duration & Date</h2>
+                        <p class="text-xs text-gray-400">Slide to specify how many continuous hours of coverage you need.</p>
+                    </div>
+
+                    <!-- Hours Slider -->
+                    <div class="p-6 rounded-2xl bg-slateDark border border-slateBorder">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs uppercase font-bold text-gray-400">Total Coverage Hours</span>
+                            <span class="text-2xl font-extrabold font-mono text-accentAmber"><span id="hoursDisplay">8</span> Hours</span>
+                        </div>
+                        <input type="range" id="hoursSlider" min="2" max="16" value="8" step="1" oninput="updateHours(this.value)" class="w-full h-3 bg-slateBorder rounded-lg appearance-none cursor-pointer accent-accentAmber">
+                        <div class="flex justify-between text-[11px] text-gray-500 mt-2 font-mono">
+                            <span>2h (Mini)</span>
+                            <span>4h (Half-Day)</span>
+                            <span>8h (Full Day)</span>
+                            <span>12h (Extended)</span>
+                            <span>16h (Multi-Session)</span>
+                        </div>
+                    </div>
+
+                    <!-- Date & Location Selection -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Event Date</label>
+                            <input type="date" id="wizardDate" onchange="updateSummaryDate(this.value)" class="w-full bg-slateDark border border-slateBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-accentAmber">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-400 mb-1">City / Venue Location</label>
+                            <input type="text" id="wizardLocation" placeholder="e.g. Chicago, IL" oninput="updateSummaryLocation(this.value)" class="w-full bg-slateDark border border-slateBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-accentAmber">
+                        </div>
+                    </div>
+
+                    <div class="pt-6 flex justify-between">
+                        <button onclick="goToStep(1)" class="px-6 py-3.5 rounded-full border border-slateBorder text-gray-300 font-bold text-xs uppercase tracking-wider hover:bg-white/5 transition">
+                            <i class="fa-solid fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button onclick="goToStep(3)" class="px-8 py-3.5 rounded-full bg-accentAmber text-black font-extrabold text-xs uppercase tracking-wider hover:bg-yellow-400 transition flex items-center">
+                            Next: Select Add-Ons <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STAGE 3: Add-On Media Selection -->
+                <div id="stageContent3" class="space-y-6 hidden">
+                    <div>
+                        <span class="text-xs font-bold text-accentAmber uppercase tracking-wider">Step 3 of 4</span>
+                        <h2 class="text-2xl font-bold text-white mt-1 mb-2">Enhance Your Production</h2>
+                        <p class="text-xs text-gray-400">Select any extra services you would like to include in this quote.</p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <!-- Addon 1: Drone -->
+                        <label class="flex items-center justify-between p-4 rounded-2xl bg-slateDark border border-slateBorder hover:border-gray-500 cursor-pointer transition">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" id="addonDrone" onchange="toggleAddon('drone', 450, '4K Drone Aerial Coverage', this.checked)" class="w-5 h-5 accent-accentAmber rounded">
+                                <div>
+                                    <span class="text-sm font-bold text-white block">FAA-Licensed 4K Drone Aerial Coverage</span>
+                                    <span class="text-xs text-gray-400">Sweeping overhead cinematic footage of venue and guest crowds.</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-accentAmber whitespace-nowrap">+$450</span>
+                        </label>
+
+                        <!-- Addon 2: Second Shooter -->
+                        <label class="flex items-center justify-between p-4 rounded-2xl bg-slateDark border border-slateBorder hover:border-gray-500 cursor-pointer transition">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" id="addonShooter" checked onchange="toggleAddon('shooter', 500, 'Second Lead Photographer', this.checked)" class="w-5 h-5 accent-accentAmber rounded">
+                                <div>
+                                    <span class="text-sm font-bold text-white block">Second Lead Photographer (Dual Angles)</span>
+                                    <span class="text-xs text-gray-400">Captures simultaneous groom/bride prep and candid guest reactions.</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-accentAmber whitespace-nowrap">+$500</span>
+                        </label>
+
+                        <!-- Addon 3: 4K Cinema Film -->
+                        <label class="flex items-center justify-between p-4 rounded-2xl bg-slateDark border border-slateBorder hover:border-gray-500 cursor-pointer transition">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" id="addonFilm" onchange="toggleAddon('film', 1200, '4K Cinematic Highlight Film (5-min)', this.checked)" class="w-5 h-5 accent-accentAmber rounded">
+                                <div>
+                                    <span class="text-sm font-bold text-white block">4K Cinematic Highlight Film (5-Minutes)</span>
+                                    <span class="text-xs text-gray-400">Professionally color-graded with licensed soundtrack & audio vows.</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-accentAmber whitespace-nowrap">+$1,200</span>
+                        </label>
+
+                        <!-- Addon 4: Express Turnaround -->
+                        <label class="flex items-center justify-between p-4 rounded-2xl bg-slateDark border border-slateBorder hover:border-gray-500 cursor-pointer transition">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" id="addonExpress" onchange="toggleAddon('express', 350, '48-Hour Rush Sneak Peek Delivery', this.checked)" class="w-5 h-5 accent-accentAmber rounded">
+                                <div>
+                                    <span class="text-sm font-bold text-white block">48-Hour Rush Sneak Peek Delivery (40 Photos)</span>
+                                    <span class="text-xs text-gray-400">Hand-retouched highlight gallery ready within 48 hours for sharing.</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-accentAmber whitespace-nowrap">+$350</span>
+                        </label>
+
+                        <!-- Addon 5: Italian Leather Album -->
+                        <label class="flex items-center justify-between p-4 rounded-2xl bg-slateDark border border-slateBorder hover:border-gray-500 cursor-pointer transition">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" id="addonAlbum" onchange="toggleAddon('album', 650, 'Italian Leather 30-Page Fine Art Album', this.checked)" class="w-5 h-5 accent-accentAmber rounded">
+                                <div>
+                                    <span class="text-sm font-bold text-white block">Handcrafted Italian Leather 30-Page Fine Art Album</span>
+                                    <span class="text-xs text-gray-400">Archival museum-grade paper bound in Florence, Italy.</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-accentAmber whitespace-nowrap">+$650</span>
+                        </label>
+                    </div>
+
+                    <div class="pt-6 flex justify-between">
+                        <button onclick="goToStep(2)" class="px-6 py-3.5 rounded-full border border-slateBorder text-gray-300 font-bold text-xs uppercase tracking-wider hover:bg-white/5 transition">
+                            <i class="fa-solid fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button onclick="goToStep(4)" class="px-8 py-3.5 rounded-full bg-accentAmber text-black font-extrabold text-xs uppercase tracking-wider hover:bg-yellow-400 transition flex items-center">
+                            Review & Generate Quote <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STAGE 4: Final Information & Formal Quote Trigger -->
+                <div id="stageContent4" class="space-y-6 hidden">
+                    <div>
+                        <span class="text-xs font-bold text-accentAmber uppercase tracking-wider">Step 4 of 4</span>
+                        <h2 class="text-2xl font-bold text-white mt-1 mb-2">Where Should We Send Your Formal Estimate?</h2>
+                        <p class="text-xs text-gray-400">Your configuration is ready. Enter your details to generate your customized PDF proposal.</p>
+                    </div>
+
+                    <form onsubmit="event.preventDefault(); showFinalProposalModal();" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Your Full Name</label>
+                                <input type="text" id="clientName" required placeholder="e.g. Jessica & Ryan" class="w-full bg-slateDark border border-slateBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-accentAmber">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Email Address</label>
+                                <input type="email" id="clientEmail" required placeholder="jessica@example.com" class="w-full bg-slateDark border border-slateBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-accentAmber">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Phone / WhatsApp</label>
+                                <input type="tel" id="clientPhone" required placeholder="+1 (555) 234-5678" class="w-full bg-slateDark border border-slateBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-accentAmber">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Referral Code / Promo (Optional)</label>
+                                <input type="text" placeholder="e.g. EARLYBIRD2026" class="w-full bg-slateDark border border-slateBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-accentAmber">
+                            </div>
+                        </div>
+
+                        <div class="pt-6 flex justify-between items-center">
+                            <button type="button" onclick="goToStep(3)" class="px-6 py-3.5 rounded-full border border-slateBorder text-gray-300 font-bold text-xs uppercase tracking-wider hover:bg-white/5 transition">
+                                <i class="fa-solid fa-arrow-left mr-2"></i> Modify Add-Ons
+                            </button>
+                            <button type="submit" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-accentAmber to-yellow-400 text-black font-extrabold text-xs uppercase tracking-widest hover:opacity-95 transition shadow-xl shadow-accentAmber/30 flex items-center">
+                                <i class="fa-solid fa-file-invoice-dollar mr-2"></i> Generate Official Quote
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- RIGHT 4 COLUMNS: Sticky Live Cost Breakdown Panel -->
+            <div class="lg:col-span-4 sticky top-28 bg-slateCard rounded-3xl border border-slateBorder p-6 shadow-2xl">
+                <div class="flex items-center justify-between pb-4 border-b border-slateBorder">
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Live Itemized Estimate</span>
+                    <span class="px-2.5 py-1 rounded-full bg-accentEmerald/20 text-accentEmerald text-[10px] font-mono font-bold">REAL-TIME</span>
+                </div>
+
+                <!-- Selected Items List -->
+                <div class="py-4 space-y-3 text-xs" id="invoiceItemList">
+                    <div class="flex justify-between text-gray-300">
+                        <span id="summaryEventName">Wedding & Nuptials (Base)</span>
+                        <span class="font-mono text-white" id="summaryBasePrice">$1,800</span>
+                    </div>
+                    <div class="flex justify-between text-gray-300">
+                        <span>Duration (<span id="summaryHours">8</span> hrs @ $150/extra hr)</span>
+                        <span class="font-mono text-white" id="summaryHoursPrice">$600</span>
+                    </div>
+                    <div class="flex justify-between text-gray-300" id="summaryShooterRow">
+                        <span>Second Lead Photographer</span>
+                        <span class="font-mono text-white">$500</span>
+                    </div>
+                </div>
+
+                <!-- Subtotal & Discount -->
+                <div class="pt-4 border-t border-slateBorder space-y-2 text-xs">
+                    <div class="flex justify-between text-gray-400">
+                        <span>Venue / City:</span>
+                        <span class="font-semibold text-gray-200" id="summaryLocationDisplay">Not set</span>
+                    </div>
+                    <div class="flex justify-between text-gray-400">
+                        <span>Target Date:</span>
+                        <span class="font-semibold text-gray-200" id="summaryDateDisplay">Not selected</span>
+                    </div>
+                </div>
+
+                <!-- Grand Total -->
+                <div class="mt-6 p-5 rounded-2xl bg-slateDark border border-slateBorder">
+                    <span class="text-[11px] uppercase font-bold text-gray-400 block mb-1">Estimated Total Investment</span>
+                    <div class="text-3xl font-extrabold font-mono text-accentAmber" id="grandTotalPriceDisplay">
+                        $2,900
+                    </div>
+                    <span class="text-[10px] text-gray-500 block mt-1">Includes all retouched high-res photos & online gallery</span>
+                </div>
+
+                <!-- Tier Badge -->
+                <div class="mt-4 p-3 rounded-xl bg-accentAmber/10 border border-accentAmber/30 flex items-center space-x-3 text-xs">
+                    <i class="fa-solid fa-crown text-accentAmber text-base"></i>
+                    <div>
+                        <span class="font-bold text-accentAmber block" id="tierName">Signature Coverage Tier</span>
+                        <span class="text-[10px] text-gray-400">Eligible for complimentary engagement mini-session!</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DYNAMIC FEATURE: Generated Official Proposal Receipt Modal -->
+    <div id="proposalModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-slateCard border border-slateBorder w-full max-w-2xl rounded-3xl p-8 shadow-2xl relative">
+            <button onclick="closeProposalModal()" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-slateDark text-gray-400 hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center pb-6 border-b border-slateBorder">
+                <div class="w-12 h-12 rounded-full bg-accentEmerald/20 text-accentEmerald flex items-center justify-center text-xl mx-auto mb-3">
+                    <i class="fa-solid fa-check-double"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Your Custom Photography Quote Is Ready!</h3>
+                <p class="text-xs text-gray-400 mt-1" id="modalCustomerGreeting">Prepared for Jessica & Ryan</p>
+            </div>
+
+            <!-- Receipt Content -->
+            <div class="py-6 space-y-3 text-xs">
+                <div class="flex justify-between py-1 border-b border-slateBorder/50">
+                    <span class="text-gray-400">Quote ID:</span>
+                    <span class="font-mono text-white" id="modalQuoteId">LQ-92841</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slateBorder/50">
+                    <span class="text-gray-400">Event Classification:</span>
+                    <span class="font-semibold text-white" id="modalEventType">Wedding & Nuptials</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slateBorder/50">
+                    <span class="text-gray-400">Coverage Duration:</span>
+                    <span class="font-semibold text-white" id="modalDuration">8 Hours</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-slateBorder/50">
+                    <span class="text-gray-400">Active Add-Ons:</span>
+                    <span class="font-semibold text-accentAmber text-right" id="modalAddonsList">Second Photographer</span>
+                </div>
+                <div class="flex justify-between py-2 items-center bg-slateDark p-3 rounded-xl mt-4">
+                    <span class="font-bold text-sm text-white">Total Guaranteed Quote:</span>
+                    <span class="font-mono text-2xl font-extrabold text-accentAmber" id="modalFinalPrice">$2,900</span>
+                </div>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row gap-3">
+                <button onclick="window.print()" class="w-full py-3 rounded-full border border-slateBorder text-gray-300 hover:bg-white/5 text-xs font-bold uppercase tracking-wider transition">
+                    <i class="fa-solid fa-print mr-2"></i> Print / Save PDF
+                </button>
+                <button onclick="alert('Contract lock requested! Studio manager will hold your date for 48 hours.'); closeProposalModal();" class="w-full py-3 rounded-full bg-accentAmber hover:bg-yellow-400 text-black text-xs font-extrabold uppercase tracking-widest transition shadow-lg shadow-accentAmber/30">
+                    Lock Date & Request Contract
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slateDark border-t border-slateBorder py-10 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-left">
+                <span class="font-bold text-white text-base">LENSQUOTE PRO</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">Palette 07: Dark Slate, Electric Amber & Emerald (Dynamic & Animated)</p>
+            </div>
+            <div>
+                &copy; 2026 LensQuote Pro Interactive Booking Engine.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Pricing Engine Logic -->
+    <script>
+        // State
+        let currentStep = 1;
+        let eventBasePrice = 1800;
+        let eventTypeName = 'Wedding & Nuptials';
+        let coverageHours = 8;
+        let activeAddons = {
+            shooter: { name: 'Second Lead Photographer', price: 500 }
+        };
+        let eventDate = '';
+        let eventLocation = '';
+
+        function selectEventType(type, basePrice, name, el) {
+            eventBasePrice = basePrice;
+            eventTypeName = name;
+            
+            document.querySelectorAll('.event-type-card').forEach(c => {
+                c.className = 'event-type-card p-6 rounded-2xl border-2 border-slateBorder bg-slateDark/60 hover:border-gray-500 cursor-pointer transition';
+            });
+            el.className = 'event-type-card p-6 rounded-2xl border-2 border-accentAmber bg-accentAmber/10 cursor-pointer transition';
+
+            recalculateTotal();
+        }
+
+        function updateHours(val) {
+            coverageHours = parseInt(val);
+            document.getElementById('hoursDisplay').innerText = val;
+            recalculateTotal();
+        }
+
+        function updateSummaryDate(val) {
+            eventDate = val;
+            document.getElementById('summaryDateDisplay').innerText = val || 'Not selected';
+        }
+
+        function updateSummaryLocation(val) {
+            eventLocation = val;
+            document.getElementById('summaryLocationDisplay').innerText = val || 'Not set';
+        }
+
+        function toggleAddon(key, price, name, isChecked) {
+            if (isChecked) {
+                activeAddons[key] = { name: name, price: price };
+            } else {
+                delete activeAddons[key];
+            }
+            recalculateTotal();
+        }
+
+        function recalculateTotal() {
+            // Hours price calculation: over 4 hours is $150/hr
+            let hoursSurcharge = 0;
+            if (coverageHours > 4) {
+                hoursSurcharge = (coverageHours - 4) * 150;
+            }
+
+            let addonsTotal = 0;
+            for (let k in activeAddons) {
+                addonsTotal += activeAddons[k].price;
+            }
+
+            let grandTotal = eventBasePrice + hoursSurcharge + addonsTotal;
+
+            // Update UI
+            document.getElementById('summaryEventName').innerText = `${eventTypeName} (Base)`;
+            document.getElementById('summaryBasePrice').innerText = `$${eventBasePrice.toLocaleString()}`;
+            document.getElementById('summaryHours').innerText = coverageHours;
+            document.getElementById('summaryHoursPrice').innerText = `$${hoursSurcharge.toLocaleString()}`;
+            document.getElementById('grandTotalPriceDisplay').innerText = `$${grandTotal.toLocaleString()}`;
+
+            // Rebuild item list
+            const listContainer = document.getElementById('invoiceItemList');
+            let html = `
+                <div class="flex justify-between text-gray-300">
+                    <span>${eventTypeName} (Base)</span>
+                    <span class="font-mono text-white">$${eventBasePrice.toLocaleString()}</span>
+                </div>
+                <div class="flex justify-between text-gray-300">
+                    <span>Duration (${coverageHours} hrs)</span>
+                    <span class="font-mono text-white">$${hoursSurcharge.toLocaleString()}</span>
+                </div>
+            `;
+
+            for (let k in activeAddons) {
+                html += `
+                    <div class="flex justify-between text-gray-300">
+                        <span>${activeAddons[k].name}</span>
+                        <span class="font-mono text-white">+$${activeAddons[k].price}</span>
+                    </div>
+                `;
+            }
+            listContainer.innerHTML = html;
+
+            // Tier update
+            const tierEl = document.getElementById('tierName');
+            if (grandTotal < 1500) {
+                tierEl.innerText = "Essential Essentials Tier";
+            } else if (grandTotal < 3500) {
+                tierEl.innerText = "Signature Pro Coverage Tier";
+            } else {
+                tierEl.innerText = "Master Luxury Heirloom Tier";
+            }
+        }
+
+        function goToStep(step) {
+            currentStep = step;
+            // Hide all contents
+            for (let i = 1; i <= 4; i++) {
+                document.getElementById(`stageContent${i}`).classList.add('hidden');
+                const tab = document.getElementById(`stepTab${i}`);
+                tab.className = 'flex items-center space-x-2 font-bold cursor-pointer text-gray-500 px-3 py-1.5 rounded-full';
+            }
+            document.getElementById(`stageContent${step}`).classList.remove('hidden');
+
+            for (let i = 1; i < step; i++) {
+                document.getElementById(`stepTab${i}`).className = 'flex items-center space-x-2 font-bold cursor-pointer wizard-completed-step px-3 py-1.5 rounded-full';
+            }
+            document.getElementById(`stepTab${step}`).className = 'flex items-center space-x-2 font-bold cursor-pointer wizard-active-step px-3 py-1.5 rounded-full';
+        }
+
+        function showFinalProposalModal() {
+            const name = document.getElementById('clientName').value;
+            document.getElementById('modalCustomerGreeting').innerText = `Official Estimate Prepared for: ${name}`;
+            document.getElementById('modalEventType').innerText = eventTypeName;
+            document.getElementById('modalDuration').innerText = `${coverageHours} Hours Continuous`;
+
+            const addonNames = Object.values(activeAddons).map(a => a.name).join(', ') || 'None selected';
+            document.getElementById('modalAddonsList').innerText = addonNames;
+
+            const total = document.getElementById('grandTotalPriceDisplay').innerText;
+            document.getElementById('modalFinalPrice').innerText = total;
+
+            document.getElementById('modalQuoteId').innerText = 'LQ-' + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('proposalModal').classList.remove('hidden');
+        }
+
+        function closeProposalModal() {
+            document.getElementById('proposalModal').classList.add('hidden');
+        }
+
+        // Initialize calculation
+        recalculateTotal();
+    </script>
+
+</body>
+</html>
+

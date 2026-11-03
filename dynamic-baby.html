@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baby, Newborn & Milestone Studio | Lumen & Frame Multi-Page Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pitch: '#0A0D14',
+                        darkCard: '#121724',
+                        darkBorder: '#1F293D',
+                        accentRose: '#FB7185',
+                        accentGold: '#F59E0B'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        curly: ['Fredoka', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0A0D14; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .nav-link-active {
+            color: #FB7185 !important;
+            border-bottom: 2px solid #FB7185;
+        }
+    </style>
+</head>
+<body class="bg-pitch text-slate-100 antialiased selection:bg-accentRose selection:text-white">
+
+    <!-- Top Ribbon -->
+    <div class="bg-gradient-to-r from-darkCard via-darkBorder to-darkCard border-b border-darkBorder py-2 px-6 text-xs flex justify-between items-center">
+        <span class="text-gray-300"><i class="fa-solid fa-heart text-accentRose mr-1.5"></i> Climate-Controlled 28°C Baby Studio • CPR Certified • Hospital-Grade Sanitation</span>
+        <a href="dynamic-pricing-calculator.html" class="text-accentRose font-bold hover:underline">Calculate Baby Session Quote &rarr;</a>
+    </div>
+
+    <!-- Common Multi-Page Header -->
+    <header class="sticky top-0 z-50 bg-pitch/95 backdrop-blur-xl border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="dynamic-home.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accentRose to-pink-600 flex items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-accentRose/20">
+                    <i class="fa-solid fa-baby"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white font-serif">LUMEN <span class="text-accentRose">&</span> FRAME</span>
+                    <span class="block text-[9px] uppercase tracking-[0.25em] text-gray-400 font-semibold">Baby & Kids Studio</span>
+                </div>
+            </a>
+
+            <nav class="hidden xl:flex items-center space-x-7 text-xs uppercase tracking-wider font-bold text-gray-300">
+                <a href="dynamic-home.html" class="hover:text-accentRose py-2 transition">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-accentRose py-2 transition">Weddings</a>
+                <a href="dynamic-baby.html" class="nav-link-active py-2 transition">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentRose py-2 transition">Events & Galas</a>
+                <a href="dynamic-portfolio.html" class="hover:text-accentRose py-2 transition">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="hover:text-accentRose py-2 transition text-accentGold"><i class="fa-solid fa-calculator mr-1"></i> Quote Calculator</a>
+                <a href="dynamic-reviews.html" class="hover:text-accentRose py-2 transition">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentRose py-2 transition">Contact</a>
+            </nav>
+
+            <a href="dynamic-pricing-calculator.html" class="px-5 py-2.5 rounded-full bg-accentRose hover:bg-rose-500 text-white font-extrabold text-xs uppercase tracking-wider transition">
+                Book Baby Studio
+            </a>
+        </div>
+    </header>
+
+    <!-- Baby Hero -->
+    <section class="py-20 bg-gradient-to-b from-darkCard/80 to-pitch border-b border-darkBorder text-center">
+        <div class="max-w-5xl mx-auto px-6">
+            <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-accentRose/10 border border-accentRose/30 text-accentRose text-xs font-bold uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-shield-heart"></i>
+                <span>Certified Infant Safety & Master Baby Artistry</span>
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-serif font-bold text-white leading-tight mb-6">
+                Pure, Gentle & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-accentRose via-pink-200 to-amber-300 italic font-serif">Unhurried Baby Memories</span>
+            </h1>
+            <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed mb-8">
+                From sleepy 0-21 day curled newborn wraps to 6-month sitters and 1st birthday cake smash & splash. We prioritize warmth, safety, and comfort.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#milestone-explorer" class="px-8 py-4 rounded-full bg-accentRose hover:bg-rose-500 text-white font-extrabold text-xs uppercase tracking-wider transition shadow-lg shadow-accentRose/20">
+                    Try Milestone Explorer &darr;
+                </a>
+                <a href="#theme-customizer" class="px-8 py-4 rounded-full bg-darkCard border border-darkBorder hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider transition">
+                    Preview Baby Set Themes &darr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Milestone Explorer -->
+    <section id="milestone-explorer" class="py-20 border-b border-darkBorder">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-accentRose">Interactive Explorer</span>
+                <h3 class="text-2xl sm:text-4xl font-serif font-bold text-white mt-1">Select Your Baby's Milestone</h3>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mb-10">
+                <button onclick="changeBabyStage(0, this)" class="b-stage-btn p-4 rounded-2xl border-2 border-accentRose bg-accentRose/20 font-bold text-xs uppercase text-center transition">
+                    <span class="text-2xl block mb-1">🍼</span>
+                    <span>0-21d Newborn</span>
+                </button>
+                <button onclick="changeBabyStage(1, this)" class="b-stage-btn p-4 rounded-2xl border-2 border-darkBorder bg-pitch font-bold text-xs uppercase text-center text-gray-400 hover:text-white transition">
+                    <span class="text-2xl block mb-1">🧸</span>
+                    <span>3-4 Mo Smiles</span>
+                </button>
+                <button onclick="changeBabyStage(2, this)" class="b-stage-btn p-4 rounded-2xl border-2 border-darkBorder bg-pitch font-bold text-xs uppercase text-center text-gray-400 hover:text-white transition">
+                    <span class="text-2xl block mb-1">🪑</span>
+                    <span>6-8 Mo Sitter</span>
+                </button>
+                <button onclick="changeBabyStage(3, this)" class="b-stage-btn p-4 rounded-2xl border-2 border-darkBorder bg-pitch font-bold text-xs uppercase text-center text-gray-400 hover:text-white transition">
+                    <span class="text-2xl block mb-1">🎂</span>
+                    <span>1-Yr Cake Smash</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Display Card -->
+            <div class="bg-darkCard rounded-3xl border border-darkBorder p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center shadow-2xl">
+                <div>
+                    <span id="bStageBadge" class="text-xs uppercase font-bold text-accentRose tracking-widest block mb-2">Stage 01</span>
+                    <h4 id="bStageTitle" class="text-2xl sm:text-3xl font-serif font-bold text-white mb-3">The Sleepy Posed Newborn</h4>
+                    <p id="bStageDesc" class="text-xs text-gray-300 leading-relaxed mb-6">
+                        Babies sleep peacefully and naturally curl into womb-like poses. We use hypoallergenic organic cashmere wraps and wooden rustic nests.
+                    </p>
+                    <div class="space-y-2 text-xs text-gray-400 mb-6">
+                        <div><i class="fa-solid fa-clock text-accentRose mr-2"></i> <span id="bStageTime">Session: 2.5 to 3 Hours (unrushed nursing pauses)</span></div>
+                        <div><i class="fa-solid fa-basket-shopping text-accentRose mr-2"></i> <span id="bStageProps">Setups: 4 Custom Styled Props & Nests Included</span></div>
+                        <div><i class="fa-solid fa-people-roof text-accentRose mr-2"></i> <span id="bStageFam">Family: Mom, Dad & Sibling cuddles included</span></div>
+                    </div>
+                    <a href="dynamic-pricing-calculator.html" class="inline-block px-6 py-3 rounded-full bg-accentRose hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider transition">
+                        Select This In Quote Calculator &rarr;
+                    </a>
+                </div>
+                <div class="rounded-2xl overflow-hidden h-80 border border-darkBorder shadow-xl">
+                    <img id="bStageImg" src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Baby stage" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Theme Customizer -->
+    <section id="theme-customizer" class="py-20 bg-darkCard/40">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-accentRose">Studio Sets</span>
+                <h3 class="text-2xl sm:text-4xl font-serif font-bold text-white mt-1">Baby Theme Swatch Builder</h3>
+                <p class="text-xs text-gray-400 mt-2">Click themes to preview color swatches and included cake designs.</p>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button onclick="setBabyTheme('safari', this)" class="b-theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-accentRose text-white transition">
+                    🦁 Jungle Safari
+                </button>
+                <button onclick="setBabyTheme('royal', this)" class="b-theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-pitch border border-darkBorder text-gray-400 hover:text-white transition">
+                    👑 Prince / Princess
+                </button>
+                <button onclick="setBabyTheme('boho', this)" class="b-theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-pitch border border-darkBorder text-gray-400 hover:text-white transition">
+                    🌾 Boho Pampas
+                </button>
+                <button onclick="setBabyTheme('berry', this)" class="b-theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-pitch border border-darkBorder text-gray-400 hover:text-white transition">
+                    🍓 Sweet Berry
+                </button>
+            </div>
+
+            <div class="p-8 rounded-3xl bg-pitch border border-darkBorder shadow-xl grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h4 id="bThemeName" class="text-2xl font-serif font-bold text-white mb-2">Jungle Safari Adventure</h4>
+                    <p id="bThemeDesc" class="text-xs text-gray-400 leading-relaxed mb-6">
+                        Lush sage eucalyptus, handcrafted wooden animals, woven rattan baskets, and golden warm studio lighting.
+                    </p>
+                    <div class="mb-4">
+                        <span class="text-xs uppercase font-bold text-gray-400 block mb-2">Color Palette Swatches:</span>
+                        <div id="bThemeSwatches" class="flex space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-[#15803D] ring-2 ring-white"></div>
+                            <div class="w-8 h-8 rounded-full bg-[#D97706] ring-2 ring-white"></div>
+                            <div class="w-8 h-8 rounded-full bg-[#FEF08A] ring-2 ring-white"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rounded-2xl overflow-hidden h-64 border border-darkBorder">
+                    <img id="bThemeImg" src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=700&q=80" alt="Theme preview" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Footer -->
+    <footer class="bg-pitch border-t border-darkBorder py-12 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-left">
+                <span class="font-serif font-bold text-white text-base">LUMEN & FRAME</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">Baby & Milestone Studio Division</p>
+            </div>
+            <div class="flex flex-wrap gap-4 text-gray-400">
+                <a href="dynamic-home.html" class="hover:text-accentRose">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-accentRose">Weddings</a>
+                <a href="dynamic-baby.html" class="text-accentRose font-bold">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentRose">Events</a>
+                <a href="dynamic-portfolio.html" class="hover:text-accentRose">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="hover:text-accentRose">Pricing</a>
+                <a href="dynamic-reviews.html" class="hover:text-accentRose">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentRose">Contact</a>
+            </div>
+            <div>&copy; 2026 Lumen & Frame Studios.</div>
+        </div>
+    </footer>
+
+    <script>
+        const babyStages = [
+            {
+                badge: "Stage 01 • Days 5 to 21",
+                title: "The Sleepy Posed Newborn",
+                desc: "Babies sleep peacefully and naturally curl into womb-like poses. We use hypoallergenic organic cashmere wraps and wooden rustic nests.",
+                time: "Session: 2.5 to 3 Hours (unrushed nursing pauses)",
+                props: "Setups: 4 Custom Styled Props & Nests Included",
+                fam: "Family: Mom, Dad & Sibling cuddles included",
+                img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                badge: "Stage 02 • Months 3 to 4",
+                title: "Tummy Time & First Giggles",
+                desc: "Lifting head with confidence, responding to parents' voices, flashing the first big smiles, and discovering their tiny hands.",
+                time: "Session: 1.5 Hours",
+                props: "Setups: Textured play mats, pastel wooden rattles",
+                fam: "Family: Interactive singing & tickle captures",
+                img: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                badge: "Stage 03 • Months 6 to 8",
+                title: "The Sitter Milestone",
+                desc: "Sitting up unsupported without crawling away! Chubby baby rolls, infectious belly laughs, clapping hands, and curious bright eyes.",
+                time: "Session: 1.5 to 2 Hours",
+                props: "Setups: Rustic wooden crates, vintage rocking chairs",
+                fam: "Family: Mom tossing baby in the air & shoulder rides",
+                img: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                badge: "Stage 04 • 12 Months",
+                title: "Cake Smash & Bubbly Splash",
+                desc: "The big celebration! Custom balloon garlands, organic smash cake exploration, followed by a warm vintage clawfoot tub bubble splash.",
+                time: "Session: 2 Hours (3 distinct stages)",
+                props: "Setups: Themed Backdrop + Smash Cake + Bubble Bath",
+                fam: "Family: Pre-smash formal portrait included",
+                img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
+        function changeBabyStage(idx, btn) {
+            const s = babyStages[idx];
+            document.getElementById('bStageBadge').innerText = s.badge;
+            document.getElementById('bStageTitle').innerText = s.title;
+            document.getElementById('bStageDesc').innerText = s.desc;
+            document.getElementById('bStageTime').innerText = s.time;
+            document.getElementById('bStageProps').innerText = s.props;
+            document.getElementById('bStageFam').innerText = s.fam;
+            document.getElementById('bStageImg').src = s.img;
+
+            document.querySelectorAll('.b-stage-btn').forEach(b => {
+                b.className = 'b-stage-btn p-4 rounded-2xl border-2 border-darkBorder bg-pitch font-bold text-xs uppercase text-center text-gray-400 hover:text-white transition';
+            });
+            btn.className = 'b-stage-btn p-4 rounded-2xl border-2 border-accentRose bg-accentRose/20 font-bold text-xs uppercase text-center transition';
+        }
+
+        const bThemes = {
+            safari: {
+                name: "Jungle Safari Adventure",
+                desc: "Lush sage eucalyptus, handcrafted wooden animals, woven rattan baskets, and golden warm studio lighting.",
+                swatches: ['#15803D', '#D97706', '#FEF08A'],
+                img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=700&q=80"
+            },
+            royal: {
+                name: "Royal Prince / Princess",
+                desc: "Gold crown accents, antique ivory velvet pillows, soft champagne draping, and sparkling fairy lights.",
+                swatches: ['#D4AF37', '#EDE9FE', '#FFFFFF'],
+                img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=700&q=80"
+            },
+            boho: {
+                name: "Boho Pampas & Sun",
+                desc: "Feathery pampas grass, macrame dreamcatchers, terracotta pots, and natural neutral linen textiles.",
+                swatches: ['#C25E3E', '#EAE1D7', '#819875'],
+                img: "https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=700&q=80"
+            },
+            berry: {
+                name: "Sweet Berry Garden",
+                desc: "Fresh wild strawberry garlands, gingham picnic basket, pastel blush balloons, and floral bonnet.",
+                swatches: ['#F472B6', '#DC2626', '#FEF08A'],
+                img: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=700&q=80"
+            }
+        };
+
+        function setBabyTheme(key, btn) {
+            const t = bThemes[key];
+            document.getElementById('bThemeName').innerText = t.name;
+            document.getElementById('bThemeDesc').innerText = t.desc;
+            document.getElementById('bThemeImg').src = t.img;
+            document.getElementById('bThemeSwatches').innerHTML = t.swatches.map(c => `<div class="w-8 h-8 rounded-full ring-2 ring-white" style="background-color: ${c}"></div>`).join('');
+
+            document.querySelectorAll('.b-theme-btn').forEach(b => {
+                b.className = 'b-theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-pitch border border-darkBorder text-gray-400 hover:text-white transition';
+            });
+            btn.className = 'b-theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-accentRose text-white transition';
+        }
+    </script>
+
+</body>
+</html>
+

@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Frames & Events | Minimalist Photography & Curation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        lumina: {
+                            bg: '#F9FAFB',
+                            card: '#FFFFFF',
+                            border: '#E5E7EB',
+                            text: '#111827',
+                            muted: '#6B7280',
+                            accent: '#C5A059'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F9FAFB;
+            color: #111827;
+            font-family: 'Inter', sans-serif;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9FAFB;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1D5DB;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9CA3AF;
+        }
+    </style>
+</head>
+<body class="bg-lumina-bg text-lumina-text antialiased selection:bg-lumina-accent selection:text-white">
+
+    <!-- Sticky Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-lumina-border transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full border border-lumina-border flex items-center justify-center bg-gray-50 group-hover:border-lumina-accent transition duration-300">
+                        <i class="fa-solid fa-camera text-lumina-text group-hover:text-lumina-accent transition duration-300 text-sm"></i>
+                    </div>
+                    <div>
+                        <span class="text-base font-bold tracking-widest text-lumina-text block leading-tight">LUMINA</span>
+                        <span class="text-[10px] tracking-widest text-lumina-muted uppercase block">Frames & Events</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium text-lumina-muted hover:text-lumina-text transition duration-200">Home</a>
+                    <a href="#services" class="text-sm font-medium text-lumina-muted hover:text-lumina-text transition duration-200">Services</a>
+                    <a href="#gallery" class="text-sm font-medium text-lumina-muted hover:text-lumina-text transition duration-200">Gallery</a>
+                    <a href="#testimonials" class="text-sm font-medium text-lumina-muted hover:text-lumina-text transition duration-200">Testimonials</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full border border-lumina-border text-lumina-text text-sm font-medium hover:bg-lumina-text hover:text-white transition duration-300">Inquire Now</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-lumina-text hover:text-lumina-accent focus:outline-none p-2" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-lumina-border px-4 pt-2 pb-6 space-y-3 shadow-md">
+            <a href="#home" class="block py-2 text-sm font-medium text-lumina-muted hover:text-lumina-text mobile-link">Home</a>
+            <a href="#services" class="block py-2 text-sm font-medium text-lumina-muted hover:text-lumina-text mobile-link">Services</a>
+            <a href="#gallery" class="block py-2 text-sm font-medium text-lumina-muted hover:text-lumina-text mobile-link">Gallery</a>
+            <a href="#testimonials" class="block py-2 text-sm font-medium text-lumina-muted hover:text-lumina-text mobile-link">Testimonials</a>
+            <div class="pt-2">
+                <a href="#contact" class="block text-center w-full py-3 rounded-full bg-lumina-text text-white font-medium text-sm mobile-link">Inquire Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Minimalist Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
+            <span class="inline-block text-xs font-semibold uppercase tracking-widest text-lumina-muted bg-gray-100 px-4 py-1.5 rounded-full mb-6">
+                Minimalist Photography & Event Curation
+            </span>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-lumina-text mb-6 leading-[1.1]">
+                Pure Aesthetics. <br>
+                <span class="font-semibold text-lumina-text">Timeless Captures.</span>
+            </h1>
+
+            <p class="max-w-xl mx-auto text-base sm:text-lg text-lumina-muted mb-10 leading-relaxed font-light">
+                We craft clean, elegant visual narratives and curate refined events for brands and discerning clients across India.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-full bg-lumina-text text-white font-medium text-sm hover:bg-opacity-90 transition duration-300 shadow-sm flex items-center justify-center space-x-2">
+                    <span>Explore Gallery</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full border border-lumina-border text-lumina-text font-medium text-sm hover:border-lumina-text transition duration-300">
+                    Get in Touch
+                </a>
+            </div>
+
+            <!-- Hero Image Preview Grid -->
+            <div class="mt-16 grid grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <div class="aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=600" alt="Minimalist wedding" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                </div>
+                <div class="aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 shadow-sm -mt-6">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=600" alt="Event curation" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                </div>
+                <div class="aspect-[3/4] rounded-xl overflow-hidden bg-gray-100 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Portrait photography" class="w-full h-full object-cover hover:scale-105 transition duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-lumina-bg border-t border-lumina-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-semibold uppercase tracking-widest text-lumina-muted block mb-2">Our Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-light text-lumina-text tracking-tight">Curated Services</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-lumina-border shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gray-50 border border-lumina-border flex items-center justify-center text-lumina-text mb-6 text-lg">
+                            <i class="fa-solid fa-camera-retro"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-lumina-text mb-3">Wedding Photography</h3>
+                        <p class="text-lumina-muted text-sm leading-relaxed mb-6 font-light">
+                            Documenting authentic emotional moments and understated elegance with a clean, documentary-style approach.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-lumina-muted border-t border-lumina-border pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-lumina-text mr-2 text-[10px]"></i> Candid & Portrait Coverage</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-lumina-text mr-2 text-[10px]"></i> Cinematic Films</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-lumina-border shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gray-50 border border-lumina-border flex items-center justify-center text-lumina-text mb-6 text-lg">
+                            <i class="fa-solid fa-calendar-days"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-lumina-text mb-3">Event Curation</h3>
+                        <p class="text-lumina-muted text-sm leading-relaxed mb-6 font-light">
+                            Seamless planning and sophisticated production for corporate galas, private celebrations, and brand launches.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-lumina-muted border-t border-lumina-border pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-lumina-text mr-2 text-[10px]"></i> Concept & Styling</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-lumina-text mr-2 text-[10px]"></i> Vendor Management</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 border border-lumina-border shadow-sm hover:shadow-md transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gray-50 border border-lumina-border flex items-center justify-center text-lumina-text mb-6 text-lg">
+                            <i class="fa-solid fa-image"></i>
+                        </div>
+                        <h3 class="text-xl font-medium text-lumina-text mb-3">Editorial & Commercial</h3>
+                        <p class="text-lumina-muted text-sm leading-relaxed mb-6 font-light">
+                            Clean product catalogs, fashion editorials, and interior photography designed to elevate contemporary brands.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-lumina-muted border-t border-lumina-border pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-lumina-text mr-2 text-[10px]"></i> Lookbook Shoots</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-lumina-text mr-2 text-[10px]"></i> Advanced Color Grading</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filterable Gallery Section -->
+    <section id="gallery" class="py-24 bg-white border-t border-lumina-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-semibold uppercase tracking-widest text-lumina-muted block mb-2">Portfolio</span>
+                <h2 class="text-3xl sm:text-4xl font-light text-lumina-text tracking-tight">Selected Works</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+                <button class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-lumina-text text-white transition duration-200" data-filter="all">All Work</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-gray-100 text-lumina-muted border border-lumina-border hover:border-lumina-text transition duration-200" data-filter="weddings">Weddings</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-gray-100 text-lumina-muted border border-lumina-border hover:border-lumina-text transition duration-200" data-filter="events">Events</button>
+                <button class="filter-btn px-5 py-2 rounded-full text-xs font-medium bg-gray-100 text-lumina-muted border border-lumina-border hover:border-lumina-text transition duration-200" data-filter="editorial">Editorial</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                <!-- Item 1 -->
+                <div class="gallery-item group relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-100 border border-lumina-border cursor-pointer lightbox-trigger" data-category="weddings" data-img="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200" data-title="Minimalist Garden Ceremony" data-subtitle="Ecr Coast, Chennai">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800" alt="Wedding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-gray-300 mb-1">Weddings</span>
+                        <h4 class="text-base font-medium">Minimalist Garden Ceremony</h4>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item group relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-100 border border-lumina-border cursor-pointer lightbox-trigger" data-category="events" data-img="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200" data-title="Design Summit 2026" data-subtitle="ITC Grand Chola, Chennai">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" alt="Event" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-gray-300 mb-1">Events</span>
+                        <h4 class="text-base font-medium">Design Summit 2026</h4>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item group relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-100 border border-lumina-border cursor-pointer lightbox-trigger" data-category="editorial" data-img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200" data-title="Monochrome Lookbook" data-subtitle="T. Nagar Studio">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" alt="Editorial" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-gray-300 mb-1">Editorial</span>
+                        <h4 class="text-base font-medium">Monochrome Lookbook</h4>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item group relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-100 border border-lumina-border cursor-pointer lightbox-trigger" data-category="weddings" data-img="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200" data-title="Seaside Vows" data-subtitle="Mahabalipuram">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800" alt="Wedding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-gray-300 mb-1">Weddings</span>
+                        <h4 class="text-base font-medium">Seaside Vows</h4>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="gallery-item group relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-100 border border-lumina-border cursor-pointer lightbox-trigger" data-category="events" data-img="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200" data-title="Acoustic Evening Gala" data-subtitle="Taj Coromandel">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800" alt="Event" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-gray-300 mb-1">Events</span>
+                        <h4 class="text-base font-medium">Acoustic Evening Gala</h4>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="gallery-item group relative overflow-hidden rounded-xl aspect-[4/3] bg-gray-100 border border-lumina-border cursor-pointer lightbox-trigger" data-category="editorial" data-img="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1200" data-title="Executive Portraiture" data-subtitle="Nungambakkam">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Editorial" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6 text-white">
+                        <span class="text-[10px] uppercase tracking-widest text-gray-300 mb-1">Editorial</span>
+                        <h4 class="text-base font-medium">Executive Portraiture</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-2xl hover:text-gray-300 focus:outline-none z-50">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full bg-white rounded-xl overflow-hidden shadow-2xl">
+            <img id="lightbox-img" src="" alt="Lightbox Preview" class="w-full max-h-[70vh] object-cover">
+            <div class="p-6">
+                <h3 id="lightbox-title" class="text-lg font-medium text-lumina-text mb-1"></h3>
+                <p id="lightbox-subtitle" class="text-xs text-lumina-muted uppercase tracking-wider"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-lumina-bg border-t border-lumina-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-semibold uppercase tracking-widest text-lumina-muted block mb-2">Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-light text-lumina-text tracking-tight">Client Perspectives</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-2xl p-8 border border-lumina-border shadow-sm flex flex-col justify-between">
+                    <p class="text-lumina-muted text-sm leading-relaxed mb-6 font-light">
+                        "Lumina Frames brought a refreshing minimalist perspective to our wedding documentation. Every photo feels like fine art rather than staged poses. Absolute professionals."
+                    </p>
+                    <div class="flex items-center space-x-3 border-t border-lumina-border pt-4">
+                        <div class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-lumina-text">
+                            MR
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-medium text-lumina-text">Meera & Rahul</h5>
+                            <p class="text-[10px] text-lumina-muted">Wedding Clients</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-2xl p-8 border border-lumina-border shadow-sm flex flex-col justify-between">
+                    <p class="text-lumina-muted text-sm leading-relaxed mb-6 font-light">
+                        "Their attention to clean aesthetic detail during our annual corporate curation was remarkable. Timely delivery and exceptional aesthetic quality throughout."
+                    </p>
+                    <div class="flex items-center space-x-3 border-t border-lumina-border pt-4">
+                        <div class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-lumina-text">
+                            SK
+                        </div>
+                        <div>
+                            <h5 class="text-xs font-medium text-lumina-text">Siddharth Kumar</h5>
+                            <p class="text-[10px] text-lumina-muted">Director, TechEdge India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Inquiry Section -->
+    <section id="contact" class="py-24 bg-white border-t border-lumina-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Info Column -->
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-lumina-muted block mb-2">Get in Touch</span>
+                    <h2 class="text-3xl sm:text-4xl font-light text-lumina-text tracking-tight mb-6">Let's Create Together</h2>
+                    <p class="text-lumina-muted text-sm leading-relaxed mb-8 font-light">
+                        Reach out for photography bookings, event curation inquiries, or collaborative projects. We respond within 24 hours.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-gray-50 border border-lumina-border flex items-center justify-center text-lumina-text">
+                                <i class="fa-solid fa-location-dot text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lumina-text font-medium text-xs">Studio Location</h4>
+                                <p class="text-lumina-muted text-xs">T. Nagar, Chennai, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-gray-50 border border-lumina-border flex items-center justify-center text-lumina-text">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lumina-text font-medium text-xs">WhatsApp / Phone</h4>
+                                <p class="text-lumina-muted text-xs">+91 97893 10981</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-xl bg-gray-50 border border-lumina-border flex items-center justify-center text-lumina-text">
+                                <i class="fa-solid fa-envelope text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lumina-text font-medium text-xs">Email Address</h4>
+                                <p class="text-lumina-muted text-xs">freelancer.uk@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="bg-lumina-bg rounded-2xl p-8 border border-lumina-border shadow-sm">
+                    <h3 class="text-xl font-medium text-lumina-text mb-6">Send an Inquiry</h3>
+                    
+                    <!-- Success Message Box -->
+                    <div id="success-box" class="hidden mb-6 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs flex items-center space-x-3">
+                        <i class="fa-solid fa-circle-check text-base"></i>
+                        <div>
+                            <span class="font-medium block">Inquiry Sent Successfully!</span>
+                            <span>Thank you. We will get back to you via email or WhatsApp soon.</span>
+                        </div>
+                    </div>
+
+                    <form id="inquiry-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-medium text-lumina-muted uppercase tracking-wider mb-1.5">Full Name *</label>
+                                <input type="text" id="name" required class="w-full bg-white border border-lumina-border rounded-xl px-4 py-3 text-lumina-text text-xs focus:outline-none focus:border-lumina-text transition duration-200" placeholder="Meera Raman">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-medium text-lumina-muted uppercase tracking-wider mb-1.5">Email *</label>
+                                <input type="email" id="email" required class="w-full bg-white border border-lumina-border rounded-xl px-4 py-3 text-lumina-text text-xs focus:outline-none focus:border-lumina-text transition duration-200" placeholder="meera@example.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-medium text-lumina-muted uppercase tracking-wider mb-1.5">Service *</label>
+                                <select id="service" required class="w-full bg-white border border-lumina-border rounded-xl px-4 py-3 text-lumina-text text-xs focus:outline-none focus:border-lumina-text transition duration-200">
+                                    <option value="" disabled selected>Select service</option>
+                                    <option value="Wedding Photography">Wedding Photography</option>
+                                    <option value="Event Curation">Event Curation</option>
+                                    <option value="Editorial & Commercial">Editorial & Commercial</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-medium text-lumina-muted uppercase tracking-wider mb-1.5">Date *</label>
+                                <input type="date" id="date" required class="w-full bg-white border border-lumina-border rounded-xl px-4 py-3 text-lumina-text text-xs focus:outline-none focus:border-lumina-text transition duration-200">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-[10px] font-medium text-lumina-muted uppercase tracking-wider mb-1.5">Message</label>
+                            <textarea id="message" rows="4" class="w-full bg-white border border-lumina-border rounded-xl px-4 py-3 text-lumina-text text-xs focus:outline-none focus:border-lumina-text transition duration-200" placeholder="Tell us about your requirements..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-xl bg-lumina-text text-white font-medium text-xs hover:bg-opacity-90 transition duration-300 shadow-sm flex items-center justify-center space-x-2">
+                            <span>Submit Request</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-lumina-border py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-lumina-muted">
+            <div class="flex items-center space-x-2">
+                <span class="font-bold text-lumina-text tracking-widest">LUMINA FRAMES & EVENTS</span>
+            </div>
+            <p>&copy; 2026 Lumina Frames & Events. T. Nagar, Chennai, India.</p>
+            <div class="flex items-center space-x-4">
+                <a href="mailto:freelancer.uk@gmail.com" class="hover:text-lumina-text transition"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://wa.me/919789310981" target="_blank" class="hover:text-lumina-text transition"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#home" class="hover:text-lumina-text transition"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Gallery Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-lumina-text', 'text-white');
+                    b.classList.add('bg-gray-100', 'text-lumina-muted', 'border', 'border-lumina-border');
+                });
+                
+                btn.classList.remove('bg-gray-100', 'text-lumina-muted', 'border', 'border-lumina-border');
+                btn.classList.add('bg-lumina-text', 'text-white');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox Modal
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxSubtitle = document.getElementById('lightbox-subtitle');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+        lightboxTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                lightboxImg.src = trigger.getAttribute('data-img');
+                lightboxTitle.textContent = trigger.getAttribute('data-title');
+                lightboxSubtitle.textContent = trigger.getAttribute('data-subtitle');
+                lightboxModal.classList.remove('hidden');
+                lightboxModal.classList.add('flex');
+            });
+        });
+
+        function closeLightbox() {
+            lightboxModal.classList.add('hidden');
+            lightboxModal.classList.remove('flex');
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+
+        // Form Submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const successBox = document.getElementById('success-box');
+            successBox.classList.remove('hidden');
+            document.getElementById('inquiry-form').reset();
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>

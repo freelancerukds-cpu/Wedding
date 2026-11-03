@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Portfolio & Archives | Lumen & Frame Multi-Page Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pitch: '#0A0D14',
+                        darkCard: '#121724',
+                        darkBorder: '#1F293D',
+                        accentGold: '#F59E0B',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0A0D14; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .nav-link-active {
+            color: #F59E0B !important;
+            border-bottom: 2px solid #F59E0B;
+        }
+    </style>
+</head>
+<body class="bg-pitch text-slate-100 antialiased selection:bg-accentGold selection:text-black">
+
+    <!-- Top Ribbon -->
+    <div class="bg-gradient-to-r from-darkCard via-darkBorder to-darkCard border-b border-darkBorder py-2 px-6 text-xs flex justify-between items-center">
+        <span class="text-gray-300"><i class="fa-solid fa-camera text-accentGold mr-1.5"></i> Curated Fine Art Archives Across 28 Countries</span>
+        <a href="dynamic-pricing-calculator.html" class="text-accentGold font-bold hover:underline">Get Package Estimate &rarr;</a>
+    </div>
+
+    <!-- Common Multi-Page Header -->
+    <header class="sticky top-0 z-50 bg-pitch/95 backdrop-blur-xl border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="dynamic-home.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accentGold to-amber-600 flex items-center justify-center text-black font-extrabold text-lg shadow-lg shadow-accentGold/20">
+                    <i class="fa-solid fa-camera-retro"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white font-serif">LUMEN <span class="text-accentGold">&</span> FRAME</span>
+                    <span class="block text-[9px] uppercase tracking-[0.25em] text-gray-400 font-semibold">Master Portfolio</span>
+                </div>
+            </a>
+
+            <nav class="hidden xl:flex items-center space-x-7 text-xs uppercase tracking-wider font-bold text-gray-300">
+                <a href="dynamic-home.html" class="hover:text-accentGold py-2 transition">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-accentGold py-2 transition">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-accentGold py-2 transition">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentGold py-2 transition">Events & Galas</a>
+                <a href="dynamic-portfolio.html" class="nav-link-active py-2 transition">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="hover:text-accentGold py-2 transition text-accentGold"><i class="fa-solid fa-calculator mr-1"></i> Quote Calculator</a>
+                <a href="dynamic-reviews.html" class="hover:text-accentGold py-2 transition">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentGold py-2 transition">Contact</a>
+            </nav>
+
+            <a href="dynamic-pricing-calculator.html" class="px-5 py-2.5 rounded-full bg-accentGold hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition">
+                Book Visual Team
+            </a>
+        </div>
+    </header>
+
+    <!-- Portfolio Hero -->
+    <section class="py-16 bg-gradient-to-b from-darkCard/80 to-pitch border-b border-darkBorder text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-accentGold/10 border border-accentGold/30 text-accentGold text-xs font-bold uppercase tracking-widest mb-4">
+                <i class="fa-solid fa-images"></i>
+                <span>High-Resolution Curated Visual Archive</span>
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-4">Master Portfolio & Stories</h1>
+            <p class="text-xs sm:text-sm text-gray-400 max-w-xl mx-auto">
+                Filter across our three core disciplines. Click any photograph to view technical camera specs and camera settings.
+            </p>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mt-8">
+                <button onclick="filterPF('all', this)" class="pf-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-accentGold text-black transition">
+                    All Highlights (6)
+                </button>
+                <button onclick="filterPF('wedding', this)" class="pf-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-darkCard border border-darkBorder text-gray-300 hover:text-white transition">
+                    Weddings (2)
+                </button>
+                <button onclick="filterPF('baby', this)" class="pf-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-darkCard border border-darkBorder text-gray-300 hover:text-white transition">
+                    Baby & Kids (2)
+                </button>
+                <button onclick="filterPF('event', this)" class="pf-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-darkCard border border-darkBorder text-gray-300 hover:text-white transition">
+                    Grand Events (2)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery Grid -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="pfGrid">
+                
+                <!-- 0 -->
+                <div class="pf-card wedding group relative rounded-2xl overflow-hidden bg-darkCard border border-darkBorder cursor-pointer" onclick="openPFLightbox(0)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-accentGold">Wedding Story</span>
+                        <h4 class="text-base font-bold text-white">Sunset Vows in Positano</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-accentGold"></i> Click for EXIF Camera Settings</span>
+                    </div>
+                </div>
+
+                <!-- 1 -->
+                <div class="pf-card baby group relative rounded-2xl overflow-hidden bg-darkCard border border-darkBorder cursor-pointer" onclick="openPFLightbox(1)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Newborn" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-pink-400">Baby & Newborn</span>
+                        <h4 class="text-base font-bold text-white">10-Day Sleepy Newborn Nest</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-pink-400"></i> Click for EXIF Camera Settings</span>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="pf-card event group relative rounded-2xl overflow-hidden bg-darkCard border border-darkBorder cursor-pointer" onclick="openPFLightbox(2)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Gala" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Grand Gala</span>
+                        <h4 class="text-base font-bold text-white">Humanitarian Charity Ball</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-emerald-400"></i> Click for EXIF Camera Settings</span>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="pf-card wedding group relative rounded-2xl overflow-hidden bg-darkCard border border-darkBorder cursor-pointer" onclick="openPFLightbox(3)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Lake Como" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-accentGold">Wedding Story</span>
+                        <h4 class="text-base font-bold text-white">Lake Como Villa Romance</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-accentGold"></i> Click for EXIF Camera Settings</span>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="pf-card baby group relative rounded-2xl overflow-hidden bg-darkCard border border-darkBorder cursor-pointer" onclick="openPFLightbox(4)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80" alt="Cake Smash" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-pink-400">Baby & Kids</span>
+                        <h4 class="text-base font-bold text-white">1st Birthday Strawberry Smash</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-pink-400"></i> Click for EXIF Camera Settings</span>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="pf-card event group relative rounded-2xl overflow-hidden bg-darkCard border border-darkBorder cursor-pointer" onclick="openPFLightbox(5)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Concert" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Grand Gala</span>
+                        <h4 class="text-base font-bold text-white">Starlight Live Arena Festival</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-emerald-400"></i> Click for EXIF Camera Settings</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- EXIF Modal -->
+    <div id="pfLightboxModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl hidden flex items-center justify-center p-4">
+        <div class="relative w-full max-w-5xl bg-darkCard rounded-3xl border border-darkBorder overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12">
+            <button onclick="closePFLightbox()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-pitch text-white flex items-center justify-center border border-darkBorder hover:bg-white/20">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="lg:col-span-8 bg-black flex items-center justify-center h-80 sm:h-[500px]">
+                <img id="pfLightImg" src="" alt="Zoomed" class="w-full h-full object-contain">
+            </div>
+            <div class="lg:col-span-4 p-8 flex flex-col justify-between bg-darkCard border-t lg:border-t-0 lg:border-l border-darkBorder">
+                <div>
+                    <span id="pfLightCat" class="text-[10px] font-bold uppercase tracking-widest text-accentGold">Category</span>
+                    <h3 id="pfLightTitle" class="text-2xl font-serif font-bold text-white mt-1 mb-4">Title</h3>
+                    <p id="pfLightDesc" class="text-xs text-gray-400 leading-relaxed mb-6">Description</p>
+                    <div class="p-4 rounded-2xl bg-pitch border border-darkBorder font-mono text-[11px] space-y-2">
+                        <div class="flex justify-between"><span class="text-gray-500">Camera:</span><span class="text-white" id="pfLightCam">Canon EOS R5</span></div>
+                        <div class="flex justify-between"><span class="text-gray-500">Lens:</span><span class="text-white" id="pfLightLens">85mm f/1.2L</span></div>
+                        <div class="flex justify-between"><span class="text-gray-500">Settings:</span><span class="text-accentGold" id="pfLightSettings">f/1.4 • 1/800s • ISO 100</span></div>
+                    </div>
+                </div>
+                <div class="pt-6 border-t border-darkBorder flex items-center justify-between">
+                    <button onclick="navPF(-1)" class="px-4 py-2 rounded-xl bg-pitch border border-darkBorder text-xs text-white">&larr; Prev</button>
+                    <span class="text-xs text-gray-500" id="pfLightCount">1 / 6</span>
+                    <button onclick="navPF(1)" class="px-4 py-2 rounded-xl bg-pitch border border-darkBorder text-xs text-white">Next &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Common Footer -->
+    <footer class="bg-pitch border-t border-darkBorder py-12 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-left">
+                <span class="font-serif font-bold text-white text-base">LUMEN & FRAME</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">Master Portfolio Division</p>
+            </div>
+            <div class="flex flex-wrap gap-4 text-gray-400">
+                <a href="dynamic-home.html" class="hover:text-accentGold">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-accentGold">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-accentGold">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentGold">Events</a>
+                <a href="dynamic-portfolio.html" class="text-accentGold font-bold">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="hover:text-accentGold">Pricing</a>
+                <a href="dynamic-reviews.html" class="hover:text-accentGold">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentGold">Contact</a>
+            </div>
+            <div>&copy; 2026 Lumen & Frame Studios.</div>
+        </div>
+    </footer>
+
+    <script>
+        const pfData = [
+            { img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80", cat: "Luxury Wedding", title: "Sunset Vows in Positano", desc: "An intimate cliffside elopement bathed in the soft golden haze of the Amalfi coast.", cam: "Canon EOS R5", lens: "RF 85mm f/1.2L USM", set: "f/1.4 • 1/800s • ISO 100" },
+            { img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80", cat: "Baby & Newborn", title: "10-Day Sleepy Newborn Nest", desc: "Peaceful curly womb-pose on heated hypoallergenic organic cashmere.", cam: "Sony Alpha 1", lens: "FE 50mm f/1.2 GM", set: "f/2.0 • 1/250s • ISO 200" },
+            { img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80", cat: "Grand Gala", title: "Humanitarian Charity Ball", desc: "800-guest ballroom with chandelier lighting and silent auction coverage.", cam: "Sony FX6 Cinema", lens: "FE 24-70mm f/2.8 GM II", set: "f/2.8 • 1/500s • ISO 1600" },
+            { img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80", cat: "Luxury Wedding", title: "Lake Como Villa Romance", desc: "Bride and groom arrival via classic mahogany Riva speedboat.", cam: "Leica M11-P", lens: "Summilux-M 35mm f/1.4", set: "f/2.0 • 1/1200s • ISO 64" },
+            { img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1200&q=80", cat: "Baby & Kids", title: "1st Birthday Strawberry Smash", desc: "Joyful first cake bite with handmade strawberry garlands.", cam: "Canon EOS R5", lens: "RF 35mm f/1.8 Macro", set: "f/2.2 • 1/400s • ISO 320" },
+            { img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80", cat: "Grand Gala", title: "Starlight Live Arena Festival", desc: "15,000 attendee music festival with laser synchronization.", cam: "RED V-Raptor 8K", lens: "Angénieux Optimo Zoom", set: "T2.9 • 1/100s • ISO 800" }
+        ];
+
+        let pfIdx = 0;
+        function openPFLightbox(i) { pfIdx = i; renderPF(); document.getElementById('pfLightboxModal').classList.remove('hidden'); }
+        function closePFLightbox() { document.getElementById('pfLightboxModal').classList.add('hidden'); }
+        function navPF(d) { pfIdx = (pfIdx + d + pfData.length) % pfData.length; renderPF(); }
+        function renderPF() {
+            const item = pfData[pfIdx];
+            document.getElementById('pfLightImg').src = item.img;
+            document.getElementById('pfLightCat').innerText = item.cat;
+            document.getElementById('pfLightTitle').innerText = item.title;
+            document.getElementById('pfLightDesc').innerText = item.desc;
+            document.getElementById('pfLightCam').innerText = item.cam;
+            document.getElementById('pfLightLens').innerText = item.lens;
+            document.getElementById('pfLightSettings').innerText = item.set;
+            document.getElementById('pfLightCount').innerText = `${pfIdx + 1} / ${pfData.length}`;
+        }
+
+        function filterPF(cat, btn) {
+            document.querySelectorAll('.pf-card').forEach(c => {
+                if (cat === 'all' || c.classList.contains(cat)) c.style.display = 'block';
+                else c.style.display = 'none';
+            });
+            document.querySelectorAll('.pf-tab').forEach(b => {
+                b.className = 'pf-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-darkCard border border-darkBorder text-gray-300 hover:text-white transition';
+            });
+            btn.className = 'pf-tab px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-accentGold text-black transition';
+        }
+    </script>
+
+</body>
+</html>
+

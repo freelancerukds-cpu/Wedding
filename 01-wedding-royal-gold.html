@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Royal | Luxury Wedding Photography & Films</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F5E7B2',
+                            dark: '#997B1E',
+                            accent: '#E6CA65'
+                        },
+                        obsidian: '#0A0A0B',
+                        cardDark: '#141416',
+                        borderDark: '#26262B'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0A0A0B; color: #E5E7EB; font-family: 'Inter', sans-serif; }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF1B0 0%, #D4AF37 50%, #AA801E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
+            border-color: #D4AF37;
+        }
+    </style>
+</head>
+<body class="bg-obsidian text-gray-200 antialiased selection:bg-gold selection:text-black">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-obsidian via-cardDark to-obsidian border-b border-borderDark text-xs py-2 px-4 text-center text-gray-400">
+        <span class="text-gold font-medium"><i class="fa-solid fa-crown mr-2"></i>Now Booking 2026 - 2027 Wedding Seasons</span>
+        <span class="mx-3 text-gray-600">|</span>
+        <span>Limited to 25 bespoke weddings per year worldwide</span>
+        <span class="mx-3 text-gray-600">|</span>
+        <a href="#contact" class="text-gold-light hover:underline ml-1">Reserve Your Date &rarr;</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-obsidian/95 backdrop-blur-md border-b border-borderDark/80">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-full border border-gold flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition duration-300">
+                    <i class="fa-solid fa-camera-retro text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold tracking-wider text-white">AURA <span class="gold-gradient-text">ROYAL</span></span>
+                    <span class="block text-[10px] tracking-[0.25em] text-gray-400 uppercase font-light">Fine Art Wedding Studio</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#portfolio" class="hover:text-gold transition">Portfolios</a>
+                <a href="#experience" class="hover:text-gold transition">The Royal Experience</a>
+                <a href="#packages" class="hover:text-gold transition">Investment</a>
+                <a href="#testimonials" class="hover:text-gold transition">Love Stories</a>
+                <a href="#faq" class="hover:text-gold transition">FAQ</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <a href="tel:+1234567890" class="hidden sm:inline-flex items-center text-xs text-gray-300 hover:text-gold transition">
+                    <i class="fa-solid fa-phone-volume text-gold mr-2"></i> +1 (800) 845-AURA
+                </a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-gold to-gold-dark text-black font-semibold text-xs tracking-wider uppercase hover:opacity-90 transition duration-300 shadow-lg shadow-gold/20">
+                    Inquire Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80" alt="Luxury Royal Wedding" class="w-full h-full object-cover object-center filter brightness-[0.35]">
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center py-24">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-gold/40 bg-gold/10 backdrop-blur-sm text-gold-light text-xs uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-gem text-gold"></i>
+                <span>Timeless Luxury Wedding Cinematography & Photography</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-medium tracking-tight text-white leading-tight mb-8">
+                Capturing the Majesty of Your <span class="gold-gradient-text italic font-serif">Eternal Love</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Editorial elegance meets profound raw emotion. We document royal ceremonies, luxury destination nuptials, and intimate celebrations with unmatched artistic precision.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold text-black font-semibold text-sm tracking-widest uppercase hover:bg-gold-light transition duration-300 shadow-xl shadow-gold/20">
+                    Explore Wedding Stories
+                </a>
+                <a href="#packages" class="w-full sm:w-auto px-8 py-4 rounded-full border border-gray-600 hover:border-gold text-white font-medium text-sm tracking-widest uppercase hover:bg-white/5 transition duration-300">
+                    View Collections
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 pt-10 border-t border-borderDark/60 max-w-4xl mx-auto">
+                <div>
+                    <div class="text-3xl font-serif text-gold font-bold">14+</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Years of Craft</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-serif text-gold font-bold">380+</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Royal Weddings</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-serif text-gold font-bold">28</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Countries Documented</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-serif text-gold font-bold">100%</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-widest mt-1">Client Delight</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Portfolio Grid -->
+    <section id="portfolio" class="py-24 bg-cardDark/50 border-t border-borderDark">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Featured Celebrations</span>
+                <h2 class="text-3xl sm:text-5xl font-serif text-white mt-3 mb-6">Masterpieces in Every Frame</h2>
+                <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                    From palace courtyards to Tuscan villas, discover how we turn spontaneous whispers and grandeur into heritage heirlooms.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Portfolio Card 1 -->
+                <div class="group relative rounded-2xl overflow-hidden bg-cardDark border border-borderDark transition duration-500 gold-border-glow">
+                    <div class="h-96 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Lake Como Vows" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-gold text-xs font-medium border border-gold/30">
+                            Lake Como, Italy
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gold uppercase tracking-widest">Grand Destination Wedding</span>
+                        <h3 class="text-xl font-serif text-white mt-2 mb-3">Isabella & Alexander</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                            3-day celebrations featuring a sunset boat promenade, candlelit villa banquet, and vintage film photography.
+                        </p>
+                        <div class="flex items-center text-xs text-gold font-medium">
+                            <span>View 120 Photo Album</span>
+                            <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 2 -->
+                <div class="group relative rounded-2xl overflow-hidden bg-cardDark border border-borderDark transition duration-500 gold-border-glow">
+                    <div class="h-96 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Palace Wedding" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-gold text-xs font-medium border border-gold/30">
+                            Udaipur Palace, India
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gold uppercase tracking-widest">Royal Heritage Nuptials</span>
+                        <h3 class="text-xl font-serif text-white mt-2 mb-3">Ananya & Siddharth</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                            Regal royal processions, traditional rituals bathed in amber lanterns, and an awe-inspiring royal reception.
+                        </p>
+                        <div class="flex items-center text-xs text-gold font-medium">
+                            <span>View 160 Photo Album</span>
+                            <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Portfolio Card 3 -->
+                <div class="group relative rounded-2xl overflow-hidden bg-cardDark border border-borderDark transition duration-500 gold-border-glow">
+                    <div class="h-96 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=80" alt="Intimate Castle Wedding" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/30 to-transparent"></div>
+                        <div class="absolute top-4 right-4 bg-obsidian/80 backdrop-blur-md px-3 py-1 rounded-full text-gold text-xs font-medium border border-gold/30">
+                            Edinburgh Castle, UK
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs text-gold uppercase tracking-widest">Candid & Modern Romance</span>
+                        <h3 class="text-xl font-serif text-white mt-2 mb-3">Charlotte & Oliver</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-4">
+                            Intimate exchange of vows, dramatic highlands portraits, and a lively ballroom celebration captured on Leica & Medium Format.
+                        </p>
+                        <div class="flex items-center text-xs text-gold font-medium">
+                            <span>View 95 Photo Album</span>
+                            <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Royal Experience Pillars -->
+    <section id="experience" class="py-24 border-t border-borderDark">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">The Aura Philosophy</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif text-white mt-3 mb-8 leading-tight">
+                        Unobtrusive Presence, <br><span class="gold-gradient-text italic font-serif">Uncompromising Artistry</span>
+                    </h2>
+                    <p class="text-gray-400 leading-relaxed mb-8">
+                        A wedding day is an emotional whirlwind. Our seasoned visual artists move effortlessly through your celebration, anticipating fleeting glances, joyful tears, and monumental moments without ever interrupting the organic flow of your day.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex-shrink-0 flex items-center justify-center text-gold text-lg">
+                                <i class="fa-solid fa-film"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-lg">Cinematic 4K Master Film & 60-Second Teaser</h4>
+                                <p class="text-gray-400 text-sm mt-1">Color-graded in Hollywood DaVinci suites with custom licensed orchestral soundtracks.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex-shrink-0 flex items-center justify-center text-gold text-lg">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-lg">Handcrafted Italian Leather Heritage Albums</h4>
+                                <p class="text-gray-400 text-sm mt-1">Archival-grade fine art cotton paper designed to preserve its brilliance across generations.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex-shrink-0 flex items-center justify-center text-gold text-lg">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-medium text-lg">48-Hour Sneak Peek Gallery</h4>
+                                <p class="text-gray-400 text-sm mt-1">Receive 40+ retouched highlight photos within 48 hours for immediate sharing with loved ones.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="rounded-3xl overflow-hidden border border-borderDark gold-border-glow shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=1000&q=80" alt="Behind the lens wedding" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="absolute -bottom-8 -left-8 bg-cardDark/95 border border-gold/40 p-6 rounded-2xl shadow-2xl backdrop-blur-md hidden sm:block max-w-xs">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <i class="fa-solid fa-award text-gold text-2xl"></i>
+                            <span class="text-xs uppercase tracking-widest text-white font-semibold">Vogue Recommended</span>
+                        </div>
+                        <p class="text-xs text-gray-400">Awarded Top 10 Luxury Wedding Photographers 2024 & 2025.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding Investment Collections -->
+    <section id="packages" class="py-24 bg-cardDark/40 border-t border-borderDark">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Bespoke Collections</span>
+                <h2 class="text-3xl sm:text-5xl font-serif text-white mt-3 mb-6">Investment in Your Legacy</h2>
+                <p class="text-gray-400 text-sm sm:text-base">
+                    Every celebration is unique. Select one of our curated collections or let us craft a customized timeline for your multi-day event.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                <!-- Package 1 -->
+                <div class="rounded-3xl bg-cardDark border border-borderDark p-8 flex flex-col justify-between hover:border-gold/50 transition">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gray-400">Essential Elegance</span>
+                        <h3 class="text-2xl font-serif text-white mt-2">The Intimate</h3>
+                        <p class="text-xs text-gray-400 mt-2 mb-6">Ideal for single-day boutique weddings & elopements.</p>
+                        <div class="text-3xl font-serif text-gold font-bold mb-6">$3,800 <span class="text-xs text-gray-500 font-sans font-normal">/ day</span></div>
+
+                        <ul class="space-y-3 text-xs text-gray-300">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 8 Hours Comprehensive Coverage</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 2 Senior Photographers</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 500+ Hand-Retouched High Res Photos</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 48-Hour Sneak Peek Gallery</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> Private Online Viewing Vault</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 block text-center py-3 rounded-full border border-gray-600 text-white hover:border-gold hover:text-gold transition text-xs uppercase tracking-widest font-semibold">
+                        Inquire Collection
+                    </a>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="rounded-3xl bg-cardDark border-2 border-gold p-8 flex flex-col justify-between relative shadow-2xl shadow-gold/10 transform md:-translate-y-2">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-gold to-gold-dark text-black text-[11px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">
+                        Most Requested
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gold">The Signature Heirloom</span>
+                        <h3 class="text-2xl font-serif text-white mt-2">The Royal Premiere</h3>
+                        <p class="text-xs text-gray-400 mt-2 mb-6">Our flagship all-inclusive photography & cinema experience.</p>
+                        <div class="text-3xl font-serif text-gold font-bold mb-6">$6,500 <span class="text-xs text-gray-500 font-sans font-normal">/ 2 days</span></div>
+
+                        <ul class="space-y-3 text-xs text-gray-300">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> Full 2-Day Complete Coverage</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 3 Photographers + 2 Cinematographers</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 10-Minute 4K Cinematic Highlight Film</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 60-Second Social Reel (Delivered Day 3)</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 4K Drone Aerial Footage included</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 30-Page Custom Leather Album</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 block text-center py-3 rounded-full bg-gold text-black hover:bg-gold-light transition text-xs uppercase tracking-widest font-bold">
+                        Book Royal Premiere
+                    </a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="rounded-3xl bg-cardDark border border-borderDark p-8 flex flex-col justify-between hover:border-gold/50 transition">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gray-400">Global Luxury</span>
+                        <h3 class="text-2xl font-serif text-white mt-2">The Grand Odyssey</h3>
+                        <p class="text-xs text-gray-400 mt-2 mb-6">For multi-day international destination celebrations.</p>
+                        <div class="text-3xl font-serif text-gold font-bold mb-6">$10,500+ <span class="text-xs text-gray-500 font-sans font-normal">/ bespoke</span></div>
+
+                        <ul class="space-y-3 text-xs text-gray-300">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> Up to 4 Days International Nuptials</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> Pre-Wedding Editorial Shoot Included</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> Full 6-Person Production Crew</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> Complete Raw Archival Footage Drive</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-3"></i> 2 Parent Companion Albums Included</li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="mt-8 block text-center py-3 rounded-full border border-gray-600 text-white hover:border-gold hover:text-gold transition text-xs uppercase tracking-widest font-semibold">
+                        Inquire Odyssey
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 border-t border-borderDark">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Kind Words</span>
+                <h2 class="text-3xl sm:text-5xl font-serif text-white mt-3">From Our Couples</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="p-8 rounded-2xl bg-cardDark border border-borderDark relative">
+                    <i class="fa-solid fa-quote-left text-3xl text-gold/30 mb-4 block"></i>
+                    <p class="text-gray-300 font-serif italic text-base leading-relaxed mb-6">
+                        "Looking back at our wedding film brought us and both our families to tears. Aura Royal didn't just capture how our wedding looked—they captured how it felt. They were invisible yet caught every magical second."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center text-gold font-serif font-bold">M&J</div>
+                        <div>
+                            <div class="text-white font-medium text-sm">Meera & Jonathan</div>
+                            <div class="text-xs text-gold">Villa Balbiano, Lake Como</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-cardDark border border-borderDark relative">
+                    <i class="fa-solid fa-quote-left text-3xl text-gold/30 mb-4 block"></i>
+                    <p class="text-gray-300 font-serif italic text-base leading-relaxed mb-6">
+                        "Our 3-day royal Indian wedding was massive, with over 700 guests. The Aura team orchestrated the entire shoot effortlessly. Our leather heirloom album is the most prized possession in our new home."
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center text-gold font-serif font-bold">P&R</div>
+                        <div>
+                            <div class="text-white font-medium text-sm">Priyanka & Rohan</div>
+                            <div class="text-xs text-gold">Taj Falaknuma Palace</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Booking Inquiry Section -->
+    <section id="contact" class="py-24 bg-cardDark/80 border-t border-borderDark relative">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-gold text-xs uppercase tracking-[0.3em] font-semibold">Reserve Your Date</span>
+                <h2 class="text-3xl sm:text-5xl font-serif text-white mt-3 mb-4">Let's Tell Your Story</h2>
+                <p class="text-gray-400 text-sm">Please tell us about your celebration. We reply within 24 hours.</p>
+            </div>
+
+            <form class="space-y-6 bg-obsidian p-8 sm:p-12 rounded-3xl border border-borderDark shadow-2xl" onsubmit="event.preventDefault(); alert('Thank you for inquiring with Aura Royal. Our studio director will contact you within 24 hours.');">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Partner 1 Full Name</label>
+                        <input type="text" required placeholder="e.g. Elena Rostova" class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Partner 2 Full Name</label>
+                        <input type="text" required placeholder="e.g. Liam Hayes" class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Email Address</label>
+                        <input type="email" required placeholder="elena@example.com" class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Phone / WhatsApp</label>
+                        <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Wedding Date / Season</label>
+                        <input type="date" class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Wedding Venue & City</label>
+                        <input type="text" placeholder="e.g. Villa d'Este, Lake Como" class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Approximate Photography Budget</label>
+                    <select class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold">
+                        <option>$3,500 - $5,000</option>
+                        <option selected>$5,000 - $8,000</option>
+                        <option>$8,000 - $15,000</option>
+                        <option>$15,000+ (Multi-Day Destination)</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs uppercase tracking-wider text-gray-400 mb-2">Share Your Vision & Plans</label>
+                    <textarea rows="4" placeholder="Tell us about the vibe, ceremonies, guests, and what matters most to you..." class="w-full bg-cardDark border border-borderDark rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-gold"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold to-gold-dark text-black font-bold text-xs uppercase tracking-widest hover:opacity-90 transition shadow-lg shadow-gold/20">
+                    Submit Formal Inquiry
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-obsidian border-t border-borderDark py-12 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-left">
+                <span class="font-serif font-bold text-white text-base">AURA ROYAL</span>
+                <p class="text-gray-500 mt-1">Palette 01: Obsidian Black & Regal Gold</p>
+            </div>
+            <div class="flex space-x-6 text-gray-400">
+                <a href="#" class="hover:text-gold"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="#" class="hover:text-gold"><i class="fa-brands fa-vimeo-v text-lg"></i></a>
+                <a href="#" class="hover:text-gold"><i class="fa-brands fa-pinterest text-lg"></i></a>
+            </div>
+            <div>
+                &copy; 2026 Aura Royal Studios. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+

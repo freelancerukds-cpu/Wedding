@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth" id="htmlRoot">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen & Frame | Multi-Palette Dynamic Media Experience</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        goldBrand: '#F59E0B',
+                        roseBrand: '#FB7185',
+                        emeraldBrand: '#10B981',
+                        terracottaBrand: '#C25E3E',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Dynamic CSS Theme Variables (Swapped in Real-Time by JS) -->
+    <style id="dynamicThemeStyles">
+        :root {
+            --bg-body: #0A0D14;
+            --bg-card: #121724;
+            --bg-card-subtle: #1A2234;
+            --border-ui: #1F293D;
+            --accent: #F59E0B;
+            --accent-contrast: #000000;
+            --text-heading: #FFFFFF;
+            --text-body: #E2E8F0;
+            --text-muted: #94A3B8;
+            --badge-bg: rgba(245, 158, 11, 0.15);
+            --header-bg: rgba(10, 13, 20, 0.95);
+        }
+
+        /* 1. Gold Wedding Theme */
+        body.theme-gold {
+            --bg-body: #0A0D14;
+            --bg-card: #121724;
+            --bg-card-subtle: #192033;
+            --border-ui: #232E45;
+            --accent: #F59E0B;
+            --accent-contrast: #000000;
+            --text-heading: #FFFFFF;
+            --text-body: #E2E8F0;
+            --text-muted: #94A3B8;
+            --badge-bg: rgba(245, 158, 11, 0.15);
+            --header-bg: rgba(10, 13, 20, 0.96);
+        }
+
+        /* 2. Soft Baby Pastel Pink & Cream Theme */
+        body.theme-blush {
+            --bg-body: #FFFDF9;
+            --bg-card: #FFFFFF;
+            --bg-card-subtle: #FFF7ED;
+            --border-ui: #FCE7F3;
+            --accent: #FB7185;
+            --accent-contrast: #FFFFFF;
+            --text-heading: #2D2320;
+            --text-body: #4A3E39;
+            --text-muted: #786C66;
+            --badge-bg: #FEE2E2;
+            --header-bg: rgba(255, 253, 249, 0.96);
+        }
+
+        /* 3. Forest Emerald & Champagne Events Theme */
+        body.theme-emerald {
+            --bg-body: #041B14;
+            --bg-card: #0A2D23;
+            --bg-card-subtle: #0E3B2E;
+            --border-ui: #135240;
+            --accent: #10B981;
+            --accent-contrast: #FFFFFF;
+            --text-heading: #FFFFFF;
+            --text-body: #E6FBF4;
+            --text-muted: #9ADCC7;
+            --badge-bg: rgba(16, 185, 129, 0.2);
+            --header-bg: rgba(4, 27, 20, 0.96);
+        }
+
+        /* 4. Boho Terracotta & Oat Sand Theme */
+        body.theme-terracotta {
+            --bg-body: #FAF7F2;
+            --bg-card: #FFFFFF;
+            --bg-card-subtle: #F4EFEA;
+            --border-ui: #EAE1D7;
+            --accent: #C25E3E;
+            --accent-contrast: #FFFFFF;
+            --text-heading: #2B231F;
+            --text-body: #4F433E;
+            --text-muted: #7C716B;
+            --badge-bg: #F9EFEB;
+            --header-bg: rgba(250, 247, 242, 0.96);
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-body);
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .dyn-card {
+            background-color: var(--bg-card);
+            border-color: var(--border-ui);
+            transition: all 0.4s ease;
+        }
+
+        .dyn-border { border-color: var(--border-ui); }
+        .dyn-header { background-color: var(--header-bg); border-color: var(--border-ui); }
+        .dyn-heading { color: var(--text-heading); }
+        .dyn-muted { color: var(--text-muted); }
+        .dyn-accent-text { color: var(--accent); }
+        
+        .dyn-btn {
+            background-color: var(--accent);
+            color: var(--accent-contrast);
+            transition: all 0.3s ease;
+        }
+        .dyn-btn:hover {
+            opacity: 0.92;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        .dyn-badge {
+            background-color: var(--badge-bg);
+            color: var(--accent);
+            border: 1px solid var(--border-ui);
+        }
+
+        /* Mobile Drawer Transition */
+        #mobileDrawer {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+        }
+        #mobileDrawer.drawer-closed {
+            transform: translateX(100%);
+            pointer-events: none;
+            opacity: 0;
+        }
+        #mobileDrawer.drawer-open {
+            transform: translateX(0%);
+            pointer-events: auto;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="theme-gold antialiased selection:bg-amber-400 selection:text-black">
+
+    <!-- Top Announcement & Live Palette Bar -->
+    <div class="dyn-header border-b dyn-border py-2 px-6 text-xs flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center space-x-3 dyn-muted">
+            <span class="inline-flex items-center dyn-accent-text font-bold">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2 animate-ping"></span>
+                ACTIVE PALETTE:
+            </span>
+            <span id="currentPaletteLabel" class="font-bold dyn-heading">01. Royal Obsidian & Gold (Weddings Focused)</span>
+        </div>
+
+        <!-- Desktop Quick Palette Selector Pills in Top Bar -->
+        <div class="hidden md:flex items-center space-x-2">
+            <span class="text-[11px] uppercase tracking-wider font-bold dyn-muted mr-1">Switch Theme:</span>
+            <button onclick="applyPaletteTheme('gold', this)" class="palette-top-pill px-3 py-1 rounded-full text-[11px] font-bold border border-amber-500 bg-amber-500/20 text-amber-400 transition" title="Royal Obsidian & Gold">
+                🟡 Royal Gold (Wedding)
+            </button>
+            <button onclick="applyPaletteTheme('blush', this)" class="palette-top-pill px-3 py-1 rounded-full text-[11px] font-bold border border-pink-400/30 text-gray-400 hover:text-pink-400 transition" title="Soft Pastel Blush">
+                🌸 Pastel Blush (Baby)
+            </button>
+            <button onclick="applyPaletteTheme('emerald', this)" class="palette-top-pill px-3 py-1 rounded-full text-[11px] font-bold border border-emerald-400/30 text-gray-400 hover:text-emerald-400 transition" title="Forest Emerald">
+                🌲 Emerald (Events)
+            </button>
+            <button onclick="applyPaletteTheme('terracotta', this)" class="palette-top-pill px-3 py-1 rounded-full text-[11px] font-bold border border-orange-400/30 text-gray-400 hover:text-orange-400 transition" title="Boho Terracotta">
+                🏺 Terracotta (Boho)
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER WITH HAMBURGER MENU & PALETTE SELECTOR -->
+    <header class="sticky top-0 z-40 dyn-header backdrop-blur-xl border-b dyn-border">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="dynamic-home.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl dyn-btn flex items-center justify-center font-extrabold text-lg shadow-lg">
+                    <i class="fa-solid fa-camera-retro"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight font-serif dyn-heading">LUMEN <span class="dyn-accent-text">&</span> FRAME</span>
+                    <span class="block text-[9px] uppercase tracking-[0.25em] dyn-muted font-semibold">Dynamic Multi-Page Suite</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-6 text-xs uppercase tracking-wider font-bold dyn-muted">
+                <a href="dynamic-home.html" class="dyn-accent-text py-2 transition border-b-2" style="border-color: var(--accent);">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-amber-400 py-2 transition">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-pink-400 py-2 transition">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-emerald-400 py-2 transition">Events</a>
+                <a href="dynamic-portfolio.html" class="hover:text-blue-400 py-2 transition">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="dyn-accent-text py-2 transition"><i class="fa-solid fa-calculator mr-1"></i> Quote Calculator</a>
+                <a href="dynamic-reviews.html" class="hover:text-purple-400 py-2 transition">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-teal-400 py-2 transition">Contact</a>
+            </nav>
+
+            <!-- Actions & Mobile Hamburger Menu Bar Trigger -->
+            <div class="flex items-center space-x-3">
+                <a href="dynamic-pricing-calculator.html" class="hidden sm:inline-flex px-5 py-2.5 rounded-full dyn-btn font-extrabold text-xs uppercase tracking-wider shadow-lg">
+                    Quote Calculator
+                </a>
+
+                <!-- Clickable Mobile/Tablet Hamburger Menu Bar Icon -->
+                <button onclick="toggleMobileDrawer()" id="hamburgerBtn" class="w-11 h-11 rounded-xl dyn-card border flex items-center justify-center dyn-heading text-lg hover:border-amber-400 transition" aria-label="Toggle Menu Bar">
+                    <i class="fa-solid fa-bars text-xl" id="hamburgerIcon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SLIDING MOBILE / TABLET MENU DRAWER ("Menu Bars Click and Come") -->
+    <div id="mobileDrawer" class="drawer-closed fixed inset-0 z-50 flex justify-end">
+        <!-- Backdrop -->
+        <div onclick="toggleMobileDrawer()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+
+        <!-- Slide-out Drawer Panel -->
+        <div class="relative w-full max-w-md h-full dyn-card border-l dyn-border p-6 flex flex-col justify-between overflow-y-auto z-10 shadow-2xl">
+            
+            <!-- Drawer Header -->
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b dyn-border">
+                    <div class="flex items-center space-x-2.5">
+                        <div class="w-9 h-9 rounded-xl dyn-btn flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <span class="font-serif font-bold text-lg dyn-heading">Navigation & Themes</span>
+                    </div>
+                    <button onclick="toggleMobileDrawer()" class="w-9 h-9 rounded-full dyn-card border flex items-center justify-center dyn-muted hover:text-white transition">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- 4 Color Palettes Selector Section Inside Drawer -->
+                <div class="py-6 border-b dyn-border">
+                    <span class="text-xs uppercase font-extrabold tracking-widest dyn-accent-text block mb-3">
+                        <i class="fa-solid fa-palette mr-1.5"></i> Select Color Palette & Content Mode:
+                    </span>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+                        <button onclick="applyPaletteTheme('gold'); toggleMobileDrawer();" class="p-3 rounded-xl border border-amber-500/50 bg-amber-500/10 text-amber-400 text-left flex items-center space-x-2">
+                            <span class="w-4 h-4 rounded-full bg-amber-500"></span>
+                            <span>Royal Gold (Wedding)</span>
+                        </button>
+                        <button onclick="applyPaletteTheme('blush'); toggleMobileDrawer();" class="p-3 rounded-xl border border-pink-400/50 bg-pink-500/10 text-pink-400 text-left flex items-center space-x-2">
+                            <span class="w-4 h-4 rounded-full bg-pink-400"></span>
+                            <span>Pastel Blush (Baby)</span>
+                        </button>
+                        <button onclick="applyPaletteTheme('emerald'); toggleMobileDrawer();" class="p-3 rounded-xl border border-emerald-400/50 bg-emerald-500/10 text-emerald-400 text-left flex items-center space-x-2">
+                            <span class="w-4 h-4 rounded-full bg-emerald-400"></span>
+                            <span>Emerald (Events)</span>
+                        </button>
+                        <button onclick="applyPaletteTheme('terracotta'); toggleMobileDrawer();" class="p-3 rounded-xl border border-orange-400/50 bg-orange-500/10 text-orange-400 text-left flex items-center space-x-2">
+                            <span class="w-4 h-4 rounded-full bg-orange-600"></span>
+                            <span>Terracotta (Boho)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Multi-Page Links in Drawer -->
+                <div class="py-6 space-y-2 text-sm font-bold">
+                    <span class="text-[11px] uppercase tracking-widest dyn-muted block mb-2">Multi-Page Navigation:</span>
+                    <a href="dynamic-home.html" class="flex items-center justify-between p-3 rounded-xl dyn-badge">
+                        <span><i class="fa-solid fa-house mr-3"></i> Home Overview</span>
+                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </a>
+                    <a href="dynamic-weddings.html" class="flex items-center justify-between p-3 rounded-xl dyn-card border hover:border-amber-400 transition dyn-heading">
+                        <span><i class="fa-solid fa-ring mr-3 text-amber-400"></i> Weddings & Cinema</span>
+                        <i class="fa-solid fa-chevron-right text-xs dyn-muted"></i>
+                    </a>
+                    <a href="dynamic-baby.html" class="flex items-center justify-between p-3 rounded-xl dyn-card border hover:border-pink-400 transition dyn-heading">
+                        <span><i class="fa-solid fa-baby mr-3 text-pink-400"></i> Baby & Kids Studio</span>
+                        <i class="fa-solid fa-chevron-right text-xs dyn-muted"></i>
+                    </a>
+                    <a href="dynamic-events.html" class="flex items-center justify-between p-3 rounded-xl dyn-card border hover:border-emerald-400 transition dyn-heading">
+                        <span><i class="fa-solid fa-glass-cheers mr-3 text-emerald-400"></i> Events & Galas</span>
+                        <i class="fa-solid fa-chevron-right text-xs dyn-muted"></i>
+                    </a>
+                    <a href="dynamic-portfolio.html" class="flex items-center justify-between p-3 rounded-xl dyn-card border hover:border-blue-400 transition dyn-heading">
+                        <span><i class="fa-solid fa-images mr-3 text-blue-400"></i> Master Portfolio</span>
+                        <i class="fa-solid fa-chevron-right text-xs dyn-muted"></i>
+                    </a>
+                    <a href="dynamic-pricing-calculator.html" class="flex items-center justify-between p-3 rounded-xl dyn-card border hover:border-amber-400 transition dyn-heading">
+                        <span><i class="fa-solid fa-calculator mr-3 text-amber-400"></i> Quote Calculator</span>
+                        <i class="fa-solid fa-chevron-right text-xs dyn-muted"></i>
+                    </a>
+                    <a href="dynamic-reviews.html" class="flex items-center justify-between p-3 rounded-xl dyn-card border hover:border-purple-400 transition dyn-heading">
+                        <span><i class="fa-solid fa-star mr-3 text-purple-400"></i> Client Reviews</span>
+                        <i class="fa-solid fa-chevron-right text-xs dyn-muted"></i>
+                    </a>
+                    <a href="dynamic-contact.html" class="flex items-center justify-between p-3 rounded-xl dyn-card border hover:border-teal-400 transition dyn-heading">
+                        <span><i class="fa-solid fa-envelope mr-3 text-teal-400"></i> Contact & Check Dates</span>
+                        <i class="fa-solid fa-chevron-right text-xs dyn-muted"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Drawer Bottom CTA -->
+            <div class="pt-6 border-t dyn-border">
+                <a href="dynamic-pricing-calculator.html" class="w-full py-3.5 rounded-full dyn-btn font-extrabold text-xs uppercase tracking-wider block text-center shadow-lg">
+                    Launch Price Calculator
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- DYNAMIC HERO SECTION: Content & Colors Adapt Live Based on Selected Palette -->
+    <section class="relative min-h-[85vh] flex items-center justify-center py-20 px-6 overflow-hidden">
+        
+        <!-- Hero Background Image (Swaps dynamically) -->
+        <div class="absolute inset-0 z-0">
+            <img id="heroDynamicImage" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80" alt="Dynamic Hero" class="w-full h-full object-cover filter brightness-[0.3] transition duration-700">
+            <div class="absolute inset-0 bg-gradient-to-t from-[var(--bg-body)] via-[var(--bg-body)]/60 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center">
+            
+            <!-- Dynamic Category Tag -->
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full dyn-badge text-xs font-bold uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span id="heroDynamicBadge">Palette 01 Active: Royal Wedding Cinematography</span>
+            </div>
+
+            <!-- Dynamic Headline -->
+            <h1 id="heroDynamicHeadline" class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold dyn-heading leading-tight mb-6">
+                Editorial Nuptials & <br>
+                <span class="dyn-accent-text italic font-serif">Cinematic Feature Films</span>
+            </h1>
+
+            <!-- Dynamic Subtitle -->
+            <p id="heroDynamicSubtitle" class="dyn-body text-base sm:text-xl max-w-3xl mx-auto font-light leading-relaxed mb-10">
+                Documenting royal palace weddings, Lake Como villas, and intimate vows on RED 8K anamorphic lenses with licensed orchestral scoring and Italian heirloom leather albums.
+            </p>
+
+            <!-- Dynamic CTAs -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="dynamic-pricing-calculator.html" class="w-full sm:w-auto px-8 py-4 rounded-full dyn-btn font-extrabold text-xs uppercase tracking-widest shadow-xl flex items-center justify-center">
+                    <i class="fa-solid fa-calculator mr-2"></i> Launch Quote Calculator
+                </a>
+                <a href="dynamic-portfolio.html" class="w-full sm:w-auto px-8 py-4 rounded-full dyn-card border dyn-heading hover:bg-white/10 font-bold text-xs uppercase tracking-widest transition text-center">
+                    Browse Master Portfolio &rarr;
+                </a>
+            </div>
+
+            <!-- Dynamic Live Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 pt-8 border-t dyn-border">
+                <div class="p-4 rounded-2xl dyn-card border text-left">
+                    <div class="text-3xl font-mono font-bold dyn-accent-text" id="statVal1">650+</div>
+                    <div class="text-xs dyn-muted uppercase tracking-wider mt-1" id="statLbl1">Weddings Filmed</div>
+                </div>
+                <div class="p-4 rounded-2xl dyn-card border text-left">
+                    <div class="text-3xl font-mono font-bold dyn-accent-text" id="statVal2">28</div>
+                    <div class="text-xs dyn-muted uppercase tracking-wider mt-1" id="statLbl2">Countries Covered</div>
+                </div>
+                <div class="p-4 rounded-2xl dyn-card border text-left">
+                    <div class="text-3xl font-mono font-bold dyn-accent-text" id="statVal3">48-Hr</div>
+                    <div class="text-xs dyn-muted uppercase tracking-wider mt-1" id="statLbl3">Highlight Gallery</div>
+                </div>
+                <div class="p-4 rounded-2xl dyn-card border text-left">
+                    <div class="text-3xl font-mono font-bold dyn-accent-text" id="statVal4">100%</div>
+                    <div class="text-xs dyn-muted uppercase tracking-wider mt-1" id="statLbl4">Couples Delighted</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PALETTE CONTROL BANNER (Explains the 4 Palettes Live in Action) -->
+    <section class="py-8 dyn-card border-y dyn-border">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-wider dyn-accent-text block">Interactive Theme & Section Switcher</span>
+                <h3 class="text-base font-bold dyn-heading">Test How Content & Colors Adapt To Your Client's 4 Specialties:</h3>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="applyPaletteTheme('gold', this)" class="palette-sw-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border-2 border-amber-500 bg-amber-500/20 text-amber-400 transition">
+                    🟡 01. Wedding Gold
+                </button>
+                <button onclick="applyPaletteTheme('blush', this)" class="palette-sw-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border-2 border-transparent dyn-card text-gray-400 hover:text-white transition">
+                    🌸 02. Baby Blush
+                </button>
+                <button onclick="applyPaletteTheme('emerald', this)" class="palette-sw-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border-2 border-transparent dyn-card text-gray-400 hover:text-white transition">
+                    🌲 03. Gala Emerald
+                </button>
+                <button onclick="applyPaletteTheme('terracotta', this)" class="palette-sw-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border-2 border-transparent dyn-card text-gray-400 hover:text-white transition">
+                    🏺 04. Boho Terracotta
+                </button>
+                <button onclick="showAllSections(this)" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider dyn-card border dyn-heading hover:border-amber-400 transition">
+                    🌟 Show All Sections
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 1: WEDDINGS (Shows in Gold & All Mode, Hides in Baby/Events) -->
+    <!-- ============================================================== -->
+    <section id="section-wedding" class="themed-section py-20 border-b dyn-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] dyn-accent-text">Division 01 • Royal Weddings</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold dyn-heading mt-2 mb-6">
+                        Timeless Grandeur & <br><span class="dyn-accent-text italic font-serif">Feature Film Emotion</span>
+                    </h2>
+                    <p class="dyn-body text-sm leading-relaxed mb-6">
+                        Complete coverage for multi-day Indian weddings, European destination vows, and intimate elopements. Featuring RED 8K cinema, wireless lavalier audio, and handcrafted Italian leather albums.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 text-xs dyn-body mb-8">
+                        <div class="p-4 rounded-2xl dyn-card border">
+                            <i class="fa-solid fa-clapperboard dyn-accent-text text-base mb-1 block"></i>
+                            <strong class="dyn-heading block">4K Master Film:</strong>
+                            <span class="dyn-muted">Color-graded in DaVinci with custom licensed orchestral soundtracks.</span>
+                        </div>
+                        <div class="p-4 rounded-2xl dyn-card border">
+                            <i class="fa-solid fa-book-open dyn-accent-text text-base mb-1 block"></i>
+                            <strong class="dyn-heading block">Italian Leather Albums:</strong>
+                            <span class="dyn-muted">Museum-grade fine art cotton paper preserved across generations.</span>
+                        </div>
+                    </div>
+
+                    <a href="dynamic-weddings.html" class="inline-flex items-center px-6 py-3 rounded-full dyn-btn font-bold text-xs uppercase tracking-wider shadow-md">
+                        Open Dedicated Wedding Page &rarr;
+                    </a>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="rounded-3xl overflow-hidden h-72 border dyn-border shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Wedding Couple" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-3xl overflow-hidden h-72 border dyn-border shadow-xl mt-6">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Lake Como Vows" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 2: BABY & KIDS (Shows in Blush & All Mode, Hides in Wedding/Events) -->
+    <!-- ============================================================== -->
+    <section id="section-baby" class="themed-section py-20 border-b dyn-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1 grid grid-cols-2 gap-4">
+                    <div class="rounded-3xl overflow-hidden h-72 border dyn-border shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=700&q=80" alt="Newborn baby" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-3xl overflow-hidden h-72 border dyn-border shadow-xl mt-6">
+                        <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=700&q=80" alt="Cake smash" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 order-1 lg:order-2">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] dyn-accent-text">Division 02 • Baby & Kids Photography</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold dyn-heading mt-2 mb-6">
+                        Gentle, Cozy & <br><span class="dyn-accent-text italic font-serif">100% Baby-Led Care</span>
+                    </h2>
+                    <p class="dyn-body text-sm leading-relaxed mb-6">
+                        Heated 28°C studio room, CPR certified safety spotters, and unhurried nursing pacing. We specialize in 0-21 day posed newborns, 6-month sitters, and 1st birthday cake smash & splash.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 text-xs dyn-body mb-8">
+                        <div class="p-4 rounded-2xl dyn-card border">
+                            <i class="fa-solid fa-temperature-arrow-up dyn-accent-text text-base mb-1 block"></i>
+                            <strong class="dyn-heading block">28°C Heated Haven:</strong>
+                            <span class="dyn-muted">Pre-warmed studio kept cozy so baby sleeps curled peacefully.</span>
+                        </div>
+                        <div class="p-4 rounded-2xl dyn-card border">
+                            <i class="fa-solid fa-cake-candles dyn-accent-text text-base mb-1 block"></i>
+                            <strong class="dyn-heading block">Cake Smash & Splash:</strong>
+                            <span class="dyn-muted">Custom balloon arches, organic cake, and bubbly vintage tub bath.</span>
+                        </div>
+                    </div>
+
+                    <a href="dynamic-baby.html" class="inline-flex items-center px-6 py-3 rounded-full dyn-btn font-bold text-xs uppercase tracking-wider shadow-md">
+                        Open Dedicated Baby Studio Page &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 3: EVENTS & GALAS (Shows in Emerald & All Mode, Hides in Wedding/Baby) -->
+    <!-- ============================================================== -->
+    <section id="section-events" class="themed-section py-20 border-b dyn-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] dyn-accent-text">Division 03 • Grand Events & Galas</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold dyn-heading mt-2 mb-6">
+                        High Stakes Energy & <br><span class="dyn-accent-text italic font-serif">2-Hour Press Delivery</span>
+                    </h2>
+                    <p class="dyn-body text-sm leading-relaxed mb-6">
+                        Milestone 1st birthdays, anniversaries, corporate summits, and concert arenas. Multi-camera crews with wireless press drops, drone coverage, and on-site instant print kiosks.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 text-xs dyn-body mb-8">
+                        <div class="p-4 rounded-2xl dyn-card border">
+                            <i class="fa-solid fa-bolt dyn-accent-text text-base mb-1 block"></i>
+                            <strong class="dyn-heading block">2-Hour Press Drop:</strong>
+                            <span class="dyn-muted">Hero photos uploaded to press cloud while the gala is still happening.</span>
+                        </div>
+                        <div class="p-4 rounded-2xl dyn-card border">
+                            <i class="fa-solid fa-print dyn-accent-text text-base mb-1 block"></i>
+                            <strong class="dyn-heading block">Instant Magnetic Prints:</strong>
+                            <span class="dyn-muted">On-site dye-sub kiosk prints guest favors within 15 seconds.</span>
+                        </div>
+                    </div>
+
+                    <a href="dynamic-events.html" class="inline-flex items-center px-6 py-3 rounded-full dyn-btn font-bold text-xs uppercase tracking-wider shadow-md">
+                        Open Dedicated Events Page &rarr;
+                    </a>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="rounded-3xl overflow-hidden h-72 border dyn-border shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=80" alt="Gala banquet" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-3xl overflow-hidden h-72 border dyn-border shadow-xl mt-6">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=80" alt="Concert Stage" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- SECTION 4: BOHO EDITORIAL (Shows in Terracotta & All Mode)     -->
+    <!-- ============================================================== -->
+    <section id="section-boho" class="themed-section py-20 border-b dyn-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1 grid grid-cols-2 gap-4">
+                    <div class="rounded-3xl overflow-hidden h-72 border dyn-border shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=700&q=80" alt="Boho couple" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-3xl overflow-hidden h-72 border dyn-border shadow-xl mt-6">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80" alt="Desert vows" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 order-1 lg:order-2">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] dyn-accent-text">Division 04 • Editorial Elopements</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold dyn-heading mt-2 mb-6">
+                        Raw, Sun-Drenched & <br><span class="dyn-accent-text italic font-serif">Untamed 35mm Analog</span>
+                    </h2>
+                    <p class="dyn-body text-sm leading-relaxed mb-6">
+                        For non-traditional couples fleeing into desert canyons, Tuscan olive groves, and dramatic mountain peaks. Authentic analog film grain and zero stiff poses.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 text-xs dyn-body mb-8">
+                        <div class="p-4 rounded-2xl dyn-card border">
+                            <i class="fa-solid fa-film dyn-accent-text text-base mb-1 block"></i>
+                            <strong class="dyn-heading block">35mm & Medium Format:</strong>
+                            <span class="dyn-muted">Shot on Contax 645 & Leica M with genuine Kodak Portra tones.</span>
+                        </div>
+                        <div class="p-4 rounded-2xl dyn-card border">
+                            <i class="fa-solid fa-compass dyn-accent-text text-base mb-1 block"></i>
+                            <strong class="dyn-heading block">Global Location Scouting:</strong>
+                            <span class="dyn-muted">Hidden secluded spots in Mallorca, Sedona, Amalfi, and Joshua Tree.</span>
+                        </div>
+                    </div>
+
+                    <a href="04-boho-terracotta-editorial.html" class="inline-flex items-center px-6 py-3 rounded-full dyn-btn font-bold text-xs uppercase tracking-wider shadow-md">
+                        Explore Boho Elopements Page &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Interactive Quote Engine Teaser -->
+    <section class="py-16 dyn-card border-b dyn-border text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <span class="text-xs font-bold uppercase tracking-widest dyn-accent-text block mb-2">Dedicated Interactive Tool</span>
+            <h3 class="text-2xl sm:text-4xl font-serif font-bold dyn-heading mb-4">Want An Instant Price Estimate?</h3>
+            <p class="dyn-muted text-xs sm:text-sm max-w-xl mx-auto mb-8">
+                Launch our full-screen multi-stage pricing calculator to adjust hours, add drone coverage, or add leather albums with real-time quote generation.
+            </p>
+            <a href="dynamic-pricing-calculator.html" class="inline-flex items-center px-8 py-4 rounded-full dyn-btn font-extrabold text-xs uppercase tracking-widest shadow-xl">
+                <i class="fa-solid fa-calculator mr-2"></i> Launch Interactive Calculator Page &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Common Multi-Page Footer -->
+    <footer class="dyn-header border-t dyn-border py-12 text-center text-xs dyn-muted">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-left">
+                <span class="font-serif font-bold dyn-heading text-base">LUMEN & FRAME</span>
+                <p class="dyn-muted text-[11px] mt-0.5">Dynamic 4-Palette Multi-Page Architecture</p>
+            </div>
+            <div class="flex flex-wrap gap-4 dyn-muted">
+                <a href="dynamic-home.html" class="hover:text-amber-400">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-amber-400">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-pink-400">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-emerald-400">Events</a>
+                <a href="dynamic-portfolio.html" class="hover:text-blue-400">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="hover:text-amber-400">Pricing</a>
+                <a href="dynamic-reviews.html" class="hover:text-purple-400">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-teal-400">Contact</a>
+            </div>
+            <div>&copy; 2026 Lumen & Frame Studios. All 4 Palettes Active.</div>
+        </div>
+    </footer>
+
+    <!-- DYNAMIC JAVASCRIPT: HAMBURGER DRAWER + 4 PALETTES + CONTENT HIDE/SHOW -->
+    <script>
+        // 1. Mobile Drawer Toggle
+        function toggleMobileDrawer() {
+            const drawer = document.getElementById('mobileDrawer');
+            if (drawer.classList.contains('drawer-closed')) {
+                drawer.classList.remove('drawer-closed');
+                drawer.classList.add('drawer-open');
+                document.getElementById('hamburgerIcon').className = 'fa-solid fa-xmark text-xl';
+            } else {
+                drawer.classList.remove('drawer-open');
+                drawer.classList.add('drawer-closed');
+                document.getElementById('hamburgerIcon').className = 'fa-solid fa-bars text-xl';
+            }
+        }
+
+        // 2. The 4 Dynamic Themes Data (Colors + Content + Section Visibility)
+        const paletteConfigs = {
+            gold: {
+                className: 'theme-gold',
+                label: '01. Royal Obsidian & Gold (Weddings Focused)',
+                badge: 'Palette 01 Active: Royal Wedding Cinematography',
+                headline: "Editorial Nuptials & <br><span class='dyn-accent-text italic font-serif'>Cinematic Feature Films</span>",
+                sub: "Documenting royal palace weddings, Lake Como villas, and intimate vows on RED 8K anamorphic lenses with licensed orchestral scoring and Italian heirloom leather albums.",
+                img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80",
+                s1: "650+", l1: "Weddings Filmed",
+                s2: "28", l2: "Countries Covered",
+                s3: "48-Hr", l3: "Highlight Gallery",
+                s4: "100%", l4: "Couples Delighted",
+                // Sections: show wedding, hide baby & events to focus client
+                showSections: ['section-wedding'],
+                hideSections: ['section-baby', 'section-events', 'section-boho']
+            },
+            blush: {
+                className: 'theme-blush',
+                label: '02. Soft Pastel Blush & Cream (Baby & Maternity Focused)',
+                badge: 'Palette 02 Active: Certified Infant & Newborn Studio',
+                headline: "Preserving The Gentle Wonder Of <br><span class='dyn-accent-text italic font-serif'>Their Tiny First Days</span>",
+                sub: "Pre-warmed 28°C studio room, hospital-grade sterilization, CPR certified team, and unhurried baby-led nursing pacing for newborn sleepy poses and cake smashes.",
+                img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1920&q=80",
+                s1: "1,200+", l1: "Newborns Welcomed",
+                s2: "28°C", l2: "Heated Safe Room",
+                s3: "150+", l3: "Organic Wraps",
+                s4: "CPR", l4: "Certified Safety Team",
+                // Show baby section, hide wedding & events
+                showSections: ['section-baby'],
+                hideSections: ['section-wedding', 'section-events', 'section-boho']
+            },
+            emerald: {
+                className: 'theme-emerald',
+                label: '03. Forest Emerald & Champagne (Grand Events Focused)',
+                badge: 'Palette 03 Active: Live Event Media & Keynote Summits',
+                headline: "High Stakes Energy & <br><span class='dyn-accent-text italic font-serif'>Instant 2-Hour Press Drops</span>",
+                sub: "Multi-camera live-streaming, FAA-licensed drone pilots, and on-site instant magnetic photo printing kiosks for corporate conferences, award galas, and live concerts.",
+                img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1920&q=80",
+                s1: "480+", l1: "Events Orchestrated",
+                s2: "< 2 Hrs", l2: "Press Photo Upload",
+                s3: "15s", l3: "Live Kiosk Print",
+                s4: "FAA 107", l4: "Licensed Drone Pilots",
+                // Show events, hide wedding & baby
+                showSections: ['section-events'],
+                hideSections: ['section-wedding', 'section-baby', 'section-boho']
+            },
+            terracotta: {
+                className: 'theme-terracotta',
+                label: '04. Boho Terracotta & Oat (Editorial Elopement Focused)',
+                badge: 'Palette 04 Active: Vogue Editorial & 35mm Analog Nuptials',
+                headline: "Raw, Sun-Drenched & <br><span class='dyn-accent-text italic font-serif'>Untamed Documentary Film</span>",
+                sub: "Desert canyon sunset vows, secret Tuscan villa escapes, and wild coastlines documented on genuine Kodak Portra 35mm film with zero artificial stiff posing.",
+                img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1920&q=80",
+                s1: "180+", l1: "Wild Elopements",
+                s2: "35mm", l2: "Analog Film Rolls",
+                s3: "100%", l3: "Authentic Candids",
+                s4: "Zero", l4: "Awkward Posing",
+                // Show boho & wedding, hide baby & events
+                showSections: ['section-boho', 'section-wedding'],
+                hideSections: ['section-baby', 'section-events']
+            }
+        };
+
+        // 3. Apply Palette Theme (Changes Colors + Updates Hero + Hides/Shows Sections)
+        function applyPaletteTheme(themeKey, triggerBtn = null) {
+            const cfg = paletteConfigs[themeKey];
+            if (!cfg) return;
+
+            // Apply body theme class
+            document.body.className = `${cfg.className} antialiased`;
+
+            // Update Header status
+            document.getElementById('currentPaletteLabel').innerText = cfg.label;
+            document.getElementById('heroDynamicBadge').innerText = cfg.badge;
+            document.getElementById('heroDynamicHeadline').innerHTML = cfg.headline;
+            document.getElementById('heroDynamicSubtitle').innerHTML = cfg.sub;
+            document.getElementById('heroDynamicImage').src = cfg.img;
+
+            // Update Stats
+            document.getElementById('statVal1').innerText = cfg.s1;
+            document.getElementById('statLbl1').innerText = cfg.l1;
+            document.getElementById('statVal2').innerText = cfg.s2;
+            document.getElementById('statLbl2').innerText = cfg.l2;
+            document.getElementById('statVal3').innerText = cfg.s3;
+            document.getElementById('statLbl3').innerText = cfg.l3;
+            document.getElementById('statVal4').innerText = cfg.s4;
+            document.getElementById('statLbl4').innerText = cfg.l4;
+
+            // DYNAMIC SECTION HIDING / SHOWING:
+            // Hide the non-matching sections
+            cfg.hideSections.forEach(secId => {
+                const el = document.getElementById(secId);
+                if (el) el.style.display = 'none';
+            });
+            // Show the matching sections
+            cfg.showSections.forEach(secId => {
+                const el = document.getElementById(secId);
+                if (el) el.style.display = 'block';
+            });
+
+            // Update button styles if triggered by button
+            if (triggerBtn) {
+                document.querySelectorAll('.palette-sw-btn').forEach(b => {
+                    b.className = 'palette-sw-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border-2 border-transparent dyn-card text-gray-400 hover:text-white transition';
+                });
+                triggerBtn.className = 'palette-sw-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border-2 border-[var(--accent)] dyn-badge dyn-accent-text transition';
+            }
+        }
+
+        // 4. Show All Sections Function
+        function showAllSections(btn) {
+            document.querySelectorAll('.themed-section').forEach(sec => {
+                sec.style.display = 'block';
+            });
+            document.getElementById('currentPaletteLabel').innerText = "All Divisions Active (Weddings, Baby, Events, Boho)";
+            document.getElementById('heroDynamicBadge').innerText = "All Divisions Active: Complete Studio Suite";
+            document.querySelectorAll('.palette-sw-btn').forEach(b => {
+                b.className = 'palette-sw-btn px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider border-2 border-transparent dyn-card text-gray-400 hover:text-white transition';
+            });
+            btn.className = 'px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider dyn-badge dyn-accent-text border-2 border-[var(--accent)]';
+        }
+    </script>
+
+</body>
+</html>

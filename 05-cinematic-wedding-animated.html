@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet & Reel | Cinematic Wedding Films & Motion Arts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        midnight: '#080C16',
+                        navyCard: '#111827',
+                        navyBorder: '#1F293D',
+                        champagneGold: '#F5D061',
+                        roseAccent: '#FDA4AF'
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', filter: 'drop-shadow(0 0 15px rgba(245, 208, 97, 0.2))' },
+                            '50%': { opacity: '0.8', filter: 'drop-shadow(0 0 30px rgba(245, 208, 97, 0.5))' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #080C16; color: #F3F4F6; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        
+        /* Interactive Before/After Slider Container */
+        .comparison-slider-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.25rem;
+            user-select: none;
+        }
+        .comparison-slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .comparison-before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            overflow: hidden;
+            border-right: 3px solid #F5D061;
+            box-shadow: 2px 0 15px rgba(245, 208, 97, 0.4);
+        }
+        
+        /* Glassmorphic Cards */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 208, 97, 0.4);
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-midnight text-gray-100 antialiased selection:bg-champagneGold selection:text-black">
+
+    <!-- Glowing Top Line Indicator -->
+    <div class="h-1 w-full bg-gradient-to-r from-transparent via-champagneGold to-transparent opacity-80"></div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-midnight/90 backdrop-blur-xl border-b border-navyBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-champagneGold to-amber-600 flex items-center justify-center text-black font-extrabold shadow-lg shadow-champagneGold/20">
+                    <i class="fa-solid fa-clapperboard"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-serif font-bold text-white tracking-wider">VELVET <span class="text-champagneGold">&</span> REEL</span>
+                    <span class="block text-[9px] uppercase tracking-[0.28em] text-gray-400 font-medium">Cinematic Wedding Motion Arts</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-semibold text-gray-300">
+                <a href="#teaser" class="hover:text-champagneGold transition">4K Trailers</a>
+                <a href="#grading" class="hover:text-champagneGold transition">Color Grading Studio</a>
+                <a href="#gallery-filter" class="hover:text-champagneGold transition">Interactive Reel</a>
+                <a href="#pricing" class="hover:text-champagneGold transition">Cinema Packages</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <button onclick="openVideoModal()" class="px-5 py-2.5 rounded-full bg-champagneGold hover:bg-yellow-400 text-black font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-champagneGold/20 flex items-center">
+                    <i class="fa-solid fa-play mr-2 text-[10px]"></i> Play Master Reel
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Animated Hero Section -->
+    <section class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-24">
+        <!-- Ambient Glowing Orbs -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-champagneGold/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-roseAccent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-card text-champagneGold text-xs uppercase tracking-widest font-bold mb-6 animate-float-slow">
+                <i class="fa-solid fa-sparkles text-champagneGold"></i>
+                <span>Hollywood Cinema Cameras • RED & Sony Cine FX9</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-8">
+                Your Love Story Filmed Like a <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-champagneGold via-yellow-200 to-amber-500 italic font-serif">Feature Film</span>
+            </h1>
+
+            <p class="text-base sm:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed mb-10">
+                Multi-camera anamorphic lenses, licensed orchestral compositions, and intimate sound design. We don't just record weddings—we direct cinematic legacy films.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="openVideoModal()" class="w-full sm:w-auto px-8 py-4 rounded-full bg-champagneGold hover:bg-yellow-300 text-black font-extrabold text-xs uppercase tracking-widest transition shadow-xl shadow-champagneGold/25 flex items-center justify-center">
+                    <i class="fa-solid fa-circle-play text-base mr-3"></i> Watch 4K Cinema Teaser
+                </button>
+                <a href="#grading" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-white/10 text-white font-semibold text-xs uppercase tracking-widest transition text-center">
+                    Interactive Color Grading &darr;
+                </a>
+            </div>
+
+            <!-- Animated Interactive Date Availability Checker -->
+            <div class="mt-14 max-w-xl mx-auto p-4 rounded-2xl glass-card border border-navyBorder shadow-2xl">
+                <div class="text-left text-xs font-bold uppercase tracking-wider text-champagneGold mb-2 flex items-center">
+                    <i class="fa-solid fa-calendar-check mr-2"></i> Live 2026/27 Date Availability Engine
+                </div>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <input type="date" id="dateCheckerInput" class="w-full bg-midnight border border-navyBorder rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-champagneGold">
+                    <button onclick="checkDateAvailability()" class="px-5 py-2.5 rounded-xl bg-champagneGold text-black font-bold text-xs uppercase tracking-wider hover:bg-yellow-400 transition whitespace-nowrap">
+                        Verify Date
+                    </button>
+                </div>
+                <div id="dateStatusResult" class="text-xs text-left mt-2 hidden"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Infinite Animated Logo & Press Marquee -->
+    <div class="border-y border-navyBorder bg-midnight/80 py-5 overflow-hidden">
+        <div class="flex space-x-12 whitespace-nowrap animate-marquee text-xs uppercase tracking-[0.3em] text-gray-400 font-semibold">
+            <span><i class="fa-solid fa-star text-champagneGold mr-2"></i> Cannes Short Film Nominee</span>
+            <span><i class="fa-solid fa-gem text-champagneGold mr-2"></i> Harper's Bazaar Top Wedding Cinema</span>
+            <span><i class="fa-solid fa-award text-champagneGold mr-2"></i> Vogue Brides Best Cinematography</span>
+            <span><i class="fa-solid fa-crown text-champagneGold mr-2"></i> Junebug Weddings Best of the Best</span>
+            <span><i class="fa-solid fa-star text-champagneGold mr-2"></i> Cannes Short Film Nominee</span>
+            <span><i class="fa-solid fa-gem text-champagneGold mr-2"></i> Harper's Bazaar Top Wedding Cinema</span>
+            <span><i class="fa-solid fa-award text-champagneGold mr-2"></i> Vogue Brides Best Cinematography</span>
+            <span><i class="fa-solid fa-crown text-champagneGold mr-2"></i> Junebug Weddings Best of the Best</span>
+        </div>
+    </div>
+
+    <!-- DYNAMIC FEATURE 1: Interactive Before & After RAW vs Color Graded Slider -->
+    <section id="grading" class="py-24 bg-navyCard/40 border-t border-navyBorder">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-champagneGold">The DaVinci Color Suite</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-4">Interactive Color Grading Demo</h2>
+                <p class="text-gray-400 text-xs sm:text-sm">
+                    Drag the slider below to see how our colorist transforms flat camera RAW profiles into rich, cinematic 35mm film emulation.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="comparison-slider-container h-[420px] sm:h-[500px] border border-navyBorder shadow-2xl relative" id="sliderContainer">
+                    <!-- Color Graded Image (Right / Background) -->
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Cinematic Graded" class="comparison-slider-image filter contrast-125 saturate-125 brightness-105">
+                    <span class="absolute top-4 right-4 bg-midnight/90 border border-champagneGold/50 text-champagneGold px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider z-10">
+                        After: DaVinci 35mm Master Grade
+                    </span>
+
+                    <!-- RAW / Flat Image (Left / Foreground Reveal) -->
+                    <div class="comparison-before" id="beforeImageWrapper">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Flat Log RAW" class="comparison-slider-image filter grayscale-[60%] brightness-125 contrast-75" style="width: 896px; max-width: none;">
+                        <span class="absolute top-4 left-4 bg-black/80 border border-gray-600 text-gray-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider z-20">
+                            Before: Flat Sensor RAW Log
+                        </span>
+                    </div>
+
+                    <!-- Draggable Divider Handle -->
+                    <div id="sliderHandle" class="absolute top-0 bottom-0 z-30 cursor-ew-resize flex items-center justify-center" style="left: calc(50% - 18px);">
+                        <div class="w-9 h-9 rounded-full bg-champagneGold text-black flex items-center justify-center font-bold text-xs shadow-xl ring-4 ring-midnight">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Range Slider Control for Mobile & Desktop -->
+                <div class="mt-6 flex items-center justify-between gap-4 max-w-md mx-auto">
+                    <span class="text-xs text-gray-400 font-bold uppercase">RAW Log</span>
+                    <input type="range" id="interactiveRange" min="0" max="100" value="50" class="w-full h-2 bg-navyBorder rounded-lg appearance-none cursor-pointer accent-champagneGold" oninput="updateComparisonSlider(this.value)">
+                    <span class="text-xs text-champagneGold font-bold uppercase">Cinematic Master</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC FEATURE 2: Interactive Category Switcher Reel -->
+    <section id="gallery-filter" class="py-24 border-t border-navyBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-champagneGold">Dynamic Reel Filter</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-4">Explore by Ceremony Mood</h2>
+                <p class="text-gray-400 text-xs sm:text-sm">Click through the ceremony tags to filter our cinematic moments live without page reloads.</p>
+            </div>
+
+            <!-- Dynamic Category Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                <button onclick="filterCategory('all', this)" class="cat-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-champagneGold text-black transition">
+                    All Highlights (<span id="count-all">6</span>)
+                </button>
+                <button onclick="filterCategory('vows', this)" class="cat-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider glass-card text-gray-300 hover:text-white transition">
+                    Sacred Vows (<span id="count-vows">2</span>)
+                </button>
+                <button onclick="filterCategory('haldi', this)" class="cat-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider glass-card text-gray-300 hover:text-white transition">
+                    Haldi & Mehendi Energy (<span id="count-haldi">2</span>)
+                </button>
+                <button onclick="filterCategory('reception', this)" class="cat-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider glass-card text-gray-300 hover:text-white transition">
+                    Midnight Reception (<span id="count-reception">2</span>)
+                </button>
+            </div>
+
+            <!-- Filterable Grid -->
+            <div id="mediaGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1: Vows -->
+                <div class="media-card vows rounded-2xl overflow-hidden glass-card group transition duration-500">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=700&q=80" alt="Vows at lake" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <button onclick="openVideoModal('Lake Como Tearful Vows Film')" class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <div class="w-14 h-14 rounded-full bg-champagneGold text-black flex items-center justify-center text-lg shadow-xl transform scale-75 group-hover:scale-100 transition duration-300">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                        </button>
+                        <span class="absolute bottom-3 left-3 bg-midnight/80 text-[10px] uppercase font-bold text-champagneGold px-2.5 py-1 rounded-md">Sacred Vows</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-serif font-bold text-white">Elena & Marcus • Lake Como</h4>
+                        <p class="text-xs text-gray-400 mt-1">Anamorphic 2.39:1 widescreen tearful vow exchange.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Haldi -->
+                <div class="media-card haldi rounded-2xl overflow-hidden glass-card group transition duration-500">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80" alt="Haldi splash" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <button onclick="openVideoModal('Jaipur Haldi Splash 4K')" class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <div class="w-14 h-14 rounded-full bg-champagneGold text-black flex items-center justify-center text-lg shadow-xl transform scale-75 group-hover:scale-100 transition duration-300">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                        </button>
+                        <span class="absolute bottom-3 left-3 bg-midnight/80 text-[10px] uppercase font-bold text-champagneGold px-2.5 py-1 rounded-md">Haldi & Mehendi</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-serif font-bold text-white">Rhea & Kabir • Rambagh Palace</h4>
+                        <p class="text-xs text-gray-400 mt-1">120 FPS slow motion marigold flower showers & dhol beats.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Reception -->
+                <div class="media-card reception rounded-2xl overflow-hidden glass-card group transition duration-500">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=700&q=80" alt="Reception Dance" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <button onclick="openVideoModal('Highlands Castle Reception')" class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <div class="w-14 h-14 rounded-full bg-champagneGold text-black flex items-center justify-center text-lg shadow-xl transform scale-75 group-hover:scale-100 transition duration-300">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                        </button>
+                        <span class="absolute bottom-3 left-3 bg-midnight/80 text-[10px] uppercase font-bold text-champagneGold px-2.5 py-1 rounded-md">Midnight Reception</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-serif font-bold text-white">Zara & Ethan • Edinburgh Ballroom</h4>
+                        <p class="text-xs text-gray-400 mt-1">Champagne tower pour, sparkler exit & full live band.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4: Vows -->
+                <div class="media-card vows rounded-2xl overflow-hidden glass-card group transition duration-500">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" alt="Cliffside vows" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <button onclick="openVideoModal('Santorini Caldera Whispers')" class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <div class="w-14 h-14 rounded-full bg-champagneGold text-black flex items-center justify-center text-lg shadow-xl transform scale-75 group-hover:scale-100 transition duration-300">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                        </button>
+                        <span class="absolute bottom-3 left-3 bg-midnight/80 text-[10px] uppercase font-bold text-champagneGold px-2.5 py-1 rounded-md">Sacred Vows</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-serif font-bold text-white">Chloe & Julian • Santorini Caldera</h4>
+                        <p class="text-xs text-gray-400 mt-1">Wind swept cliffside promise captured with wireless lavalier audio.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5: Haldi -->
+                <div class="media-card haldi rounded-2xl overflow-hidden glass-card group transition duration-500">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1537633552985-df8429e8048b?auto=format&fit=crop&w=700&q=80" alt="Mehendi henna details" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <button onclick="openVideoModal('Udaipur Sangeet Celebration')" class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <div class="w-14 h-14 rounded-full bg-champagneGold text-black flex items-center justify-center text-lg shadow-xl transform scale-75 group-hover:scale-100 transition duration-300">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                        </button>
+                        <span class="absolute bottom-3 left-3 bg-midnight/80 text-[10px] uppercase font-bold text-champagneGold px-2.5 py-1 rounded-md">Haldi & Mehendi</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-serif font-bold text-white">Pooja & Sameer • The Leela Udaipur</h4>
+                        <p class="text-xs text-gray-400 mt-1">Vibrant color palette, mirror work lehengas & dynamic choreography.</p>
+                    </div>
+                </div>
+
+                <!-- Item 6: Reception -->
+                <div class="media-card reception rounded-2xl overflow-hidden glass-card group transition duration-500">
+                    <div class="h-72 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=700&q=80" alt="Grand banquet reception" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <button onclick="openVideoModal('Grand Monaco Gala Reception')" class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <div class="w-14 h-14 rounded-full bg-champagneGold text-black flex items-center justify-center text-lg shadow-xl transform scale-75 group-hover:scale-100 transition duration-300">
+                                <i class="fa-solid fa-play ml-1"></i>
+                            </div>
+                        </button>
+                        <span class="absolute bottom-3 left-3 bg-midnight/80 text-[10px] uppercase font-bold text-champagneGold px-2.5 py-1 rounded-md">Midnight Reception</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-base font-serif font-bold text-white">Natalia & Leo • Hotel de Paris Monaco</h4>
+                        <p class="text-xs text-gray-400 mt-1">Black-tie gala, fireworks above the Mediterranean harbor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cinema Investment Packages -->
+    <section id="pricing" class="py-24 bg-navyCard/60 border-t border-navyBorder">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-champagneGold">Cinematography Collections</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-4">Investment in Motion</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-3xl glass-card flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gray-400">Essential Motion</span>
+                        <h3 class="text-2xl font-serif font-bold text-white mt-1">The Featurette</h3>
+                        <div class="text-3xl font-serif font-bold text-champagneGold mt-4 mb-6">$4,500</div>
+                        <ul class="space-y-3 text-xs text-gray-300">
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> 8 Hours Cinema Coverage</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> 2 Cinematographers (RED + Sony)</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> 4-5 Minute 4K Cinematic Highlight Film</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> Full Ceremony & Speeches Multi-Cam Edit</li>
+                        </ul>
+                    </div>
+                    <button onclick="openVideoModal('The Featurette Inquiry')" class="mt-8 py-3 rounded-full border border-champagneGold text-champagneGold text-xs uppercase tracking-widest font-bold hover:bg-champagneGold hover:text-black transition">
+                        Select Featurette
+                    </button>
+                </div>
+
+                <div class="p-8 rounded-3xl glass-card border-2 border-champagneGold flex flex-col justify-between relative shadow-2xl shadow-champagneGold/10 transform md:-translate-y-2">
+                    <div class="absolute -top-3.5 left-1/2 transform -translate-x-1/2 bg-champagneGold text-black text-[10px] font-extrabold uppercase tracking-widest px-4 py-1 rounded-full">
+                        Flagship Cinema
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-champagneGold font-bold">The Complete Epic</span>
+                        <h3 class="text-2xl font-serif font-bold text-white mt-1">The Blockbuster</h3>
+                        <div class="text-3xl font-serif font-bold text-champagneGold mt-4 mb-6">$7,900</div>
+                        <ul class="space-y-3 text-xs text-gray-200">
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> Full Multi-Day Nuptials Coverage</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> 3 Cinematographers + Drone Operator</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> 10-12 Minute Cinematic Feature Film</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> 60-Second Next-Day Social Media Reel</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> Custom Wooden 4K Video Book Box</li>
+                        </ul>
+                    </div>
+                    <button onclick="openVideoModal('The Blockbuster Booking')" class="mt-8 py-3 rounded-full bg-champagneGold hover:bg-yellow-400 text-black text-xs uppercase tracking-widest font-extrabold transition shadow-lg shadow-champagneGold/25">
+                        Book Blockbuster
+                    </button>
+                </div>
+
+                <div class="p-8 rounded-3xl glass-card flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-gray-400">Global Luxury</span>
+                        <h3 class="text-2xl font-serif font-bold text-white mt-1">The Cannes Director's Cut</h3>
+                        <div class="text-3xl font-serif font-bold text-champagneGold mt-4 mb-6">$12,500+</div>
+                        <ul class="space-y-3 text-xs text-gray-300">
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> International Nuptials Up to 4 Days</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> 35mm Real Motion Film Reel + 8K RED</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> Live Same-Day Edit Shown at Reception</li>
+                            <li><i class="fa-solid fa-check text-champagneGold mr-2"></i> Complete Uncompressed Raw Hard Drive</li>
+                        </ul>
+                    </div>
+                    <button onclick="openVideoModal('Directors Cut Inquiry')" class="mt-8 py-3 rounded-full border border-champagneGold text-champagneGold text-xs uppercase tracking-widest font-bold hover:bg-champagneGold hover:text-black transition">
+                        Inquire Director's Cut
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC FEATURE 3: Fullscreen Simulated 4K Cinematic Video Player Modal -->
+    <div id="videoModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl hidden flex items-center justify-center p-4">
+        <div class="relative w-full max-w-4xl bg-navyCard rounded-3xl border border-navyBorder overflow-hidden shadow-2xl">
+            <!-- Modal Header -->
+            <div class="p-4 bg-midnight flex items-center justify-between border-b border-navyBorder">
+                <div class="flex items-center space-x-3">
+                    <span class="w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
+                    <span id="modalFilmTitle" class="text-xs font-bold uppercase tracking-wider text-white">4K Master Trailer • Velvet & Reel Cinema</span>
+                </div>
+                <button onclick="closeVideoModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Simulated Cinematic Player Canvas -->
+            <div class="relative aspect-video bg-black flex items-center justify-center overflow-hidden">
+                <img id="modalVideoPoster" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Video frame" class="w-full h-full object-cover filter brightness-75">
+                
+                <!-- Play state overlay -->
+                <div id="playbackControls" class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center">
+                    <button onclick="toggleSimulatedPlay()" id="playToggleBtn" class="w-20 h-20 rounded-full bg-champagneGold text-black flex items-center justify-center text-2xl shadow-2xl hover:scale-110 transition duration-300">
+                        <i class="fa-solid fa-play ml-1"></i>
+                    </button>
+                    <span id="playbackStatus" class="text-xs uppercase tracking-widest text-champagneGold font-bold mt-4">Click to Start 4K Playback</span>
+                </div>
+
+                <!-- Custom Player Scrub Bar -->
+                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black via-black/80 to-transparent flex items-center space-x-4 text-xs text-white">
+                    <span id="currentTime">01:42</span>
+                    <div class="flex-1 bg-white/20 h-1.5 rounded-full overflow-hidden">
+                        <div class="bg-champagneGold h-full w-2/5"></div>
+                    </div>
+                    <span>04:30</span>
+                    <i class="fa-solid fa-volume-high text-champagneGold"></i>
+                    <i class="fa-solid fa-expand"></i>
+                </div>
+            </div>
+
+            <div class="p-5 bg-midnight flex items-center justify-between">
+                <div class="text-xs text-gray-400">
+                    <i class="fa-solid fa-film text-champagneGold mr-1"></i> Shot on ARRI Alexa Mini LF & Cooke Anamorphic / i Prime Lenses
+                </div>
+                <a href="#pricing" onclick="closeVideoModal()" class="px-5 py-2 rounded-full bg-champagneGold text-black font-bold text-xs uppercase tracking-wider hover:bg-yellow-400 transition">
+                    Check Date For This Film
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-midnight border-t border-navyBorder py-12 text-center text-xs text-gray-400">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-left">
+                <span class="font-serif font-bold text-white text-base">VELVET & REEL</span>
+                <p class="text-gray-500 text-[11px] mt-0.5">Palette 05: Midnight Velvet Navy & Champagne Gold (Dynamic & Animated)</p>
+            </div>
+            <div>
+                &copy; 2026 Velvet & Reel Cinematic Arts. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // 1. Interactive Before/After Slider Engine
+        function updateComparisonSlider(val) {
+            const beforeWrapper = document.getElementById('beforeImageWrapper');
+            const sliderHandle = document.getElementById('sliderHandle');
+            beforeWrapper.style.width = val + '%';
+            sliderHandle.style.left = `calc(${val}% - 18px)`;
+        }
+
+        // Mouse/Touch Drag for the image container
+        const container = document.getElementById('sliderContainer');
+        let isDragging = false;
+
+        function handleMove(e) {
+            if (!isDragging) return;
+            const rect = container.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            let offset = clientX - rect.left;
+            let percentage = (offset / rect.width) * 100;
+            if (percentage < 0) percentage = 0;
+            if (percentage > 100) percentage = 100;
+            updateComparisonSlider(percentage);
+            document.getElementById('interactiveRange').value = percentage;
+        }
+
+        container.addEventListener('mousedown', () => isDragging = true);
+        window.addEventListener('mouseup', () => isDragging = false);
+        window.addEventListener('mousemove', handleMove);
+
+        container.addEventListener('touchstart', () => isDragging = true);
+        window.addEventListener('touchend', () => isDragging = false);
+        window.addEventListener('touchmove', handleMove);
+
+        // 2. Interactive Category Filter Engine
+        function filterCategory(cat, btn) {
+            const cards = document.querySelectorAll('.media-card');
+            cards.forEach(card => {
+                if (cat === 'all' || card.classList.contains(cat)) {
+                    card.style.display = 'block';
+                    card.classList.add('animate-fadeIn');
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Update button styles
+            document.querySelectorAll('.cat-btn').forEach(b => {
+                b.className = 'cat-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider glass-card text-gray-300 hover:text-white transition';
+            });
+            btn.className = 'cat-btn px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-champagneGold text-black transition';
+        }
+
+        // 3. Dynamic Date Availability Checker
+        function checkDateAvailability() {
+            const input = document.getElementById('dateCheckerInput').value;
+            const res = document.getElementById('dateStatusResult');
+            res.classList.remove('hidden');
+
+            if (!input) {
+                res.innerHTML = '<span class="text-roseAccent"><i class="fa-solid fa-circle-exclamation mr-1"></i> Please select a valid date first.</span>';
+                return;
+            }
+
+            const chosenDate = new Date(input);
+            const isWeekend = chosenDate.getDay() === 0 || chosenDate.getDay() === 6;
+
+            if (isWeekend) {
+                res.innerHTML = `<span class="text-champagneGold"><i class="fa-solid fa-circle-check mr-1"></i> <strong>${input}</strong> is a prime weekend date! We currently have 1 cinema crew slot remaining. <a href="#pricing" class="underline ml-1 font-bold">Reserve Now &rarr;</a></span>`;
+            } else {
+                res.innerHTML = `<span class="text-emerald-400"><i class="fa-solid fa-circle-check mr-1"></i> <strong>${input}</strong> is OPEN with full multi-camera availability! Discount applies for weekday bookings.</span>`;
+            }
+        }
+
+        // 4. Video Player Modal Logic
+        function openVideoModal(title = '4K Master Trailer • Velvet & Reel Cinema') {
+            document.getElementById('modalFilmTitle').innerText = title;
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.add('hidden');
+        }
+
+        let isPlaying = false;
+        function toggleSimulatedPlay() {
+            isPlaying = !isPlaying;
+            const btn = document.getElementById('playToggleBtn');
+            const status = document.getElementById('playbackStatus');
+            if (isPlaying) {
+                btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                status.innerText = 'Playing 4K Master Dolby Audio Stream...';
+            } else {
+                btn.innerHTML = '<i class="fa-solid fa-play ml-1"></i>';
+                status.innerText = 'Paused. Click to resume.';
+            }
+        }
+    </script>
+
+</body>
+</html>
+

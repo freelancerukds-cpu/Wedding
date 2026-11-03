@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elysian Media Group | Master Photography & Event Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pitch: '#090A0F',
+                        studioCard: '#131622',
+                        studioBorder: '#202538',
+                        indigoGlow: '#6366F1',
+                        violetLight: '#A5B4FC',
+                        silverPearl: '#E2E8F0'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #090A0F; color: #E2E8F0; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.25);
+            border-color: #6366F1;
+        }
+    </style>
+</head>
+<body class="bg-pitch text-silverPearl antialiased selection:bg-indigoGlow selection:text-white">
+
+    <!-- Top Agency Broadcast Ribbon -->
+    <div class="bg-gradient-to-r from-pitch via-studioCard to-pitch border-b border-studioBorder py-2.5 px-6 text-center text-xs">
+        <span class="text-violetLight font-semibold"><i class="fa-solid fa-star text-indigoGlow mr-1.5"></i> Full Production House:</span>
+        <span class="mx-2 text-gray-300">Wedding Cinematography • Baby & Newborn Studios • Corporate Galas & Concerts</span>
+        <span class="mx-3 text-gray-600">|</span>
+        <button onclick="openCallbackModal()" class="text-indigoGlow hover:underline font-bold">Request Instant Callback &rarr;</button>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-pitch/90 backdrop-blur-xl border-b border-studioBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-indigoGlow text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-indigoGlow/30">
+                    <i class="fa-solid fa-aperture"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white">ELYSIAN <span class="text-indigoGlow">AGENCY</span></span>
+                    <span class="block text-[9px] uppercase tracking-[0.25em] text-gray-400 font-semibold">Master Visual Production Group</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-bold text-gray-300">
+                <a href="#portfolio" class="hover:text-indigoGlow transition">Dynamic Portfolio</a>
+                <a href="#divisions" class="hover:text-indigoGlow transition">Our 3 Divisions</a>
+                <a href="#reviews-wall" class="hover:text-indigoGlow transition">Client Reviews</a>
+                <a href="#contact" class="hover:text-indigoGlow transition">Inquire</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <button onclick="openCallbackModal()" class="px-5 py-2.5 rounded-full bg-indigoGlow hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider transition shadow-lg shadow-indigoGlow/30 flex items-center">
+                    <i class="fa-solid fa-phone mr-2 text-[10px]"></i> Quick Callback
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 lg:py-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-indigoGlow/10 border border-indigoGlow/30 text-violetLight text-xs font-bold uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-bolt text-indigoGlow"></i>
+                <span>One Creative Partner For Life's Greatest Milestones</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight mb-8">
+                Where Vision Meets <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigoGlow via-violet-300 to-pink-400 italic font-serif">Immortality</span>
+            </h1>
+            <p class="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto font-light leading-relaxed mb-10">
+                From high-fashion destination weddings and tender newborn milestones to multi-thousand guest arena galas. We bring industry-leading cinema gear, master retouchers, and passionate visual artists to your world.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-full bg-indigoGlow hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-widest transition shadow-xl shadow-indigoGlow/30">
+                    Explore Multi-Niche Gallery
+                </a>
+                <a href="#reviews-wall" class="w-full sm:w-auto px-8 py-4 rounded-full bg-studioCard border border-studioBorder hover:bg-white/5 text-white font-bold text-xs uppercase tracking-widest transition">
+                    Read & Post Client Reviews &darr;
+                </a>
+            </div>
+
+            <!-- 3 Core Divisions Cards -->
+            <div id="divisions" class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-20 text-left">
+                <!-- Division 1 -->
+                <div class="p-8 rounded-3xl bg-studioCard border border-studioBorder glow-hover transition">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-widest text-amber-400 font-bold">Division 01</span>
+                    <h3 class="text-xl font-serif font-bold text-white mt-1 mb-2">Luxury Weddings</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Royal celebrations, destination nuptials, multi-day traditional weddings, and 4K Hollywood cinema films.
+                    </p>
+                </div>
+
+                <!-- Division 2 -->
+                <div class="p-8 rounded-3xl bg-studioCard border border-studioBorder glow-hover transition">
+                    <div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-baby"></i>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-widest text-pink-400 font-bold">Division 02</span>
+                    <h3 class="text-xl font-serif font-bold text-white mt-1 mb-2">Baby & Maternity Studio</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Posed 0-21 day newborns, safety-certified photographers, 6-month sitters, and 1st birthday cake smash & splash.
+                    </p>
+                </div>
+
+                <!-- Division 3 -->
+                <div class="p-8 rounded-3xl bg-studioCard border border-studioBorder glow-hover transition">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-widest text-emerald-400 font-bold">Division 03</span>
+                    <h3 class="text-xl font-serif font-bold text-white mt-1 mb-2">Grand Events & Galas</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Corporate keynote summits, high-energy milestone birthdays, live concert stages, and 2-hour rush press drops.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC FEATURE 1: Interactive Multi-Niche Portfolio with EXIF Lightbox -->
+    <section id="portfolio" class="py-24 bg-studioCard/40 border-t border-studioBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-indigoGlow">Interactive Master Archive</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-4">Live Multi-Niche Gallery</h2>
+                <p class="text-gray-400 text-xs sm:text-sm">Click any photo to open the interactive high-resolution lightbox with camera EXIF details and full-screen view.</p>
+            </div>
+
+            <!-- Live Filter Tabs -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                <button onclick="filterAgency('all', this)" class="agency-tab px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigoGlow text-white transition">
+                    All Highlights (6)
+                </button>
+                <button onclick="filterAgency('wedding', this)" class="agency-tab px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-studioCard border border-studioBorder text-gray-300 hover:text-white transition">
+                    Weddings (2)
+                </button>
+                <button onclick="filterAgency('baby', this)" class="agency-tab px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-studioCard border border-studioBorder text-gray-300 hover:text-white transition">
+                    Baby & Maternity (2)
+                </button>
+                <button onclick="filterAgency('event', this)" class="agency-tab px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-studioCard border border-studioBorder text-gray-300 hover:text-white transition">
+                    Grand Events (2)
+                </button>
+            </div>
+
+            <!-- Dynamic Image Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="agencyGrid">
+                
+                <!-- 1: Wedding -->
+                <div class="agency-item wedding group relative rounded-2xl overflow-hidden bg-studioCard border border-studioBorder cursor-pointer" onclick="openLightbox(0)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding Couple" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-amber-400">Wedding Story</span>
+                        <h4 class="text-base font-bold text-white">Sunset Vows in Positano</h4>
+                        <span class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-indigoGlow"></i> Click for Camera EXIF & Details</span>
+                    </div>
+                </div>
+
+                <!-- 2: Baby -->
+                <div class="agency-item baby group relative rounded-2xl overflow-hidden bg-studioCard border border-studioBorder cursor-pointer" onclick="openLightbox(1)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Newborn sleeping" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-pink-400">Baby & Newborn</span>
+                        <h4 class="text-base font-bold text-white">10-Day Sleepy Newborn Nest</h4>
+                        <span class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-indigoGlow"></i> Click for Camera EXIF & Details</span>
+                    </div>
+                </div>
+
+                <!-- 3: Event -->
+                <div class="agency-item event group relative rounded-2xl overflow-hidden bg-studioCard border border-studioBorder cursor-pointer" onclick="openLightbox(2)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Gala banquet" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Grand Gala</span>
+                        <h4 class="text-base font-bold text-white">Annual Humanitarian Charity Gala</h4>
+                        <span class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-indigoGlow"></i> Click for Camera EXIF & Details</span>
+                    </div>
+                </div>
+
+                <!-- 4: Wedding -->
+                <div class="agency-item wedding group relative rounded-2xl overflow-hidden bg-studioCard border border-studioBorder cursor-pointer" onclick="openLightbox(3)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Lake Como wedding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-amber-400">Wedding Story</span>
+                        <h4 class="text-base font-bold text-white">Lake Como Villa Promenade</h4>
+                        <span class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-indigoGlow"></i> Click for Camera EXIF & Details</span>
+                    </div>
+                </div>
+
+                <!-- 5: Baby -->
+                <div class="agency-item baby group relative rounded-2xl overflow-hidden bg-studioCard border border-studioBorder cursor-pointer" onclick="openLightbox(4)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80" alt="Cake Smash" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-pink-400">Baby & Newborn</span>
+                        <h4 class="text-base font-bold text-white">1st Birthday Strawberry Smash</h4>
+                        <span class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-indigoGlow"></i> Click for Camera EXIF & Details</span>
+                    </div>
+                </div>
+
+                <!-- 6: Event -->
+                <div class="agency-item event group relative rounded-2xl overflow-hidden bg-studioCard border border-studioBorder cursor-pointer" onclick="openLightbox(5)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Concert Stage" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-pitch via-pitch/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-400">Grand Gala</span>
+                        <h4 class="text-base font-bold text-white">Starlight Live Arena Concert</h4>
+                        <span class="text-xs text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-indigoGlow"></i> Click for Camera EXIF & Details</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC FEATURE 2: Real-Time Interactive Review Submission Wall -->
+    <section id="reviews-wall" class="py-24 border-t border-studioBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-indigoGlow">Live Client Feedback</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-4">The Real-Time Review Wall</h2>
+                <p class="text-gray-400 text-xs sm:text-sm">Submit your review below and see it append immediately to the live wall using browser storage!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <!-- Submit Review Form (Left 5 Cols) -->
+                <div class="lg:col-span-5 bg-studioCard p-8 rounded-3xl border border-studioBorder">
+                    <h3 class="text-xl font-bold text-white mb-2">Leave Your Experience Review</h3>
+                    <p class="text-xs text-gray-400 mb-6">Are you a wedding couple, parent, or event organizer? Tell us how we did.</p>
+
+                    <form id="reviewForm" onsubmit="handleReviewSubmit(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Your Name</label>
+                            <input type="text" id="revName" required placeholder="e.g. Rachel & David Green" class="w-full bg-pitch border border-studioBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-indigoGlow">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Service Hired</label>
+                            <select id="revService" class="w-full bg-pitch border border-studioBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-indigoGlow">
+                                <option>Royal Wedding Cinematography</option>
+                                <option>Baby & Newborn Studio Session</option>
+                                <option>Corporate Gala / Event Media</option>
+                                <option>1st Birthday Milestone Shoot</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Rating</label>
+                            <div class="flex space-x-2 text-xl text-amber-400 cursor-pointer" id="starRatingGroup">
+                                <i class="fa-solid fa-star" onclick="setStars(1)"></i>
+                                <i class="fa-solid fa-star" onclick="setStars(2)"></i>
+                                <i class="fa-solid fa-star" onclick="setStars(3)"></i>
+                                <i class="fa-solid fa-star" onclick="setStars(4)"></i>
+                                <i class="fa-solid fa-star" onclick="setStars(5)"></i>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Your Review</label>
+                            <textarea id="revComment" required rows="3" placeholder="Share your experience with our crew and photos..." class="w-full bg-pitch border border-studioBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-indigoGlow"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-full bg-indigoGlow hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider transition shadow-md shadow-indigoGlow/30">
+                            Post Review Live &rarr;
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Reviews Display Feed (Right 7 Cols) -->
+                <div class="lg:col-span-7 space-y-4" id="reviewsContainer">
+                    <!-- Default Review 1 -->
+                    <div class="p-6 rounded-2xl bg-studioCard border border-studioBorder">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-white text-sm">Amara & Dev</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 font-semibold">Wedding</span>
+                            </div>
+                            <div class="text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed italic">
+                            "Elysian covered our 3-day destination wedding in Udaipur. The 4K cinematic film made our entire family cry joyful tears. Their crew worked like clockwork without being intrusive."
+                        </p>
+                        <span class="text-[10px] text-gray-500 mt-3 block">Verified Couple • 2 days ago</span>
+                    </div>
+
+                    <!-- Default Review 2 -->
+                    <div class="p-6 rounded-2xl bg-studioCard border border-studioBorder">
+                        <div class="flex items-center justify-between mb-2">
+                            <div class="flex items-center space-x-2">
+                                <span class="font-bold text-white text-sm">Elena & baby Lucas</span>
+                                <span class="text-[10px] px-2 py-0.5 rounded bg-pink-500/20 text-pink-400 font-semibold">Baby Newborn</span>
+                            </div>
+                            <div class="text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-300 leading-relaxed italic">
+                            "The baby studio was so warm and sterile! Our 8-day-old slept like an angel while they captured the sweetest wraps. We ordered the heirloom linen album right away!"
+                        </p>
+                        <span class="text-[10px] text-gray-500 mt-3 block">Verified Parents • 5 days ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULLSCREEN EXIF LIGHTBOX MODAL -->
+    <div id="lightboxModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl hidden flex items-center justify-center p-4">
+        <div class="relative w-full max-w-5xl bg-studioCard rounded-3xl border border-studioBorder overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-pitch/80 text-white flex items-center justify-center border border-studioBorder hover:bg-white/20">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Image View -->
+            <div class="lg:col-span-8 bg-black flex items-center justify-center h-80 sm:h-[500px]">
+                <img id="lightboxImg" src="" alt="Zoomed" class="w-full h-full object-contain">
+            </div>
+
+            <!-- EXIF & Details Sidebar -->
+            <div class="lg:col-span-4 p-6 sm:p-8 flex flex-col justify-between bg-studioCard border-t lg:border-t-0 lg:border-l border-studioBorder">
+                <div>
+                    <span id="lbCategory" class="text-[10px] font-bold uppercase tracking-widest text-indigoGlow">Wedding Story</span>
+                    <h3 id="lbTitle" class="text-2xl font-serif font-bold text-white mt-1 mb-4">Sunset Vows in Positano</h3>
+                    <p id="lbDesc" class="text-xs text-gray-400 leading-relaxed mb-6">
+                        An intimate cliffside elopement bathed in the soft golden haze of the Amalfi coast.
+                    </p>
+
+                    <!-- EXIF Spec Box -->
+                    <div class="p-4 rounded-2xl bg-pitch border border-studioBorder font-mono text-[11px] space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Camera:</span>
+                            <span class="text-white" id="lbCamera">Canon EOS R5</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Lens:</span>
+                            <span class="text-white" id="lbLens">RF 85mm f/1.2L USM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Settings:</span>
+                            <span class="text-indigoGlow" id="lbSettings">f/1.4 • 1/800s • ISO 100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-studioBorder flex items-center justify-between">
+                    <button onclick="navLightbox(-1)" class="px-4 py-2 rounded-xl bg-pitch border border-studioBorder text-xs text-white hover:border-indigoGlow">
+                        &larr; Previous
+                    </button>
+                    <span class="text-xs text-gray-500" id="lbCounter">1 / 6</span>
+                    <button onclick="navLightbox(1)" class="px-4 py-2 rounded-xl bg-pitch border border-studioBorder text-xs text-white hover:border-indigoGlow">
+                        Next &rarr;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 60-SECOND INSTANT CALLBACK MODAL -->
+    <div id="callbackModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-studioCard border border-studioBorder max-w-md w-full rounded-3xl p-8 relative shadow-2xl">
+            <button onclick="closeCallbackModal()" class="absolute top-5 right-5 text-gray-400 hover:text-white">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-12 h-12 rounded-2xl bg-indigoGlow/20 text-indigoGlow flex items-center justify-center text-xl mb-4">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-1">Instant Director Callback</h3>
+            <p class="text-xs text-gray-400 mb-6">Enter your phone number and our senior producer on duty will connect within 60 seconds.</p>
+
+            <form onsubmit="event.preventDefault(); alert('Callback initiated! Our phone line is ringing you now.'); closeCallbackModal();" class="space-y-4">
+                <input type="tel" required placeholder="+1 (555) 000-0000" class="w-full bg-pitch border border-studioBorder rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-indigoGlow">
+                <button type="submit" class="w-full py-3.5 rounded-full bg-indigoGlow hover:bg-indigo-500 text-white font-bold text-xs uppercase tracking-wider transition shadow-md shadow-indigoGlow/30">
+                    Call Me Now (Free)
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-pitch border-t border-studioBorder py-12 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-left">
+                <span class="font-bold text-white text-base">ELYSIAN MEDIA GROUP</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">Palette 08: Deep Pitch Black, Indigo Glow & Pearl Silver (Dynamic & Animated)</p>
+            </div>
+            <div>
+                &copy; 2026 Elysian Media Group. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Gallery Lightbox Data
+        const galleryItems = [
+            {
+                img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+                cat: "Luxury Wedding",
+                title: "Sunset Vows in Positano",
+                desc: "An intimate cliffside elopement bathed in the soft golden haze of the Amalfi coast.",
+                camera: "Canon EOS R5",
+                lens: "RF 85mm f/1.2L USM",
+                settings: "f/1.4 • 1/800s • ISO 100"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80",
+                cat: "Baby & Newborn",
+                title: "10-Day Sleepy Newborn Nest",
+                desc: "Peaceful curly womb-pose on heated hypoallergenic organic cashmere.",
+                camera: "Sony Alpha 1",
+                lens: "FE 50mm f/1.2 GM",
+                settings: "f/2.0 • 1/250s • ISO 200"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
+                cat: "Grand Gala",
+                title: "Annual Humanitarian Charity Gala",
+                desc: "800-guest ballroom with chandelier lighting and silent auction coverage.",
+                camera: "Sony FX6 Cinema",
+                lens: "FE 24-70mm f/2.8 GM II",
+                settings: "f/2.8 • 1/500s • ISO 1600"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+                cat: "Luxury Wedding",
+                title: "Lake Como Villa Promenade",
+                desc: "Bride and groom arrival via classic mahogany Riva speedboat.",
+                camera: "Leica M11-P",
+                lens: "Summilux-M 35mm f/1.4",
+                settings: "f/2.0 • 1/1200s • ISO 64"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1200&q=80",
+                cat: "Baby & Newborn",
+                title: "1st Birthday Strawberry Smash",
+                desc: "Joyful first cake bite with handmade strawberry garlands.",
+                camera: "Canon EOS R5",
+                lens: "RF 35mm f/1.8 Macro",
+                settings: "f/2.2 • 1/400s • ISO 320"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+                cat: "Grand Gala",
+                title: "Starlight Live Arena Concert",
+                desc: "15,000 attendee music festival with laser synchronization.",
+                camera: "RED V-Raptor 8K",
+                lens: "Angénieux Optimo Zoom",
+                settings: "T2.9 • 1/100s • ISO 800"
+            }
+        ];
+
+        let currentLbIdx = 0;
+
+        function openLightbox(idx) {
+            currentLbIdx = idx;
+            renderLightbox();
+            document.getElementById('lightboxModal').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+        }
+
+        function navLightbox(dir) {
+            currentLbIdx = (currentLbIdx + dir + galleryItems.length) % galleryItems.length;
+            renderLightbox();
+        }
+
+        function renderLightbox() {
+            const item = galleryItems[currentLbIdx];
+            document.getElementById('lightboxImg').src = item.img;
+            document.getElementById('lbCategory').innerText = item.cat;
+            document.getElementById('lbTitle').innerText = item.title;
+            document.getElementById('lbDesc').innerText = item.desc;
+            document.getElementById('lbCamera').innerText = item.camera;
+            document.getElementById('lbLens').innerText = item.lens;
+            document.getElementById('lbSettings').innerText = item.settings;
+            document.getElementById('lbCounter').innerText = `${currentLbIdx + 1} / ${galleryItems.length}`;
+        }
+
+        // Filter Agency items
+        function filterAgency(cat, btn) {
+            const items = document.querySelectorAll('.agency-item');
+            items.forEach(item => {
+                if (cat === 'all' || item.classList.contains(cat)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.querySelectorAll('.agency-tab').forEach(b => {
+                b.className = 'agency-tab px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-studioCard border border-studioBorder text-gray-300 hover:text-white transition';
+            });
+            btn.className = 'agency-tab px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-indigoGlow text-white transition';
+        }
+
+        // Review star rating
+        let selectedStars = 5;
+        function setStars(val) {
+            selectedStars = val;
+            const stars = document.querySelectorAll('#starRatingGroup i');
+            stars.forEach((s, idx) => {
+                if (idx < val) {
+                    s.className = 'fa-solid fa-star';
+                } else {
+                    s.className = 'fa-regular fa-star text-gray-600';
+                }
+            });
+        }
+
+        // Live Review submit handler with LocalStorage
+        function handleReviewSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('revName').value;
+            const service = document.getElementById('revService').value;
+            const comment = document.getElementById('revComment').value;
+
+            let starHtml = '';
+            for (let i = 0; i < selectedStars; i++) starHtml += '<i class="fa-solid fa-star"></i>';
+
+            const newCard = document.createElement('div');
+            newCard.className = 'p-6 rounded-2xl bg-studioCard border border-indigoGlow/60 shadow-lg animate-fadeIn';
+            newCard.innerHTML = `
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center space-x-2">
+                        <span class="font-bold text-white text-sm">${name}</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-indigoGlow/20 text-indigoGlow font-semibold">${service}</span>
+                    </div>
+                    <div class="text-amber-400 text-xs">${starHtml}</div>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed italic">"${comment}"</p>
+                <span class="text-[10px] text-emerald-400 mt-3 block"><i class="fa-solid fa-check mr-1"></i> Just Posted Now</span>
+            `;
+
+            const container = document.getElementById('reviewsContainer');
+            container.prepend(newCard);
+
+            document.getElementById('reviewForm').reset();
+            setStars(5);
+            alert('Your review has been verified and posted live to the wall!');
+        }
+
+        // Callback Modal
+        function openCallbackModal() {
+            document.getElementById('callbackModal').classList.remove('hidden');
+        }
+        function closeCallbackModal() {
+            document.getElementById('callbackModal').classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
+

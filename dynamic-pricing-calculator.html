@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instant Pricing Calculator | Lumen & Frame Multi-Page Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pitch: '#0A0D14',
+                        darkCard: '#121724',
+                        darkBorder: '#1F293D',
+                        accentGold: '#F59E0B',
+                        accentEmerald: '#10B981'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0A0D14; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .nav-link-active {
+            color: #F59E0B !important;
+            border-bottom: 2px solid #F59E0B;
+        }
+    </style>
+</head>
+<body class="bg-pitch text-slate-100 antialiased selection:bg-accentGold selection:text-black">
+
+    <!-- Top Ribbon -->
+    <div class="bg-gradient-to-r from-darkCard via-darkBorder to-darkCard border-b border-darkBorder py-2 px-6 text-xs flex justify-between items-center">
+        <span class="text-gray-300"><i class="fa-solid fa-calculator text-accentGold mr-1.5"></i> Live Dynamic Quote Calculation Engine • 100% Transparent Investment</span>
+        <span class="text-accentGold font-bold">Locks Price For 48 Hours</span>
+    </div>
+
+    <!-- Common Multi-Page Header -->
+    <header class="sticky top-0 z-50 bg-pitch/95 backdrop-blur-xl border-b border-darkBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="dynamic-home.html" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accentGold to-amber-600 flex items-center justify-center text-black font-extrabold text-lg shadow-lg shadow-accentGold/20">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white font-serif">LUMEN <span class="text-accentGold">&</span> FRAME</span>
+                    <span class="block text-[9px] uppercase tracking-[0.25em] text-gray-400 font-semibold">Pricing Engine</span>
+                </div>
+            </a>
+
+            <nav class="hidden xl:flex items-center space-x-7 text-xs uppercase tracking-wider font-bold text-gray-300">
+                <a href="dynamic-home.html" class="hover:text-accentGold py-2 transition">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-accentGold py-2 transition">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-accentGold py-2 transition">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentGold py-2 transition">Events & Galas</a>
+                <a href="dynamic-portfolio.html" class="hover:text-accentGold py-2 transition">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="nav-link-active py-2 transition text-accentGold"><i class="fa-solid fa-calculator mr-1"></i> Quote Calculator</a>
+                <a href="dynamic-reviews.html" class="hover:text-accentGold py-2 transition">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentGold py-2 transition">Contact</a>
+            </nav>
+
+            <a href="dynamic-contact.html" class="px-5 py-2.5 rounded-full bg-accentGold hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition">
+                Check Date Availability
+            </a>
+        </div>
+    </header>
+
+    <!-- Calculator Intro -->
+    <section class="py-14 bg-gradient-to-b from-darkCard/80 to-pitch border-b border-darkBorder text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <span class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-accentGold/10 border border-accentGold/30 text-accentGold text-xs font-bold uppercase tracking-widest mb-4">
+                <i class="fa-solid fa-sliders"></i>
+                <span>Instant Dynamic Pricing Engine</span>
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-serif font-bold text-white mb-3">Configure Your Package Live</h1>
+            <p class="text-xs sm:text-sm text-gray-400 max-w-2xl mx-auto">
+                Tweak hours, add-ons, and categories. The sticky itemized receipt calculates in real-time.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Calculator Component -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Controls (Left 8 Cols) -->
+            <div class="lg:col-span-8 bg-darkCard p-6 sm:p-10 rounded-3xl border border-darkBorder shadow-2xl space-y-8">
+                
+                <!-- Category Select -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">1. Select Service Category</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div onclick="selectCategory('wedding', 1800, 'Royal Wedding Nuptials', this)" class="cat-box p-5 rounded-2xl border-2 border-accentGold bg-accentGold/10 cursor-pointer transition">
+                            <i class="fa-solid fa-ring text-accentGold text-xl mb-2 block"></i>
+                            <span class="font-bold text-white text-sm block">Wedding Nuptials</span>
+                            <span class="text-xs font-mono font-bold text-accentGold block mt-2">Base $1,800</span>
+                        </div>
+                        <div onclick="selectCategory('baby', 550, 'Baby & Milestone Session', this)" class="cat-box p-5 rounded-2xl border-2 border-darkBorder bg-pitch cursor-pointer transition hover:border-gray-500">
+                            <i class="fa-solid fa-baby text-pink-400 text-xl mb-2 block"></i>
+                            <span class="font-bold text-white text-sm block">Baby & Kids Studio</span>
+                            <span class="text-xs font-mono font-bold text-pink-400 block mt-2">Base $550</span>
+                        </div>
+                        <div onclick="selectCategory('event', 950, 'Grand Event & Gala', this)" class="cat-box p-5 rounded-2xl border-2 border-darkBorder bg-pitch cursor-pointer transition hover:border-gray-500">
+                            <i class="fa-solid fa-glass-cheers text-accentEmerald text-xl mb-2 block"></i>
+                            <span class="font-bold text-white text-sm block">Galas & Summits</span>
+                            <span class="text-xs font-mono font-bold text-accentEmerald block mt-2">Base $950</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hours Slider -->
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="text-xs font-bold text-gray-400 uppercase tracking-wider">2. Total Coverage Duration</label>
+                        <span class="text-xl font-bold font-mono text-accentGold"><span id="pHoursNum">8</span> Hours</span>
+                    </div>
+                    <input type="range" min="2" max="16" value="8" step="1" oninput="setPHours(this.value)" class="w-full h-3 bg-pitch rounded-lg appearance-none cursor-pointer accent-accentGold">
+                    <div class="flex justify-between text-[11px] text-gray-500 mt-2 font-mono">
+                        <span>2h (Mini)</span>
+                        <span>4h (Half)</span>
+                        <span>8h (Full Day)</span>
+                        <span>12h (Extended)</span>
+                        <span>16h (Multi-Day)</span>
+                    </div>
+                </div>
+
+                <!-- Addons -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">3. Production Add-Ons</label>
+                    <div class="space-y-3">
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-pitch border border-darkBorder hover:border-gray-500 cursor-pointer transition">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" onchange="togglePAddon('drone', 450, '4K Drone Aerial Coverage', this.checked)" class="w-5 h-5 accent-accentGold rounded">
+                                <div>
+                                    <span class="text-xs font-bold text-white block">FAA 4K Drone Aerial Coverage</span>
+                                    <span class="text-[11px] text-gray-400">Sweeping overhead cinematic venue visuals.</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-accentGold">+$450</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-pitch border border-darkBorder hover:border-gray-500 cursor-pointer transition">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" checked onchange="togglePAddon('shooter', 500, 'Second Lead Photographer', this.checked)" class="w-5 h-5 accent-accentGold rounded">
+                                <div>
+                                    <span class="text-xs font-bold text-white block">Second Lead Photographer</span>
+                                    <span class="text-[11px] text-gray-400">Simultaneous multiple angles for candid coverage.</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-accentGold">+$500</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-pitch border border-darkBorder hover:border-gray-500 cursor-pointer transition">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" onchange="togglePAddon('film', 1200, '4K Cinematic Highlight Film (5-min)', this.checked)" class="w-5 h-5 accent-accentGold rounded">
+                                <div>
+                                    <span class="text-xs font-bold text-white block">4K Cinematic Highlight Film (5-min)</span>
+                                    <span class="text-[11px] text-gray-400">Color-graded DaVinci edit with licensed orchestral soundtrack.</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-accentGold">+$1,200</span>
+                        </label>
+
+                        <label class="flex items-center justify-between p-4 rounded-xl bg-pitch border border-darkBorder hover:border-gray-500 cursor-pointer transition">
+                            <div class="flex items-center space-x-3">
+                                <input type="checkbox" onchange="togglePAddon('album', 650, 'Handmade Italian Leather Album (30p)', this.checked)" class="w-5 h-5 accent-accentGold rounded">
+                                <div>
+                                    <span class="text-xs font-bold text-white block">Handmade Italian Leather Album (30p)</span>
+                                    <span class="text-[11px] text-gray-400">Archival cotton paper heirloom keepsake.</span>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono font-bold text-accentGold">+$650</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Client Contact Info -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-darkBorder">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Your Full Name</label>
+                        <input type="text" id="pClientName" placeholder="e.g. Jessica Miller" class="w-full bg-pitch border border-darkBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-accentGold">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Email / Phone</label>
+                        <input type="text" id="pClientContact" placeholder="jessica@example.com" class="w-full bg-pitch border border-darkBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-accentGold">
+                    </div>
+                </div>
+
+                <button onclick="openFormalProposal()" class="w-full py-4 rounded-xl bg-gradient-to-r from-accentGold to-yellow-400 text-black font-extrabold text-xs uppercase tracking-widest hover:opacity-95 transition shadow-xl shadow-accentGold/30">
+                    <i class="fa-solid fa-file-invoice mr-2"></i> Generate Official Quote Proposal
+                </button>
+            </div>
+
+            <!-- Sticky Receipt (Right 4 Cols) -->
+            <div class="lg:col-span-4 sticky top-28 bg-darkCard p-6 rounded-3xl border border-darkBorder shadow-2xl">
+                <div class="flex items-center justify-between pb-4 border-b border-darkBorder">
+                    <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Live Itemized Estimate</span>
+                    <span class="px-2.5 py-1 rounded-full bg-accentEmerald/20 text-accentEmerald text-[10px] font-mono font-bold">REAL-TIME</span>
+                </div>
+
+                <div class="py-4 space-y-3 text-xs" id="pItemList"></div>
+
+                <div class="mt-4 p-5 rounded-2xl bg-pitch border border-darkBorder">
+                    <span class="text-[11px] uppercase font-bold text-gray-400 block mb-1">Estimated Total Investment</span>
+                    <div class="text-3xl font-extrabold font-mono text-accentGold" id="pGrandTotalDisplay">
+                        $2,900
+                    </div>
+                    <span class="text-[10px] text-gray-400 block mt-1">Guaranteed pricing lock for 48 hours</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Formal Proposal Modal -->
+    <div id="pProposalModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-darkCard border border-darkBorder w-full max-w-xl rounded-3xl p-8 shadow-2xl relative">
+            <button onclick="closeFormalProposal()" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-pitch text-gray-400 hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center pb-6 border-b border-darkBorder">
+                <div class="w-12 h-12 rounded-full bg-accentEmerald/20 text-accentEmerald flex items-center justify-center text-xl mx-auto mb-3">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Guaranteed Official Estimate</h3>
+                <p class="text-xs text-gray-400 mt-1" id="pModalGreeting">Prepared for: Client</p>
+            </div>
+
+            <div class="py-6 space-y-3 text-xs">
+                <div class="flex justify-between py-1 border-b border-darkBorder/50">
+                    <span class="text-gray-400">Estimate Reference:</span>
+                    <span class="font-mono text-white" id="pModalId">LF-89210</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-darkBorder/50">
+                    <span class="text-gray-400">Selected Niche:</span>
+                    <span class="font-bold text-white" id="pModalNiche">Royal Wedding Nuptials</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-darkBorder/50">
+                    <span class="text-gray-400">Coverage Duration:</span>
+                    <span class="font-bold text-white" id="pModalHours">8 Hours</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-darkBorder/50">
+                    <span class="text-gray-400">Add-On Perks Included:</span>
+                    <span class="font-bold text-accentGold text-right" id="pModalAddons">None</span>
+                </div>
+                <div class="flex justify-between py-3 items-center bg-pitch p-4 rounded-xl mt-4">
+                    <span class="font-bold text-sm text-white">Locked Total Price:</span>
+                    <span class="font-mono text-2xl font-extrabold text-accentGold" id="pModalTotal">$2,900</span>
+                </div>
+            </div>
+
+            <div class="pt-4 flex gap-3">
+                <button onclick="window.print()" class="w-full py-3 rounded-xl border border-darkBorder text-gray-300 hover:bg-white/5 text-xs font-bold uppercase tracking-wider transition">
+                    <i class="fa-solid fa-print mr-2"></i> Print / Save PDF
+                </button>
+                <button onclick="alert('Your date hold request has been logged! Our director will email your agreement.'); closeFormalProposal();" class="w-full py-3 rounded-xl bg-accentGold hover:bg-yellow-400 text-black text-xs font-extrabold uppercase tracking-widest transition">
+                    Hold Date With This Quote
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Common Footer -->
+    <footer class="bg-pitch border-t border-darkBorder py-12 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="text-left">
+                <span class="font-serif font-bold text-white text-base">LUMEN & FRAME</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">Interactive Pricing Engine Division</p>
+            </div>
+            <div class="flex flex-wrap gap-4 text-gray-400">
+                <a href="dynamic-home.html" class="hover:text-accentGold">Home</a>
+                <a href="dynamic-weddings.html" class="hover:text-accentGold">Weddings</a>
+                <a href="dynamic-baby.html" class="hover:text-accentGold">Baby & Kids</a>
+                <a href="dynamic-events.html" class="hover:text-accentGold">Events</a>
+                <a href="dynamic-portfolio.html" class="hover:text-accentGold">Portfolio</a>
+                <a href="dynamic-pricing-calculator.html" class="text-accentGold font-bold">Pricing</a>
+                <a href="dynamic-reviews.html" class="hover:text-accentGold">Reviews</a>
+                <a href="dynamic-contact.html" class="hover:text-accentGold">Contact</a>
+            </div>
+            <div>&copy; 2026 Lumen & Frame Studios.</div>
+        </div>
+    </footer>
+
+    <script>
+        let pBase = 1800;
+        let pCatName = 'Royal Wedding Nuptials';
+        let pHours = 8;
+        let pAddons = { shooter: { name: 'Second Lead Photographer', price: 500 } };
+
+        function selectCategory(cat, base, name, el) {
+            pBase = base;
+            pCatName = name;
+            document.querySelectorAll('.cat-box').forEach(c => {
+                c.className = 'cat-box p-5 rounded-2xl border-2 border-darkBorder bg-pitch cursor-pointer transition hover:border-gray-500';
+            });
+            el.className = 'cat-box p-5 rounded-2xl border-2 border-accentGold bg-accentGold/10 cursor-pointer transition';
+            calcTotal();
+        }
+
+        function setPHours(val) {
+            pHours = parseInt(val);
+            document.getElementById('pHoursNum').innerText = val;
+            calcTotal();
+        }
+
+        function togglePAddon(k, pr, nm, isChecked) {
+            if (isChecked) pAddons[k] = { name: nm, price: pr };
+            else delete pAddons[k];
+            calcTotal();
+        }
+
+        function calcTotal() {
+            let durSur = 0;
+            if (pHours > 4) durSur = (pHours - 4) * 150;
+            let addSum = 0;
+            for (let k in pAddons) addSum += pAddons[k].price;
+            let total = pBase + durSur + addSum;
+
+            document.getElementById('pGrandTotalDisplay').innerText = `$${total.toLocaleString()}`;
+
+            let html = `
+                <div class="flex justify-between text-gray-300">
+                    <span>${pCatName}</span>
+                    <span class="font-mono text-white">$${pBase.toLocaleString()}</span>
+                </div>
+                <div class="flex justify-between text-gray-300">
+                    <span>Duration (${pHours} Hours)</span>
+                    <span class="font-mono text-white">$${durSur.toLocaleString()}</span>
+                </div>
+            `;
+            for (let k in pAddons) {
+                html += `
+                    <div class="flex justify-between text-gray-300">
+                        <span>${pAddons[k].name}</span>
+                        <span class="font-mono text-accentGold">+$${pAddons[k].price}</span>
+                    </div>
+                `;
+            }
+            document.getElementById('pItemList').innerHTML = html;
+        }
+
+        function openFormalProposal() {
+            const name = document.getElementById('pClientName').value || 'Valued Client';
+            document.getElementById('pModalGreeting').innerText = `Prepared for: ${name}`;
+            document.getElementById('pModalNiche').innerText = pCatName;
+            document.getElementById('pModalHours').innerText = `${pHours} Hours Continuous`;
+            const aList = Object.values(pAddons).map(a => a.name).join(', ') || 'No extra add-ons';
+            document.getElementById('pModalAddons').innerText = aList;
+            document.getElementById('pModalTotal').innerText = document.getElementById('pGrandTotalDisplay').innerText;
+            document.getElementById('pModalId').innerText = 'LF-' + Math.floor(10000 + Math.random() * 90000);
+            document.getElementById('pProposalModal').classList.remove('hidden');
+        }
+
+        function closeFormalProposal() {
+            document.getElementById('pProposalModal').classList.add('hidden');
+        }
+
+        calcTotal();
+    </script>
+
+</body>
+</html>
+

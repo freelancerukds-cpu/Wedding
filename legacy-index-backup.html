@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Visuals & Productions | Luxury Photography & Event Curation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#AA8C2C',
+                        },
+                        dark: {
+                            DEFAULT: '#0B0B0B',
+                            card: '#141414',
+                            border: '#262626'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #0B0B0B;
+            color: #E5E7EB;
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-100 antialiased selection:bg-gold selection:text-black">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark/90 backdrop-blur-md border-b border-dark-border transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-full border-2 border-gold flex items-center justify-center bg-gold/10 group-hover:bg-gold transition duration-300">
+                        <i class="fa-solid fa-camera-retro text-gold group-hover:text-black transition duration-300"></i>
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold tracking-wider text-white block leading-tight">AURA VISUALS</span>
+                        <span class="text-xs tracking-widest text-gold uppercase block">Productions & Events</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium text-gray-300 hover:text-gold transition duration-200">Home</a>
+                    <a href="#services" class="text-sm font-medium text-gray-300 hover:text-gold transition duration-200">Services</a>
+                    <a href="#gallery" class="text-sm font-medium text-gray-300 hover:text-gold transition duration-200">Gallery</a>
+                    <a href="#events" class="text-sm font-medium text-gray-300 hover:text-gold transition duration-200">Events</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full border border-gold text-gold text-sm font-medium hover:bg-gold hover:text-black transition duration-300">Book Consultation</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-300 hover:text-gold focus:outline-none p-2" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-card border-b border-dark-border px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="block py-2 text-base font-medium text-gray-300 hover:text-gold mobile-link">Home</a>
+            <a href="#services" class="block py-2 text-base font-medium text-gray-300 hover:text-gold mobile-link">Services</a>
+            <a href="#gallery" class="block py-2 text-base font-medium text-gray-300 hover:text-gold mobile-link">Gallery</a>
+            <a href="#events" class="block py-2 text-base font-medium text-gray-300 hover:text-gold mobile-link">Events</a>
+            <div class="pt-2">
+                <a href="#contact" class="block text-center w-full py-3 rounded-full bg-gold text-black font-semibold text-sm mobile-link">Book Consultation</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Overlay Image & Gradient -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=2000" alt="Luxury Event Photography" class="w-full h-full object-cover object-center opacity-25 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-20">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full border border-gold/40 bg-gold/10 text-gold text-xs font-semibold tracking-widest uppercase mb-6 backdrop-blur-sm">
+                <i class="fa-solid fa-crown text-xs"></i>
+                <span>Premier Photography & Full-Service Curation</span>
+            </div>
+            
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
+                Capturing Moments. <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold-dark">Curating Legends.</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed">
+                We transform extraordinary milestones into timeless visual masterpieces and flawlessly executed high-end events tailored for visionary clients across India.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gold text-black font-semibold text-base hover:bg-gold-light transition duration-300 shadow-lg shadow-gold/20 flex items-center justify-center space-x-2">
+                    <span>Explore Portfolio</span>
+                    <i class="fa-solid fa-arrow-right text-sm"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full border border-gray-600 hover:border-gold text-white font-medium text-base transition duration-300 backdrop-blur-sm">
+                    Inquire For Your Event
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-dark-border">
+                <div class="text-center">
+                    <p class="text-3xl sm:text-4xl font-bold text-gold mb-1">500+</p>
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Events Curated</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-3xl sm:text-4xl font-bold text-gold mb-1">1.2M+</p>
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Shots Captured</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-3xl sm:text-4xl font-bold text-gold mb-1">15+</p>
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Global Awards</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-3xl sm:text-4xl font-bold text-gold mb-1">100%</p>
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider">Client Delight</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-dark-card/50 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold text-xs font-semibold tracking-widest uppercase block mb-3">What We Offer</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">Our Signature Services</h2>
+                <p class="text-gray-400 text-base sm:text-lg">Combining cinematic visual storytelling with meticulous, high-end event production.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-dark-card rounded-2xl p-8 border border-dark-border hover:border-gold/50 transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-2xl mb-6 group-hover:bg-gold group-hover:text-black transition duration-300">
+                            <i class="fa-solid fa-ring"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Wedding Cinematography</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Breathtaking bridal portraits, candid emotional captures, and cinematic storytelling crafted to preserve your most sacred day forever.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-dark-border pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Pre-wedding & Engagement Shoots</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Drone & Cinematic Videography</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Custom Heirloom Albums</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-dark-card rounded-2xl p-8 border border-dark-border hover:border-gold/50 transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-2xl mb-6 group-hover:bg-gold group-hover:text-black transition duration-300">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Corporate Galas</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            Professional conference coverage, executive headshots, elite annual dinners, and brand activations captured with unmatched corporate elegance.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-dark-border pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Annual Galas & Summits</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Brand Activation Coverage</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Same-day Social Media Edits</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-dark-card rounded-2xl p-8 border border-dark-border hover:border-gold/50 transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-2xl mb-6 group-hover:bg-gold group-hover:text-black transition duration-300">
+                            <i class="fa-solid fa-camera"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Fashion Portfolios</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            High-fashion lookbooks, editorial campaigns, designer showcases, and high-impact commercial visuals that elevate your brand identity.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-dark-border pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Studio & Location Shoots</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Lookbook & E-commerce</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Advanced Retouching & Grading</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-dark-card rounded-2xl p-8 border border-dark-border hover:border-gold/50 transition duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-2xl mb-6 group-hover:bg-gold group-hover:text-black transition duration-300">
+                            <i class="fa-solid fa-champagne-glasses"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3">Luxury Event Planning</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                            End-to-end luxury event planning, stage design, elite vendor coordination, and immersive guest experiences tailored to perfection.
+                        </p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-gray-300 border-t border-dark-border pt-4">
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Concept & Theme Development</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> Venue & Vendor Management</li>
+                        <li class="flex items-center"><i class="fa-solid fa-check text-gold mr-2"></i> On-site Production Direction</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Gallery Section -->
+    <section id="gallery" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-gold text-xs font-semibold tracking-widest uppercase block mb-3">Visual Masterpieces</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">Our Curated Gallery</h2>
+                <p class="text-gray-400 text-base">Explore select highlights from our recent photography assignments and grand events.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-12">
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium bg-gold text-black transition duration-200" data-filter="all">All Works</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium bg-dark-card text-gray-300 border border-dark-border hover:border-gold transition duration-200" data-filter="weddings">Weddings</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium bg-dark-card text-gray-300 border border-dark-border hover:border-gold transition duration-200" data-filter="corporate">Corporate</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium bg-dark-card text-gray-300 border border-dark-border hover:border-gold transition duration-200" data-filter="events">Events</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium bg-dark-card text-gray-300 border border-dark-border hover:border-gold transition duration-200" data-filter="portraits">Portraits</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                <!-- Item 1: Weddings -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/3] bg-dark-card border border-dark-border cursor-pointer lightbox-trigger" data-category="weddings" data-img="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=1200" data-title="The Royal Palace Nuptials" data-subtitle="Udaipur, Palace Courtyard">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800" alt="Royal Wedding Ceremony" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider mb-1">Weddings</span>
+                        <h4 class="text-lg font-bold text-white">The Royal Palace Nuptials</h4>
+                        <p class="text-xs text-gray-300 mt-1">Udaipur, Palace Courtyard</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Corporate -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/3] bg-dark-card border border-dark-border cursor-pointer lightbox-trigger" data-category="corporate" data-img="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200" data-title="Global Tech Innovation Summit" data-subtitle="Chennai Trade Center">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" alt="Tech Summit 2025" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider mb-1">Corporate</span>
+                        <h4 class="text-lg font-bold text-white">Global Tech Innovation Summit</h4>
+                        <p class="text-xs text-gray-300 mt-1">Chennai Trade Center</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Events -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/3] bg-dark-card border border-dark-border cursor-pointer lightbox-trigger" data-category="events" data-img="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1200" data-title="Starlight Charity Gala" data-subtitle="Taj Coromandel Ballroom, Chennai">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800" alt="Music Festival Gala" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider mb-1">Events</span>
+                        <h4 class="text-lg font-bold text-white">Starlight Charity Gala</h4>
+                        <p class="text-xs text-gray-300 mt-1">Taj Coromandel Ballroom, Chennai</p>
+                    </div>
+                </div>
+
+                <!-- Item 4: Portraits -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/3] bg-dark-card border border-dark-border cursor-pointer lightbox-trigger" data-category="portraits" data-img="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=1200" data-title="Vogue Editorial Series" data-subtitle="Nungambakkam Studio, Chennai">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" alt="High Fashion Portrait" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider mb-1">Portraits</span>
+                        <h4 class="text-lg font-bold text-white">Vogue Editorial Series</h4>
+                        <p class="text-xs text-gray-300 mt-1">Nungambakkam Studio, Chennai</p>
+                    </div>
+                </div>
+
+                <!-- Item 5: Weddings -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/3] bg-dark-card border border-dark-border cursor-pointer lightbox-trigger" data-category="weddings" data-img="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=1200" data-title="Sunset Seaside Vows" data-subtitle="Mahabalipuram Beach Resort">
+                    <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800" alt="Beachfront Wedding" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider mb-1">Weddings</span>
+                        <h4 class="text-lg font-bold text-white">Sunset Seaside Vows</h4>
+                        <p class="text-xs text-gray-300 mt-1">Mahabalipuram Beach Resort</p>
+                    </div>
+                </div>
+
+                <!-- Item 6: Corporate -->
+                <div class="gallery-item group relative overflow-hidden rounded-2xl aspect-[4/3] bg-dark-card border border-dark-border cursor-pointer lightbox-trigger" data-category="corporate" data-img="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1200" data-title="Executive Leadership Retreat" data-subtitle="Ooty Heritage Resort">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Leadership Conference" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                        <span class="text-gold text-xs font-semibold uppercase tracking-wider mb-1">Corporate</span>
+                        <h4 class="text-lg font-bold text-white">Executive Leadership Retreat</h4>
+                        <p class="text-xs text-gray-300 mt-1">Ooty Heritage Resort</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-3xl hover:text-gold focus:outline-none z-50">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-4xl w-full bg-dark-card border border-dark-border rounded-2xl overflow-hidden shadow-2xl">
+            <img id="lightbox-img" src="" alt="Lightbox Preview" class="w-full max-h-[70vh] object-cover">
+            <div class="p-6">
+                <h3 id="lightbox-title" class="text-xl font-bold text-white mb-1"></h3>
+                <p id="lightbox-subtitle" class="text-xs text-gold uppercase tracking-wider"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Events & Client Showcase Section -->
+    <section id="events" class="py-24 bg-dark-card/50 relative border-t border-dark-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-gold text-xs font-semibold tracking-widest uppercase block mb-3">Milestones & Prestige</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-6">Events That Leave a Lasting Impression</h2>
+                    <p class="text-gray-300 text-base leading-relaxed mb-6">
+                        From intimate luxury gatherings of 50 VIPs to massive international summits hosting 5,000+ attendees across major Indian hubs, our team orchestrates every meticulous detail with absolute precision and creative flair.
+                    </p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-gold/10 border border-gold flex items-center justify-center text-gold flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-star text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Tailored Curation</h4>
+                                <p class="text-sm text-gray-400">Customized lighting, floral styling, soundscapes, and stage architecture.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-8 h-8 rounded-full bg-gold/10 border border-gold flex items-center justify-center text-gold flex-shrink-0 mt-1">
+                                <i class="fa-solid fa-award text-xs"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold">Award-Winning Production Crew</h4>
+                                <p class="text-sm text-gray-400">Industry veterans equipped with state-of-the-art cinematic gear and backup systems.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="inline-flex items-center space-x-2 text-gold font-semibold hover:text-gold-light transition duration-200">
+                        <span>Schedule an Event Walkthrough</span>
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=600" alt="Event setup" class="rounded-2xl object-cover h-64 w-full border border-dark-border">
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&q=80&w=600" alt="Wedding celebration" class="rounded-2xl object-cover h-48 w-full border border-dark-border">
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <img src="https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&q=80&w=600" alt="Gala dinner" class="rounded-2xl object-cover h-48 w-full border border-dark-border">
+                        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&q=80&w=600" alt="Celebration party" class="rounded-2xl object-cover h-64 w-full border border-dark-border">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold text-xs font-semibold tracking-widest uppercase block mb-3">Client Testimonials</span>
+                <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-4">Words From Our VIP Clients</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-dark-card rounded-2xl p-8 border border-dark-border relative flex flex-col justify-between">
+                    <div>
+                        <div class="text-gold flex space-x-1 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            "Aura Visuals captured our destination wedding with breathtaking elegance. Every single photo looks like it belongs in the pages of Vogue magazine. Truly world-class professionals!"
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 border-t border-dark-border pt-4">
+                        <div class="w-10 h-10 rounded-full bg-gold/20 border border-gold flex items-center justify-center text-gold font-bold">
+                            AS
+                        </div>
+                        <div>
+                            <h5 class="text-white text-sm font-semibold">Ananya & Siddharth Sharma</h5>
+                            <p class="text-xs text-gray-400">Destination Wedding Clients</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-dark-card rounded-2xl p-8 border border-dark-border relative flex flex-col justify-between">
+                    <div>
+                        <div class="text-gold flex space-x-1 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            "Managing our annual tech summit requires absolute precision. Aura handled both the full-scale event curation and the corporate media coverage seamlessly. Our executive board was thoroughly impressed."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 border-t border-dark-border pt-4">
+                        <div class="w-10 h-10 rounded-full bg-gold/20 border border-gold flex items-center justify-center text-gold font-bold">
+                            RK
+                        </div>
+                        <div>
+                            <h5 class="text-white text-sm font-semibold">Rajesh Krishnan</h5>
+                            <p class="text-xs text-gray-400">VP of Marketing, Infosys Tech</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-dark-card rounded-2xl p-8 border border-dark-border relative flex flex-col justify-between">
+                    <div>
+                        <div class="text-gold flex space-x-1 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            "Their creative eye and attention to detail in event production are unmatched. From the ambient lighting to the final cinematic reel, they exceeded our expectations in every possible way."
+                        </p>
+                    </div>
+                    <div class="flex items-center space-x-4 border-t border-dark-border pt-4">
+                        <div class="w-10 h-10 rounded-full bg-gold/20 border border-gold flex items-center justify-center text-gold font-bold">
+                            PN
+                        </div>
+                        <div>
+                            <h5 class="text-white text-sm font-semibold">Priya Natarajan</h5>
+                            <p class="text-xs text-gray-400">Fashion Director, Chennai Silks Luxe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Inquiry Section -->
+    <section id="contact" class="py-24 bg-dark-card/50 border-t border-dark-border relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Info Column -->
+                <div>
+                    <span class="text-gold text-xs font-semibold tracking-widest uppercase block mb-3">Get in Touch</span>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white tracking-tight mb-6">Let's Create Something Extraordinary Together</h2>
+                    <p class="text-gray-300 text-base leading-relaxed mb-8">
+                        Ready to book your photography session or plan your upcoming luxury event? Fill out the form or reach out directly through our channels below.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Studio Location</h4>
+                                <p class="text-gray-400 text-sm">Khader Nawaz Khan Road, Nungambakkam, Chennai, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">WhatsApp Concierge</h4>
+                                <p class="text-gray-400 text-sm">+91 98401 23456</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold text-sm">Concierge Email</h4>
+                                <p class="text-gray-400 text-sm">contact@auravisuals.in</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="bg-dark-card rounded-2xl p-8 border border-dark-border relative shadow-2xl">
+                    <h3 class="text-2xl font-bold text-white mb-6">Client Inquiry Form</h3>
+                    
+                    <!-- Success Message Box (Hidden by default) -->
+                    <div id="success-box" class="hidden mb-6 p-4 rounded-xl bg-green-500/10 border border-green-500/30 text-green-400 text-sm flex items-center space-x-3">
+                        <i class="fa-solid fa-circle-check text-lg"></i>
+                        <div>
+                            <span class="font-semibold block">Inquiry Received Successfully!</span>
+                            <span>Thank you. Our luxury concierge team will get back to you within 24 hours.</span>
+                        </div>
+                    </div>
+
+                    <form id="inquiry-form" class="space-y-4" onsubmit="handleFormSubmit(event)">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">Full Name *</label>
+                                <input type="text" id="name" required class="w-full bg-dark border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold transition duration-200" placeholder="Ananya Sharma">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">Email Address *</label>
+                                <input type="email" id="email" required class="w-full bg-dark border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold transition duration-200" placeholder="ananya@example.com">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">Service Required *</label>
+                                <select id="service" required class="w-full bg-dark border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold transition duration-200">
+                                    <option value="" disabled selected>Select a service</option>
+                                    <option value="Wedding Cinematography">Wedding Cinematography</option>
+                                    <option value="Corporate Galas">Corporate Galas</option>
+                                    <option value="Fashion Portfolios">Fashion Portfolios</option>
+                                    <option value="Luxury Event Planning">Luxury Event Planning</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">Estimated Date *</label>
+                                <input type="date" id="date" required class="w-full bg-dark border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold transition duration-200">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 uppercase tracking-wider mb-2">Project Details & Vision</label>
+                            <textarea id="message" rows="4" class="w-full bg-dark border border-dark-border rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-gold transition duration-200" placeholder="Tell us about your event venue, guest count, and specific aesthetic goals..."></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gold text-black font-semibold text-base hover:bg-gold-light transition duration-300 shadow-lg shadow-gold/20 flex items-center justify-center space-x-2">
+                            <span>Submit Consultation Request</span>
+                            <i class="fa-solid fa-paper-plane text-sm"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-dark-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-full border border-gold flex items-center justify-center bg-gold/10">
+                    <i class="fa-solid fa-camera-retro text-gold text-xs"></i>
+                </div>
+                <span class="text-sm font-bold tracking-wider text-white">AURA VISUALS & PRODUCTIONS</span>
+            </div>
+
+            <p class="text-xs text-gray-500 text-center">
+                &copy; 2026 Aura Visuals & Productions. All rights reserved. Nungambakkam, Chennai, India.
+            </p>
+
+            <div class="flex items-center space-x-4 text-gray-400">
+                <a href="#home" class="w-9 h-9 rounded-full bg-dark-card border border-dark-border flex items-center justify-center hover:text-gold hover:border-gold transition duration-200"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#home" class="w-9 h-9 rounded-full bg-dark-card border border-dark-border flex items-center justify-center hover:text-gold hover:border-gold transition duration-200"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#home" class="w-9 h-9 rounded-full bg-dark-card border border-dark-border flex items-center justify-center hover:text-gold hover:border-gold transition duration-200"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#home" class="w-9 h-9 rounded-full bg-dark-card border border-dark-border flex items-center justify-center hover:text-gold hover:border-gold transition duration-200"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Sticky Navbar shadow on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add('shadow-xl', 'bg-dark/95');
+            } else {
+                navbar.classList.remove('shadow-xl', 'bg-dark/95');
+            }
+        });
+
+        // Gallery Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active classes
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-gold', 'text-black');
+                    b.classList.add('bg-dark-card', 'text-gray-300', 'border', 'border-dark-border');
+                });
+                
+                // Add active style to clicked button
+                btn.classList.remove('bg-dark-card', 'text-gray-300', 'border', 'border-dark-border');
+                btn.classList.add('bg-gold', 'text-black');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filterValue === 'all' || category === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox Modal Logic
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxSubtitle = document.getElementById('lightbox-subtitle');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
+
+        lightboxTriggers.forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const imgUrl = trigger.getAttribute('data-img');
+                const title = trigger.getAttribute('data-title');
+                const subtitle = trigger.getAttribute('data-subtitle');
+
+                lightboxImg.src = imgUrl;
+                lightboxTitle.textContent = title;
+                lightboxSubtitle.textContent = subtitle;
+
+                lightboxModal.classList.remove('hidden');
+                lightboxModal.classList.add('flex');
+            });
+        });
+
+        function closeLightbox() {
+            lightboxModal.classList.add('hidden');
+            lightboxModal.classList.remove('flex');
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) {
+                closeLightbox();
+            }
+        });
+
+        // Form Submission with Validation & Success Alert
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+
+            if (!name || !email || !service || !date) {
+                return;
+            }
+
+            // Show success notification box
+            const successBox = document.getElementById('success-box');
+            successBox.classList.remove('hidden');
+
+            // Reset form
+            document.getElementById('inquiry-form').reset();
+
+            // Hide success box after 6 seconds
+            setTimeout(() => {
+                successBox.classList.add('hidden');
+            }, 6000);
+        }
+    </script>
+</body>
+</html>

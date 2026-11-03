@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen & Frame Studios | Complete Dynamic Photography & Media Experience</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0A0D14',
+                        brandCard: '#121724',
+                        brandBorder: '#1F293D',
+                        goldLuxe: '#F59E0B',
+                        roseLuxe: '#FB7185',
+                        emeraldLuxe: '#10B981',
+                        indigoLuxe: '#6366F1'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0A0D14; color: #F1F5F9; font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
+        
+        /* Draggable Before/After Retouch Slider */
+        .retouch-box {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.5rem;
+            user-select: none;
+        }
+        .retouch-before-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 50%;
+            overflow: hidden;
+            border-right: 3px solid #F59E0B;
+            box-shadow: 2px 0 20px rgba(245, 158, 11, 0.4);
+            z-index: 10;
+        }
+        
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(18, 23, 36, 0.85);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-panel:hover {
+            border-color: rgba(245, 158, 11, 0.35);
+        }
+
+        /* Active Navigation Tab */
+        .mode-btn-active {
+            background: #F59E0B !important;
+            color: #0A0D14 !important;
+            font-weight: 800 !important;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-brandDark text-slate-100 antialiased selection:bg-goldLuxe selection:text-black">
+
+    <!-- Top Status Banner -->
+    <div class="bg-gradient-to-r from-brandCard via-brandBorder to-brandCard border-b border-brandBorder py-2.5 px-6 text-xs text-center flex flex-wrap items-center justify-center gap-3">
+        <span class="inline-flex items-center text-goldLuxe font-bold">
+            <span class="w-2 h-2 rounded-full bg-emeraldLuxe mr-2 animate-ping"></span>
+            ALL-IN-ONE CLIENT PORTAL:
+        </span>
+        <span class="text-gray-300">Weddings • Baby & Maternity Studio • Events & Corporate Galas</span>
+        <span class="text-gray-600 hidden sm:inline">|</span>
+        <a href="#quote-calculator" class="text-goldLuxe hover:underline font-bold">Launch Interactive Price Calculator &darr;</a>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-brandDark/95 backdrop-blur-xl border-b border-brandBorder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-goldLuxe to-amber-600 flex items-center justify-center text-black font-extrabold text-lg shadow-lg shadow-goldLuxe/20">
+                    <i class="fa-solid fa-camera-retro"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-bold tracking-tight text-white font-serif">LUMEN <span class="text-goldLuxe">&</span> FRAME</span>
+                    <span class="block text-[9px] uppercase tracking-[0.25em] text-gray-400 font-semibold">Master Visual Media House</span>
+                </div>
+            </a>
+
+            <!-- Category Fast Jump Pills -->
+            <div class="hidden lg:flex items-center space-x-2 bg-brandCard p-1.5 rounded-full border border-brandBorder text-xs font-bold">
+                <button onclick="switchMode('all', this)" class="mode-pill mode-btn-active px-4 py-1.5 rounded-full transition">
+                    🌟 All Divisions
+                </button>
+                <button onclick="switchMode('wedding', this)" class="mode-pill px-4 py-1.5 rounded-full text-gray-400 hover:text-white transition">
+                    💒 Weddings
+                </button>
+                <button onclick="switchMode('baby', this)" class="mode-pill px-4 py-1.5 rounded-full text-gray-400 hover:text-white transition">
+                    👶 Baby & Kids
+                </button>
+                <button onclick="switchMode('event', this)" class="mode-pill px-4 py-1.5 rounded-full text-gray-400 hover:text-white transition">
+                    🎉 Grand Events
+                </button>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="#quote-calculator" class="px-5 py-2.5 rounded-full bg-goldLuxe hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition shadow-lg shadow-goldLuxe/20">
+                    Instant Quote Engine
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- DYNAMIC HERO SECTION: Adapts Dynamically with 1 Click -->
+    <section class="relative min-h-[85vh] flex items-center justify-center py-20 px-6 overflow-hidden">
+        <!-- Background Ambient Glow -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-goldLuxe/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-indigoLuxe/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center">
+            
+            <!-- Dynamic Niche Pill -->
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full glass-panel text-goldLuxe text-xs font-bold uppercase tracking-widest mb-6">
+                <i class="fa-solid fa-sparkles text-goldLuxe"></i>
+                <span id="heroBadge">Complete Visual Production: Weddings • Newborns • Celebrations</span>
+            </div>
+
+            <!-- Dynamic Headline -->
+            <h1 id="heroHeadline" class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold text-white tracking-tight leading-tight mb-6">
+                Capturing Life's Greatest Chapters With <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-goldLuxe via-yellow-200 to-amber-500 italic font-serif">Timeless Brilliance</span>
+            </h1>
+
+            <!-- Dynamic Subtitle -->
+            <p id="heroSubtitle" class="text-gray-300 text-base sm:text-xl max-w-3xl mx-auto font-light leading-relaxed mb-10">
+                A unified premier studio tailored for <strong>royal wedding cinematography</strong>, <strong>sanitized baby & milestone photography</strong>, and <strong>high-energy corporate and private galas</strong>. Tested, trusted, and equipped for every moment.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#quote-calculator" class="w-full sm:w-auto px-8 py-4 rounded-full bg-goldLuxe hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-widest transition shadow-xl shadow-goldLuxe/25 flex items-center justify-center">
+                    <i class="fa-solid fa-calculator mr-2"></i> Configure Custom Package
+                </a>
+                <a href="#retouch-comparison" class="w-full sm:w-auto px-8 py-4 rounded-full glass-panel hover:bg-white/10 text-white font-bold text-xs uppercase tracking-widest transition text-center">
+                    Interactive Before / After Demo &darr;
+                </a>
+            </div>
+
+            <!-- Dynamic Live Stats Row -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 pt-8 border-t border-brandBorder/80">
+                <div class="p-4 rounded-2xl glass-panel text-left">
+                    <div class="text-3xl font-mono font-bold text-goldLuxe" id="stat1Value">650+</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1" id="stat1Label">Weddings Filmed</div>
+                </div>
+                <div class="p-4 rounded-2xl glass-panel text-left">
+                    <div class="text-3xl font-mono font-bold text-roseLuxe" id="stat2Value">1,200+</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1" id="stat2Label">Babies & Newborns</div>
+                </div>
+                <div class="p-4 rounded-2xl glass-panel text-left">
+                    <div class="text-3xl font-mono font-bold text-emeraldLuxe" id="stat3Value">480+</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1" id="stat3Label">Events & Galas</div>
+                </div>
+                <div class="p-4 rounded-2xl glass-panel text-left">
+                    <div class="text-3xl font-mono font-bold text-indigoLuxe" id="stat4Value">100%</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-wider mt-1" id="stat4Label">Satisfaction Rate</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- LIVE DATE & AVAILABILITY CHECKER BAR -->
+    <section class="py-6 bg-brandCard border-y border-brandBorder">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3 text-xs">
+                <div class="w-9 h-9 rounded-xl bg-goldLuxe/20 text-goldLuxe flex items-center justify-center text-base">
+                    <i class="fa-solid fa-calendar-check"></i>
+                </div>
+                <div>
+                    <span class="text-white font-bold block">Check Date & Crew Availability</span>
+                    <span class="text-gray-400 text-[11px]">Instant live feedback for 2026/2027 seasons</span>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                <select id="checkerEventType" class="bg-brandDark border border-brandBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-goldLuxe">
+                    <option value="wedding">💒 Wedding Nuptials</option>
+                    <option value="baby">👶 Baby / Maternity Session</option>
+                    <option value="event">🎉 Grand Event / Gala</option>
+                </select>
+                <input type="date" id="checkerDateInput" class="bg-brandDark border border-brandBorder rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-goldLuxe">
+                <button onclick="runDateCheck()" class="px-5 py-2.5 rounded-xl bg-goldLuxe text-black font-extrabold text-xs uppercase tracking-wider hover:bg-yellow-400 transition whitespace-nowrap">
+                    Verify Slot
+                </button>
+            </div>
+        </div>
+        <div id="checkerFeedback" class="max-w-6xl mx-auto px-6 mt-3 text-xs hidden"></div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- DIVISION 1: WEDDINGS & CINEMA DEEP DIVE   -->
+    <!-- ========================================== -->
+    <section id="division-weddings" class="py-24 border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-goldLuxe">Division 01 • Weddings & Nuptials</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-6">
+                        Editorial Romance, <br><span class="italic text-goldLuxe font-serif">Cinematic Immortality</span>
+                    </h2>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        We blend unobtrusive photojournalism with breathtaking Hollywood cinematography. Every tear during vows, every burst of laughter at the reception, and every sunset kiss is preserved with fine art elegance.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 text-xs text-gray-300 mb-8">
+                        <div class="p-3.5 rounded-xl bg-brandCard border border-brandBorder">
+                            <i class="fa-solid fa-clapperboard text-goldLuxe mr-2"></i>
+                            <span class="font-bold text-white">RED & Sony Cinema 4K</span>
+                            <p class="text-[11px] text-gray-400 mt-1">Hollywood anamorphic lenses with licensed soundtracks.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-brandCard border border-brandBorder">
+                            <i class="fa-solid fa-book-open text-goldLuxe mr-2"></i>
+                            <span class="font-bold text-white">Italian Leather Albums</span>
+                            <p class="text-[11px] text-gray-400 mt-1">Archival fine art cotton papers handcrafted in Italy.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-brandCard border border-brandBorder">
+                            <i class="fa-solid fa-drone text-goldLuxe mr-2"></i>
+                            <span class="font-bold text-white">4K Drone Aerial Sweeps</span>
+                            <p class="text-[11px] text-gray-400 mt-1">Licensed pilots capturing majestic overhead venue views.</p>
+                        </div>
+                        <div class="p-3.5 rounded-xl bg-brandCard border border-brandBorder">
+                            <i class="fa-solid fa-bolt text-goldLuxe mr-2"></i>
+                            <span class="font-bold text-white">48-Hour Sneak Peek</span>
+                            <p class="text-[11px] text-gray-400 mt-1">40+ hand-retouched photos ready for instant social sharing.</p>
+                        </div>
+                    </div>
+
+                    <a href="#quote-calculator" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-goldLuxe hover:underline">
+                        Calculate Wedding Package Quote &rarr;
+                    </a>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="rounded-2xl overflow-hidden h-72 border border-brandBorder shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Wedding Couple" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden h-72 border border-brandBorder shadow-xl mt-6">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Lake Como Vows" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- DIVISION 2: BABY, NEWBORN & KIDS STUDIO DEEP DIVE -->
+    <!-- ============================================== -->
+    <section id="division-baby" class="py-24 bg-brandCard/40 border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 order-2 lg:order-1 grid grid-cols-2 gap-4">
+                    <div class="rounded-2xl overflow-hidden h-72 border border-brandBorder shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=600&q=80" alt="Newborn baby" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden h-72 border border-brandBorder shadow-xl mt-6">
+                        <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=600&q=80" alt="Cake Smash" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 order-1 lg:order-2">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-roseLuxe">Division 02 • Baby & Kids Photography</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-6">
+                        Gentle, Cozy & <br><span class="italic text-roseLuxe font-serif">100% Baby-Led Pacing</span>
+                    </h2>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        From peaceful 0-21 day posed newborns to giggly 6-month sitters and messy 1st birthday cake smashes. Our climate-controlled studio is sanitized with hospital-grade protocols so parents can relax.
+                    </p>
+
+                    <!-- Interactive Baby Milestone Selector -->
+                    <div class="p-6 rounded-2xl bg-brandDark border border-brandBorder mb-6">
+                        <span class="text-xs font-bold text-roseLuxe uppercase tracking-wider block mb-3">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Interactive Milestone Explorer:
+                        </span>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <button onclick="setBabyMilestone('newborn', this)" class="baby-tab px-3 py-1.5 rounded-lg bg-roseLuxe text-black text-xs font-bold transition">
+                                🍼 0-21d Newborn
+                            </button>
+                            <button onclick="setBabyMilestone('sitter', this)" class="baby-tab px-3 py-1.5 rounded-lg bg-brandCard text-gray-300 hover:text-white text-xs font-bold transition">
+                                🧸 6-Mo Sitter
+                            </button>
+                            <button onclick="setBabyMilestone('cakesmash', this)" class="baby-tab px-3 py-1.5 rounded-lg bg-brandCard text-gray-300 hover:text-white text-xs font-bold transition">
+                                🎂 1st Birthday Smash & Splash
+                            </button>
+                        </div>
+                        <div id="babyMilestoneDetails" class="text-xs text-gray-300 leading-relaxed">
+                            <strong class="text-white block mb-1">0-21 Days Sleepy Newborn:</strong>
+                            Includes 4 styled wraps, heated 28°C studio room, white noise machines, and complete family & sibling portraits.
+                        </div>
+                    </div>
+
+                    <a href="#quote-calculator" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-roseLuxe hover:underline">
+                        Calculate Baby Session Package &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- DIVISION 3: EVENTS, GALAS & CORPORATE DEEP DIVE -->
+    <!-- ============================================== -->
+    <section id="division-events" class="py-24 border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6">
+                    <span class="text-xs font-bold uppercase tracking-[0.25em] text-emeraldLuxe">Division 03 • Grand Events & Galas</span>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-6">
+                        High Vibrance, <br><span class="italic text-emeraldLuxe font-serif">Instant Press Delivery</span>
+                    </h2>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                        Milestone 1st birthdays, anniversaries, high-profile corporate summits, and concerts require media teams that thrive in fast-paced environments. We provide rapid photo delivery for press, social media, and sponsors.
+                    </p>
+
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-start space-x-3 text-xs">
+                            <i class="fa-solid fa-clock-rotate-left text-emeraldLuxe text-sm mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-white">2-Hour Same-Night Press Photo Delivery:</span>
+                                <span class="text-gray-400 block">30 retouched hero shots uploaded directly to press cloud while the event is ongoing.</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 text-xs">
+                            <i class="fa-solid fa-camera-viewfinder text-emeraldLuxe text-sm mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-white">On-Site Instant Print Kiosk:</span>
+                                <span class="text-gray-400 block">Live magnetic photo prints and guest selfie favors with custom event logo watermarks.</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3 text-xs">
+                            <i class="fa-solid fa-tower-broadcast text-emeraldLuxe text-sm mt-0.5"></i>
+                            <div>
+                                <span class="font-bold text-white">Multi-Camera Live Switching:</span>
+                                <span class="text-gray-400 block">Broadcast directly to YouTube, Zoom, or massive LED arena screens.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#quote-calculator" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-emeraldLuxe hover:underline">
+                        Calculate Event Crew Quote &rarr;
+                    </a>
+                </div>
+
+                <div class="lg:col-span-6 grid grid-cols-2 gap-4">
+                    <div class="rounded-2xl overflow-hidden h-72 border border-brandBorder shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=600&q=80" alt="Gala banquet" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden h-72 border border-brandBorder shadow-xl mt-6">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80" alt="Concert Stage" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- DYNAMIC MODULE 1: INTERACTIVE BEFORE/AFTER RETOUCH SLIDER      -->
+    <!-- Supports switching between Wedding, Baby & Event Retouching!   -->
+    <!-- ============================================================== -->
+    <section id="retouch-comparison" class="py-24 bg-brandCard/60 border-t border-brandBorder">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-goldLuxe">Interactive Color Grading & Retouching</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-4">See The Quality Difference</h2>
+                <p class="text-gray-400 text-xs sm:text-sm">
+                    Drag the slider to compare raw camera files with our fine art color-graded master edits. Switch niches below to test Wedding, Baby, or Event retouching!
+                </p>
+            </div>
+
+            <!-- Niche Selector for Slider -->
+            <div class="flex justify-center gap-3 mb-8">
+                <button onclick="setRetouchSubject('wedding', this)" class="retouch-pill px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-goldLuxe text-black transition">
+                    💒 Wedding Color Grade
+                </button>
+                <button onclick="setRetouchSubject('baby', this)" class="retouch-pill px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-brandDark border border-brandBorder text-gray-300 hover:text-white transition">
+                    👶 Baby Gentle Retouch
+                </button>
+                <button onclick="setRetouchSubject('event', this)" class="retouch-pill px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-brandDark border border-brandBorder text-gray-300 hover:text-white transition">
+                    🎉 Event Stage Lighting
+                </button>
+            </div>
+
+            <!-- The Draggable Interactive Box -->
+            <div class="max-w-4xl mx-auto">
+                <div class="retouch-box h-[400px] sm:h-[500px] border border-brandBorder shadow-2xl relative" id="retouchContainer">
+                    <!-- Master Graded (Background) -->
+                    <img id="retouchAfterImg" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Graded master" class="w-full h-full object-cover filter contrast-125 saturate-125 brightness-105">
+                    <span class="absolute top-4 right-4 bg-black/80 border border-goldLuxe/40 text-goldLuxe px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider z-0">
+                        After: Master Fine Art Retouch
+                    </span>
+
+                    <!-- Flat RAW (Foreground Reveal) -->
+                    <div class="retouch-before-layer" id="retouchBeforeWrapper">
+                        <img id="retouchBeforeImg" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="RAW unedited" class="w-full h-full object-cover filter grayscale-[65%] brightness-125 contrast-75" style="width: 896px; max-width: none;">
+                        <span class="absolute top-4 left-4 bg-black/80 border border-gray-600 text-gray-300 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider z-20">
+                            Before: Unretouched Flat Sensor RAW
+                        </span>
+                    </div>
+
+                    <!-- Divider Handle -->
+                    <div id="retouchHandle" class="absolute top-0 bottom-0 z-30 cursor-ew-resize flex items-center justify-center" style="left: calc(50% - 18px);">
+                        <div class="w-9 h-9 rounded-full bg-goldLuxe text-black flex items-center justify-center font-bold text-xs shadow-2xl ring-4 ring-brandDark">
+                            <i class="fa-solid fa-arrows-left-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Range Control Slider for Ease of Use -->
+                <div class="mt-6 flex items-center justify-between gap-4 max-w-md mx-auto">
+                    <span class="text-xs text-gray-400 font-bold uppercase">Before (RAW)</span>
+                    <input type="range" id="retouchRange" min="0" max="100" value="50" class="w-full h-2 bg-brandBorder rounded-lg appearance-none cursor-pointer accent-goldLuxe" oninput="slideRetouch(this.value)">
+                    <span class="text-xs text-goldLuxe font-bold uppercase">After (Master)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- DYNAMIC MODULE 2: LIVE MULTI-STAGE QUOTE & BOOKING WIZARD     -->
+    <!-- Real-time calculation engine with budget & duration sliders    -->
+    <!-- ============================================================== -->
+    <section id="quote-calculator" class="py-24 border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-goldLuxe">Interactive Pricing Engine</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-4">Configure Your Event Live</h2>
+                <p class="text-gray-400 text-xs sm:text-sm">
+                    Customize your desired coverage below. The itemized cost calculator updates in real-time as you tweak options.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left 8 Cols: Interactive Controls -->
+                <div class="lg:col-span-8 bg-brandCard p-6 sm:p-10 rounded-3xl border border-brandBorder shadow-2xl space-y-8">
+                    
+                    <!-- 1. Select Service Category -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">1. Select Service Category</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div onclick="selectCalcCategory('wedding', 1800, 'Royal Wedding Coverage', this)" class="calc-cat-card p-5 rounded-2xl border-2 border-goldLuxe bg-goldLuxe/10 cursor-pointer transition">
+                                <i class="fa-solid fa-ring text-goldLuxe text-xl mb-2 block"></i>
+                                <span class="font-bold text-white text-sm block">Wedding Nuptials</span>
+                                <span class="text-[11px] text-gray-400 block mt-1">Ceremony, candid, reception</span>
+                                <span class="text-xs font-mono font-bold text-goldLuxe block mt-3">Base $1,800</span>
+                            </div>
+                            <div onclick="selectCalcCategory('baby', 550, 'Baby & Milestone Session', this)" class="calc-cat-card p-5 rounded-2xl border-2 border-brandBorder bg-brandDark cursor-pointer transition hover:border-gray-500">
+                                <i class="fa-solid fa-baby text-pink-400 text-xl mb-2 block"></i>
+                                <span class="font-bold text-white text-sm block">Baby & Kids Studio</span>
+                                <span class="text-[11px] text-gray-400 block mt-1">Newborn, sitter, cake smash</span>
+                                <span class="text-xs font-mono font-bold text-pink-400 block mt-3">Base $550</span>
+                            </div>
+                            <div onclick="selectCalcCategory('event', 950, 'Grand Event Coverage', this)" class="calc-cat-card p-5 rounded-2xl border-2 border-brandBorder bg-brandDark cursor-pointer transition hover:border-gray-500">
+                                <i class="fa-solid fa-glass-cheers text-emeraldLuxe text-xl mb-2 block"></i>
+                                <span class="font-bold text-white text-sm block">Galas & Summits</span>
+                                <span class="text-[11px] text-gray-400 block mt-1">Conferences, 1st birthdays</span>
+                                <span class="text-xs font-mono font-bold text-emeraldLuxe block mt-3">Base $950</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Coverage Hours Slider -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-xs font-bold text-gray-400 uppercase tracking-wider">2. Total Coverage Duration</label>
+                            <span class="text-xl font-bold font-mono text-goldLuxe"><span id="calcHoursNumber">8</span> Hours Continuous</span>
+                        </div>
+                        <input type="range" min="2" max="16" value="8" step="1" oninput="setCalcHours(this.value)" class="w-full h-3 bg-brandDark rounded-lg appearance-none cursor-pointer accent-goldLuxe">
+                        <div class="flex justify-between text-[11px] text-gray-500 mt-2 font-mono">
+                            <span>2 Hours (Mini)</span>
+                            <span>4 Hours (Half)</span>
+                            <span>8 Hours (Full Day)</span>
+                            <span>12 Hours (Epic)</span>
+                            <span>16 Hours</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Add-on Production Toggles -->
+                    <div>
+                        <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">3. Enhance Production Value</label>
+                        <div class="space-y-3">
+                            <label class="flex items-center justify-between p-4 rounded-xl bg-brandDark border border-brandBorder hover:border-gray-500 cursor-pointer transition">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" id="addDrone" onchange="toggleCalcAddon('drone', 450, '4K Drone Aerial Filming', this.checked)" class="w-5 h-5 accent-goldLuxe rounded">
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">FAA-Licensed 4K Drone Aerial Filming</span>
+                                        <span class="text-[11px] text-gray-400">Sweeping overhead cinematic views of venue and guests.</span>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-goldLuxe">+$450</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-4 rounded-xl bg-brandDark border border-brandBorder hover:border-gray-500 cursor-pointer transition">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" id="addShooter" checked onchange="toggleCalcAddon('shooter', 500, 'Second Lead Photographer', this.checked)" class="w-5 h-5 accent-goldLuxe rounded">
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">Second Lead Photographer (Simultaneous Angles)</span>
+                                        <span class="text-[11px] text-gray-400">Double the candid reactions without missing any key moments.</span>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-goldLuxe">+$500</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-4 rounded-xl bg-brandDark border border-brandBorder hover:border-gray-500 cursor-pointer transition">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" id="addFilm" onchange="toggleCalcAddon('film', 1200, 'Cinematic 4K Highlight Film (5-min)', this.checked)" class="w-5 h-5 accent-goldLuxe rounded">
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">Cinematic 4K Highlight Film (5-min)</span>
+                                        <span class="text-[11px] text-gray-400">Color-graded DaVinci edit with licensed orchestral track.</span>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-goldLuxe">+$1,200</span>
+                            </label>
+
+                            <label class="flex items-center justify-between p-4 rounded-xl bg-brandDark border border-brandBorder hover:border-gray-500 cursor-pointer transition">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" id="addAlbum" onchange="toggleCalcAddon('album', 650, 'Handmade Italian Leather Album (30 pages)', this.checked)" class="w-5 h-5 accent-goldLuxe rounded">
+                                    <div>
+                                        <span class="text-xs font-bold text-white block">Handmade Italian Leather Album (30 pages)</span>
+                                        <span class="text-[11px] text-gray-400">Archival cotton paper heirloom keepsake.</span>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-goldLuxe">+$650</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Client Details for Quote Receipt -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-brandBorder">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Your Name</label>
+                            <input type="text" id="calcName" placeholder="e.g. Elena Rostova" class="w-full bg-brandDark border border-brandBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-goldLuxe">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-400 uppercase mb-1">Email / Phone</label>
+                            <input type="text" id="calcContact" placeholder="elena@example.com" class="w-full bg-brandDark border border-brandBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-goldLuxe">
+                        </div>
+                    </div>
+
+                    <button onclick="triggerProposalModal()" class="w-full py-4 rounded-xl bg-gradient-to-r from-goldLuxe to-yellow-400 text-black font-extrabold text-xs uppercase tracking-widest hover:opacity-95 transition shadow-xl shadow-goldLuxe/30 flex items-center justify-center">
+                        <i class="fa-solid fa-file-invoice mr-2"></i> Generate Official Itemized Quote
+                    </button>
+                </div>
+
+                <!-- Right 4 Cols: Live Updating Sticky Invoice Panel -->
+                <div class="lg:col-span-4 sticky top-28 bg-brandCard p-6 rounded-3xl border border-brandBorder shadow-2xl">
+                    <div class="flex items-center justify-between pb-4 border-b border-brandBorder">
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-300">Live Itemized Estimate</span>
+                        <span class="px-2.5 py-1 rounded-full bg-emeraldLuxe/20 text-emeraldLuxe text-[10px] font-mono font-bold">REAL-TIME</span>
+                    </div>
+
+                    <!-- Selected items list -->
+                    <div class="py-4 space-y-3 text-xs" id="calcItemList">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Grand Total Display -->
+                    <div class="mt-4 p-5 rounded-2xl bg-brandDark border border-brandBorder">
+                        <span class="text-[11px] uppercase font-bold text-gray-400 block mb-1">Estimated Total Investment</span>
+                        <div class="text-3xl font-extrabold font-mono text-goldLuxe" id="calcGrandTotal">
+                            $2,900
+                        </div>
+                        <span class="text-[10px] text-gray-400 block mt-1">Guaranteed pricing lock for 48 hours</span>
+                    </div>
+
+                    <div class="mt-4 p-3 rounded-xl bg-goldLuxe/10 border border-goldLuxe/30 text-xs flex items-center space-x-3">
+                        <i class="fa-solid fa-gift text-goldLuxe text-lg"></i>
+                        <div>
+                            <span class="font-bold text-goldLuxe block">Complimentary Perk Included</span>
+                            <span class="text-[10px] text-gray-400">48-Hour Sneak Peek Gallery Included Free!</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- DYNAMIC MODULE 3: MULTI-NICHE GALLERY WITH EXIF LIGHTBOX       -->
+    <!-- ============================================================== -->
+    <section id="portfolio-gallery" class="py-24 bg-brandCard/40 border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-goldLuxe">Master Work Showcase</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-4">Curated Portfolio Archives</h2>
+                <p class="text-gray-400 text-xs sm:text-sm">Click any photo to launch the high-resolution lightbox with technical camera & lens data.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12">
+                <button onclick="filterMasterGallery('all', this)" class="gal-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-goldLuxe text-black transition">
+                    All Highlights (6)
+                </button>
+                <button onclick="filterMasterGallery('wedding', this)" class="gal-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-brandDark border border-brandBorder text-gray-300 hover:text-white transition">
+                    Weddings (2)
+                </button>
+                <button onclick="filterMasterGallery('baby', this)" class="gal-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-brandDark border border-brandBorder text-gray-300 hover:text-white transition">
+                    Baby & Maternity (2)
+                </button>
+                <button onclick="filterMasterGallery('event', this)" class="gal-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-brandDark border border-brandBorder text-gray-300 hover:text-white transition">
+                    Grand Events (2)
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="masterGalleryGrid">
+                
+                <!-- 0: Wedding -->
+                <div class="gal-item wedding group relative rounded-2xl overflow-hidden bg-brandDark border border-brandBorder cursor-pointer" onclick="openMasterLightbox(0)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Wedding" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-brandDark/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-goldLuxe">Wedding Story</span>
+                        <h4 class="text-base font-bold text-white">Sunset Vows in Positano</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-goldLuxe"></i> Click to view EXIF Camera Details</span>
+                    </div>
+                </div>
+
+                <!-- 1: Baby -->
+                <div class="gal-item baby group relative rounded-2xl overflow-hidden bg-brandDark border border-brandBorder cursor-pointer" onclick="openMasterLightbox(1)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=800&q=80" alt="Newborn" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-brandDark/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-roseLuxe">Baby & Newborn</span>
+                        <h4 class="text-base font-bold text-white">10-Day Sleepy Newborn Nest</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-roseLuxe"></i> Click to view EXIF Camera Details</span>
+                    </div>
+                </div>
+
+                <!-- 2: Event -->
+                <div class="gal-item event group relative rounded-2xl overflow-hidden bg-brandDark border border-brandBorder cursor-pointer" onclick="openMasterLightbox(2)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=80" alt="Gala" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-brandDark/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emeraldLuxe">Grand Gala</span>
+                        <h4 class="text-base font-bold text-white">Humanitarian Charity Ball</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-emeraldLuxe"></i> Click to view EXIF Camera Details</span>
+                    </div>
+                </div>
+
+                <!-- 3: Wedding -->
+                <div class="gal-item wedding group relative rounded-2xl overflow-hidden bg-brandDark border border-brandBorder cursor-pointer" onclick="openMasterLightbox(3)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80" alt="Lake Como" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-brandDark/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-goldLuxe">Wedding Story</span>
+                        <h4 class="text-base font-bold text-white">Lake Como Villa Romance</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-goldLuxe"></i> Click to view EXIF Camera Details</span>
+                    </div>
+                </div>
+
+                <!-- 4: Baby -->
+                <div class="gal-item baby group relative rounded-2xl overflow-hidden bg-brandDark border border-brandBorder cursor-pointer" onclick="openMasterLightbox(4)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80" alt="Cake smash" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-brandDark/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-roseLuxe">Baby & Kids</span>
+                        <h4 class="text-base font-bold text-white">1st Birthday Strawberry Smash</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-roseLuxe"></i> Click to view EXIF Camera Details</span>
+                    </div>
+                </div>
+
+                <!-- 5: Event -->
+                <div class="gal-item event group relative rounded-2xl overflow-hidden bg-brandDark border border-brandBorder cursor-pointer" onclick="openMasterLightbox(5)">
+                    <div class="h-80 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" alt="Concert" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-brandDark/20 to-transparent flex flex-col justify-end p-5">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-emeraldLuxe">Grand Gala</span>
+                        <h4 class="text-base font-bold text-white">Starlight Live Arena Festival</h4>
+                        <span class="text-[11px] text-gray-400 mt-1"><i class="fa-solid fa-camera mr-1 text-emeraldLuxe"></i> Click to view EXIF Camera Details</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- DYNAMIC MODULE 4: REAL-TIME CLIENT REVIEW SUBMISSION WALL      -->
+    <!-- Allows client to test submitting a review and see it appear!   -->
+    <!-- ============================================================== -->
+    <section id="reviews-wall" class="py-24 border-t border-brandBorder">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-goldLuxe">Client Endorsements</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-2 mb-4">The Live Feedback Wall</h2>
+                <p class="text-gray-400 text-xs sm:text-sm">Submit a testimonial below to test the instant real-time publishing capability.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Submit Form -->
+                <div class="lg:col-span-5 bg-brandCard p-8 rounded-3xl border border-brandBorder shadow-xl">
+                    <h3 class="text-lg font-bold text-white mb-2">Leave an Experience Review</h3>
+                    <p class="text-xs text-gray-400 mb-6">Test how your prospective clients can share testimonials directly on this portal.</p>
+
+                    <form id="masterReviewForm" onsubmit="submitMasterReview(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Your Name</label>
+                            <input type="text" id="mRevName" required placeholder="e.g. Samantha & Alex Hayes" class="w-full bg-brandDark border border-brandBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-goldLuxe">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Service Hired</label>
+                            <select id="mRevService" class="w-full bg-brandDark border border-brandBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-goldLuxe">
+                                <option>Royal Wedding Cinematography</option>
+                                <option>Baby Milestone & Cake Smash</option>
+                                <option>Corporate Gala / Private Event</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Rating</label>
+                            <div class="flex space-x-2 text-xl text-amber-400 cursor-pointer" id="masterStarGroup">
+                                <i class="fa-solid fa-star" onclick="setMasterStars(1)"></i>
+                                <i class="fa-solid fa-star" onclick="setMasterStars(2)"></i>
+                                <i class="fa-solid fa-star" onclick="setMasterStars(3)"></i>
+                                <i class="fa-solid fa-star" onclick="setMasterStars(4)"></i>
+                                <i class="fa-solid fa-star" onclick="setMasterStars(5)"></i>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-400 mb-1">Your Review</label>
+                            <textarea id="mRevComment" required rows="3" placeholder="Write feedback here to test live posting..." class="w-full bg-brandDark border border-brandBorder rounded-xl px-4 py-2.5 text-xs text-white focus:outline-none focus:border-goldLuxe"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 rounded-full bg-goldLuxe hover:bg-yellow-400 text-black font-extrabold text-xs uppercase tracking-wider transition shadow-md shadow-goldLuxe/20">
+                            Post Testimonial Live &rarr;
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Live Wall Feed -->
+                <div class="lg:col-span-7 space-y-4" id="masterReviewsFeed">
+                    <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-white text-sm">Maya & Julian • Joshua Tree</span>
+                            <div class="text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-goldLuxe/20 text-goldLuxe font-bold inline-block mb-2">Wedding Client</span>
+                        <p class="text-xs text-gray-300 leading-relaxed italic">
+                            "The 4K cinematic film took our breath away. They captured the light, the music, and the emotional speeches so organically. We recommend Lumen & Frame to all our friends!"
+                        </p>
+                    </div>
+
+                    <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-white text-sm">Sophie & Baby Noah (Day 10)</span>
+                            <div class="text-amber-400 text-xs">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-pink-500/20 text-pink-400 font-bold inline-block mb-2">Baby Studio Client</span>
+                        <p class="text-xs text-gray-300 leading-relaxed italic">
+                            "The baby studio was super cozy and pristine. Noah slept through the entire session and the linen photo album is something we will cherish for generations."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FULLSCREEN EXIF LIGHTBOX MODAL -->
+    <div id="masterLightboxModal" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-xl hidden flex items-center justify-center p-4">
+        <div class="relative w-full max-w-5xl bg-brandCard rounded-3xl border border-brandBorder overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12">
+            <button onclick="closeMasterLightbox()" class="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-brandDark text-white flex items-center justify-center border border-brandBorder hover:bg-white/20">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="lg:col-span-8 bg-black flex items-center justify-center h-80 sm:h-[500px]">
+                <img id="mLightImg" src="" alt="Zoomed" class="w-full h-full object-contain">
+            </div>
+
+            <div class="lg:col-span-4 p-8 flex flex-col justify-between bg-brandCard border-t lg:border-t-0 lg:border-l border-brandBorder">
+                <div>
+                    <span id="mLightCategory" class="text-[10px] font-bold uppercase tracking-widest text-goldLuxe">Category</span>
+                    <h3 id="mLightTitle" class="text-2xl font-serif font-bold text-white mt-1 mb-4">Title</h3>
+                    <p id="mLightDesc" class="text-xs text-gray-400 leading-relaxed mb-6">Description</p>
+
+                    <div class="p-4 rounded-2xl bg-brandDark border border-brandBorder font-mono text-[11px] space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Camera:</span>
+                            <span class="text-white" id="mLightCamera">Sony A1 / RED 8K</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Lens:</span>
+                            <span class="text-white" id="mLightLens">85mm f/1.2 G-Master</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500">Settings:</span>
+                            <span class="text-goldLuxe" id="mLightSettings">f/1.4 • 1/800s • ISO 100</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 border-t border-brandBorder flex items-center justify-between">
+                    <button onclick="navMasterLightbox(-1)" class="px-4 py-2 rounded-xl bg-brandDark border border-brandBorder text-xs text-white hover:border-goldLuxe">
+                        &larr; Prev
+                    </button>
+                    <span class="text-xs text-gray-500" id="mLightCounter">1 / 6</span>
+                    <button onclick="navMasterLightbox(1)" class="px-4 py-2 rounded-xl bg-brandDark border border-brandBorder text-xs text-white hover:border-goldLuxe">
+                        Next &rarr;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OFFICIAL PROPOSAL RECEIPT MODAL -->
+    <div id="proposalReceiptModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-brandCard border border-brandBorder w-full max-w-xl rounded-3xl p-8 shadow-2xl relative">
+            <button onclick="closeProposalReceiptModal()" class="absolute top-6 right-6 w-8 h-8 rounded-full bg-brandDark text-gray-400 hover:text-white flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center pb-6 border-b border-brandBorder">
+                <div class="w-12 h-12 rounded-full bg-emeraldLuxe/20 text-emeraldLuxe flex items-center justify-center text-xl mx-auto mb-3">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Guaranteed Official Estimate</h3>
+                <p class="text-xs text-gray-400 mt-1" id="recClientName">Prepared for: Client</p>
+            </div>
+
+            <div class="py-6 space-y-3 text-xs">
+                <div class="flex justify-between py-1 border-b border-brandBorder/50">
+                    <span class="text-gray-400">Estimate Reference:</span>
+                    <span class="font-mono text-white" id="recId">LF-89210</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-brandBorder/50">
+                    <span class="text-gray-400">Selected Niche:</span>
+                    <span class="font-bold text-white" id="recNiche">Royal Wedding Coverage</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-brandBorder/50">
+                    <span class="text-gray-400">Coverage Duration:</span>
+                    <span class="font-bold text-white" id="recHours">8 Hours</span>
+                </div>
+                <div class="flex justify-between py-1 border-b border-brandBorder/50">
+                    <span class="text-gray-400">Add-On Perks Included:</span>
+                    <span class="font-bold text-goldLuxe text-right" id="recAddons">None</span>
+                </div>
+                <div class="flex justify-between py-3 items-center bg-brandDark p-4 rounded-xl mt-4">
+                    <span class="font-bold text-sm text-white">Locked Total Price:</span>
+                    <span class="font-mono text-2xl font-extrabold text-goldLuxe" id="recTotal">$2,900</span>
+                </div>
+            </div>
+
+            <div class="pt-4 flex gap-3">
+                <button onclick="window.print()" class="w-full py-3 rounded-xl border border-brandBorder text-gray-300 hover:bg-white/5 text-xs font-bold uppercase tracking-wider transition">
+                    <i class="fa-solid fa-print mr-2"></i> Print / Save PDF
+                </button>
+                <button onclick="alert('Congratulations! Your date hold request has been logged with our studio.'); closeProposalReceiptModal();" class="w-full py-3 rounded-xl bg-goldLuxe hover:bg-yellow-400 text-black text-xs font-extrabold uppercase tracking-widest transition">
+                    Hold Date With This Quote
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-brandDark border-t border-brandBorder py-12 text-center text-xs text-gray-500">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-left">
+                <span class="font-serif font-bold text-white text-base">LUMEN & FRAME STUDIOS</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">The Unified Dynamic Photography & Event Media Master Website</p>
+            </div>
+            <div class="flex space-x-6 text-gray-400">
+                <a href="#division-weddings" class="hover:text-goldLuxe">Weddings</a>
+                <a href="#division-baby" class="hover:text-goldLuxe">Baby & Kids</a>
+                <a href="#division-events" class="hover:text-goldLuxe">Events & Galas</a>
+                <a href="#quote-calculator" class="hover:text-goldLuxe">Quote Wizard</a>
+            </div>
+            <div>
+                &copy; 2026 Lumen & Frame Master Production Portal.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================== -->
+    <!-- MASTER INTERACTIVE SCRIPTS                     -->
+    <!-- ============================================== -->
+    <script>
+        // 1. Dynamic Mode Switcher (Changes the entire site's primary focus)
+        const modes = {
+            all: {
+                badge: "Complete Visual Production: Weddings • Newborns • Celebrations",
+                headline: "Capturing Life's Greatest Chapters With <span class='text-transparent bg-clip-text bg-gradient-to-r from-goldLuxe via-yellow-200 to-amber-500 italic font-serif'>Timeless Brilliance</span>",
+                sub: "A unified premier studio tailored for <strong>royal wedding cinematography</strong>, <strong>sanitized baby & milestone photography</strong>, and <strong>high-energy corporate and private galas</strong>.",
+                s1: "650+", l1: "Weddings Filmed",
+                s2: "1,200+", l2: "Babies & Newborns",
+                s3: "480+", l3: "Events & Galas"
+            },
+            wedding: {
+                badge: "Luxury Wedding Cinematography & Editorial Fine Art",
+                headline: "Where Sacred Vows Become <span class='text-transparent bg-clip-text bg-gradient-to-r from-goldLuxe via-yellow-200 to-amber-500 italic font-serif'>Enduring Poetry</span>",
+                sub: "Documenting multi-day royal Indian weddings, Lake Como villa destination nuptials, and intimate elopements on RED 8K cinema and 35mm film.",
+                s1: "650+", l1: "Weddings Documented",
+                s2: "28", l2: "Countries Covered",
+                s3: "100%", l3: "Couples Delighted"
+            },
+            baby: {
+                badge: "Certified Infant Safety & Milestone Baby Studio",
+                headline: "Preserving The Gentle Wonder Of <span class='text-transparent bg-clip-text bg-gradient-to-r from-roseLuxe via-pink-200 to-rose-400 italic font-serif'>Their Tiny First Days</span>",
+                sub: "Hospital-grade sanitized 28°C heated studio, baby-led nursing pacing, and creative cake smash sets for growing families.",
+                s1: "1,200+", l1: "Newborns Welcomed",
+                s2: "28°C", l2: "Heated Cozy Studio",
+                s3: "CPR", l3: "Certified Safety Team"
+            },
+            event: {
+                badge: "Grand Celebrations, Keynotes & Concert Media",
+                headline: "Capturing High Stakes Energy & <span class='text-transparent bg-clip-text bg-gradient-to-r from-emeraldLuxe via-teal-200 to-emerald-400 italic font-serif'>Electric Moments</span>",
+                sub: "Multi-camera crews, 4K aerial drone coverage, and 2-hour rush photo delivery for press, corporate sponsors, and VIP galas.",
+                s1: "480+", l1: "Events Orchestrated",
+                s2: "< 2 Hrs", l2: "Press Delivery Time",
+                s3: "FAA 107", l3: "Licensed Drone Pilots"
+            }
+        };
+
+        function switchMode(key, btn) {
+            const data = modes[key];
+            document.getElementById('heroBadge').innerText = data.badge;
+            document.getElementById('heroHeadline').innerHTML = data.headline;
+            document.getElementById('heroSubtitle').innerHTML = data.sub;
+
+            document.getElementById('stat1Value').innerText = data.s1;
+            document.getElementById('stat1Label').innerText = data.l1;
+            document.getElementById('stat2Value').innerText = data.s2;
+            document.getElementById('stat2Label').innerText = data.l2;
+            document.getElementById('stat3Value').innerText = data.s3;
+            document.getElementById('stat3Label').innerText = data.l3;
+
+            document.querySelectorAll('.mode-pill').forEach(b => {
+                b.className = 'mode-pill px-4 py-1.5 rounded-full text-gray-400 hover:text-white transition';
+            });
+            btn.className = 'mode-pill mode-btn-active px-4 py-1.5 rounded-full transition';
+        }
+
+        // 2. Live Date Availability Checker
+        function runDateCheck() {
+            const date = document.getElementById('checkerDateInput').value;
+            const type = document.getElementById('checkerEventType').value;
+            const box = document.getElementById('checkerFeedback');
+            box.classList.remove('hidden');
+
+            if (!date) {
+                box.innerHTML = '<span class="text-roseLuxe font-bold"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Please pick a calendar date first.</span>';
+                return;
+            }
+
+            const day = new Date(date).getDay();
+            const isWeekend = (day === 0 || day === 6);
+
+            if (isWeekend) {
+                box.innerHTML = `<span class="text-goldLuxe font-bold"><i class="fa-solid fa-circle-check mr-1"></i> ${date} is a prime weekend date! We have 1 lead visual crew slot available. <a href="#quote-calculator" class="underline ml-1">Lock this date now &rarr;</a></span>`;
+            } else {
+                box.innerHTML = `<span class="text-emeraldLuxe font-bold"><i class="fa-solid fa-circle-check mr-1"></i> ${date} is wide OPEN for booking with weekday VIP savings included!</span>`;
+            }
+        }
+
+        // 3. Interactive Baby Milestone Tabs
+        const babyMilestoneData = {
+            newborn: {
+                title: "0-21 Days Sleepy Newborn:",
+                desc: "Includes 4 styled wraps, heated 28°C studio room, white noise machines, and complete family & sibling portraits."
+            },
+            sitter: {
+                title: "6 to 8 Months The Sitter:",
+                desc: "Chubby baby rolls, toothless belly laughs, sitting tall in wooden vintage crates and handmade bloomer outfits."
+            },
+            cakesmash: {
+                title: "1-Year Cake Smash & Bubbly Splash:",
+                desc: "Custom-themed balloon garland backdrop, low-sugar artisan smash cake, followed by a warm vintage clawfoot tub bubble bath!"
+            }
+        };
+
+        function setBabyMilestone(key, btn) {
+            const d = babyMilestoneData[key];
+            document.getElementById('babyMilestoneDetails').innerHTML = `<strong class="text-white block mb-1">${d.title}</strong>${d.desc}`;
+            document.querySelectorAll('.baby-tab').forEach(b => {
+                b.className = 'baby-tab px-3 py-1.5 rounded-lg bg-brandCard text-gray-300 hover:text-white text-xs font-bold transition';
+            });
+            btn.className = 'baby-tab px-3 py-1.5 rounded-lg bg-roseLuxe text-black text-xs font-bold transition';
+        }
+
+        // 4. Retouch Slider Logic (Supports Wedding, Baby, Event subjects!)
+        const retouchImages = {
+            wedding: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+            baby: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80",
+            event: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80"
+        };
+
+        function setRetouchSubject(sub, btn) {
+            const url = retouchImages[sub];
+            document.getElementById('retouchAfterImg').src = url;
+            document.getElementById('retouchBeforeImg').src = url;
+
+            document.querySelectorAll('.retouch-pill').forEach(b => {
+                b.className = 'retouch-pill px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-brandDark border border-brandBorder text-gray-300 hover:text-white transition';
+            });
+            btn.className = 'retouch-pill px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-goldLuxe text-black transition';
+        }
+
+        function slideRetouch(val) {
+            document.getElementById('retouchBeforeWrapper').style.width = val + '%';
+            document.getElementById('retouchHandle').style.left = `calc(${val}% - 18px)`;
+        }
+
+        // 5. Interactive Pricing Calculator State & Engine
+        let calcBasePrice = 1800;
+        let calcCategoryName = 'Royal Wedding Coverage';
+        let calcHours = 8;
+        let calcAddons = {
+            shooter: { name: 'Second Lead Photographer', price: 500 }
+        };
+
+        function selectCalcCategory(cat, base, name, el) {
+            calcBasePrice = base;
+            calcCategoryName = name;
+            document.querySelectorAll('.calc-cat-card').forEach(c => {
+                c.className = 'calc-cat-card p-5 rounded-2xl border-2 border-brandBorder bg-brandDark cursor-pointer transition hover:border-gray-500';
+            });
+            el.className = 'calc-cat-card p-5 rounded-2xl border-2 border-goldLuxe bg-goldLuxe/10 cursor-pointer transition';
+            recalculateGrandTotal();
+        }
+
+        function setCalcHours(val) {
+            calcHours = parseInt(val);
+            document.getElementById('calcHoursNumber').innerText = val;
+            recalculateGrandTotal();
+        }
+
+        function toggleCalcAddon(key, price, name, isChecked) {
+            if (isChecked) {
+                calcAddons[key] = { name: name, price: price };
+            } else {
+                delete calcAddons[key];
+            }
+            recalculateGrandTotal();
+        }
+
+        function recalculateGrandTotal() {
+            let durationSurcharge = 0;
+            if (calcHours > 4) {
+                durationSurcharge = (calcHours - 4) * 150;
+            }
+
+            let addonsSum = 0;
+            for (let k in calcAddons) {
+                addonsSum += calcAddons[k].price;
+            }
+
+            let grand = calcBasePrice + durationSurcharge + addonsSum;
+
+            document.getElementById('calcGrandTotal').innerText = `$${grand.toLocaleString()}`;
+
+            // Rebuild item list
+            let html = `
+                <div class="flex justify-between text-gray-300">
+                    <span>${calcCategoryName}</span>
+                    <span class="font-mono text-white">$${calcBasePrice.toLocaleString()}</span>
+                </div>
+                <div class="flex justify-between text-gray-300">
+                    <span>Duration (${calcHours} Hours)</span>
+                    <span class="font-mono text-white">$${durationSurcharge.toLocaleString()}</span>
+                </div>
+            `;
+
+            for (let k in calcAddons) {
+                html += `
+                    <div class="flex justify-between text-gray-300">
+                        <span>${calcAddons[k].name}</span>
+                        <span class="font-mono text-goldLuxe">+$${calcAddons[k].price}</span>
+                    </div>
+                `;
+            }
+            document.getElementById('calcItemList').innerHTML = html;
+        }
+
+        function triggerProposalModal() {
+            const name = document.getElementById('calcName').value || 'Valued Client';
+            document.getElementById('recClientName').innerText = `Prepared for: ${name}`;
+            document.getElementById('recNiche').innerText = calcCategoryName;
+            document.getElementById('recHours').innerText = `${calcHours} Hours Continuous`;
+
+            const addonList = Object.values(calcAddons).map(a => a.name).join(', ') || 'No extra add-ons';
+            document.getElementById('recAddons').innerText = addonList;
+
+            document.getElementById('recTotal').innerText = document.getElementById('calcGrandTotal').innerText;
+            document.getElementById('recId').innerText = 'LF-' + Math.floor(10000 + Math.random() * 90000);
+
+            document.getElementById('proposalReceiptModal').classList.remove('hidden');
+        }
+
+        function closeProposalReceiptModal() {
+            document.getElementById('proposalReceiptModal').classList.add('hidden');
+        }
+
+        // 6. Master Gallery Lightbox
+        const masterGalleryData = [
+            {
+                img: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+                cat: "Luxury Wedding",
+                title: "Sunset Vows in Positano",
+                desc: "An intimate cliffside elopement bathed in the soft golden haze of the Amalfi coast.",
+                camera: "Canon EOS R5",
+                lens: "RF 85mm f/1.2L USM",
+                settings: "f/1.4 • 1/800s • ISO 100"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1200&q=80",
+                cat: "Baby & Newborn",
+                title: "10-Day Sleepy Newborn Nest",
+                desc: "Peaceful curly womb-pose on heated hypoallergenic organic cashmere.",
+                camera: "Sony Alpha 1",
+                lens: "FE 50mm f/1.2 GM",
+                settings: "f/2.0 • 1/250s • ISO 200"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
+                cat: "Grand Gala",
+                title: "Humanitarian Charity Ball",
+                desc: "800-guest ballroom with chandelier lighting and silent auction coverage.",
+                camera: "Sony FX6 Cinema",
+                lens: "FE 24-70mm f/2.8 GM II",
+                settings: "f/2.8 • 1/500s • ISO 1600"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+                cat: "Luxury Wedding",
+                title: "Lake Como Villa Romance",
+                desc: "Bride and groom arrival via classic mahogany Riva speedboat.",
+                camera: "Leica M11-P",
+                lens: "Summilux-M 35mm f/1.4",
+                settings: "f/2.0 • 1/1200s • ISO 64"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1200&q=80",
+                cat: "Baby & Kids",
+                title: "1st Birthday Strawberry Smash",
+                desc: "Joyful first cake bite with handmade strawberry garlands.",
+                camera: "Canon EOS R5",
+                lens: "RF 35mm f/1.8 Macro",
+                settings: "f/2.2 • 1/400s • ISO 320"
+            },
+            {
+                img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80",
+                cat: "Grand Gala",
+                title: "Starlight Live Arena Festival",
+                desc: "15,000 attendee music festival with laser synchronization.",
+                camera: "RED V-Raptor 8K",
+                lens: "Angénieux Optimo Zoom",
+                settings: "T2.9 • 1/100s • ISO 800"
+            }
+        ];
+
+        let curLightIdx = 0;
+
+        function openMasterLightbox(idx) {
+            curLightIdx = idx;
+            renderMasterLightbox();
+            document.getElementById('masterLightboxModal').classList.remove('hidden');
+        }
+
+        function closeMasterLightbox() {
+            document.getElementById('masterLightboxModal').classList.add('hidden');
+        }
+
+        function navMasterLightbox(dir) {
+            curLightIdx = (curLightIdx + dir + masterGalleryData.length) % masterGalleryData.length;
+            renderMasterLightbox();
+        }
+
+        function renderMasterLightbox() {
+            const item = masterGalleryData[curLightIdx];
+            document.getElementById('mLightImg').src = item.img;
+            document.getElementById('mLightCategory').innerText = item.cat;
+            document.getElementById('mLightTitle').innerText = item.title;
+            document.getElementById('mLightDesc').innerText = item.desc;
+            document.getElementById('mLightCamera').innerText = item.camera;
+            document.getElementById('mLightLens').innerText = item.lens;
+            document.getElementById('mLightSettings').innerText = item.settings;
+            document.getElementById('mLightCounter').innerText = `${curLightIdx + 1} / ${masterGalleryData.length}`;
+        }
+
+        function filterMasterGallery(cat, btn) {
+            const items = document.querySelectorAll('.gal-item');
+            items.forEach(it => {
+                if (cat === 'all' || it.classList.contains(cat)) {
+                    it.style.display = 'block';
+                } else {
+                    it.style.display = 'none';
+                }
+            });
+
+            document.querySelectorAll('.gal-btn').forEach(b => {
+                b.className = 'gal-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-brandDark border border-brandBorder text-gray-300 hover:text-white transition';
+            });
+            btn.className = 'gal-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider bg-goldLuxe text-black transition';
+        }
+
+        // 7. Master Review Submission
+        let mSelectedStars = 5;
+        function setMasterStars(val) {
+            mSelectedStars = val;
+            const stars = document.querySelectorAll('#masterStarGroup i');
+            stars.forEach((s, idx) => {
+                if (idx < val) {
+                    s.className = 'fa-solid fa-star';
+                } else {
+                    s.className = 'fa-regular fa-star text-gray-600';
+                }
+            });
+        }
+
+        function submitMasterReview(e) {
+            e.preventDefault();
+            const name = document.getElementById('mRevName').value;
+            const service = document.getElementById('mRevService').value;
+            const comment = document.getElementById('mRevComment').value;
+
+            let starStr = '';
+            for (let i = 0; i < mSelectedStars; i++) starStr += '<i class="fa-solid fa-star"></i>';
+
+            const card = document.createElement('div');
+            card.className = 'p-6 rounded-2xl bg-brandCard border border-goldLuxe/50 shadow-lg';
+            card.innerHTML = `
+                <div class="flex items-center justify-between mb-2">
+                    <span class="font-bold text-white text-sm">${name}</span>
+                    <div class="text-amber-400 text-xs">${starStr}</div>
+                </div>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-goldLuxe/20 text-goldLuxe font-bold inline-block mb-2">${service}</span>
+                <p class="text-xs text-gray-300 leading-relaxed italic">"${comment}"</p>
+                <span class="text-[10px] text-emeraldLuxe mt-2 block"><i class="fa-solid fa-check mr-1"></i> Verified Testimonial • Posted Live Just Now</span>
+            `;
+
+            document.getElementById('masterReviewsFeed').prepend(card);
+            document.getElementById('masterReviewForm').reset();
+            setMasterStars(5);
+            alert('Review published live to the wall!');
+        }
+
+        // Initialize calculation
+        recalculateGrandTotal();
+    </script>
+
+</body>
+</html>
+

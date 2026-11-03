@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumina Frames & Events</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emeraldBrand: {
+                            50: '#ECFDF5',
+                            100: '#D1FAE5',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065F46',
+                            900: '#064E3B',
+                        },
+                        sandBrand: {
+                            50: '#FBF9F5',
+                            100: '#F4F0EA',
+                            200: '#E8E2D5',
+                            800: '#5C5346',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-sandBrand-50 text-gray-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-sandBrand-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" onclick="switchTab('home')" class="flex items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-emeraldBrand-900 flex items-center justify-center text-white font-bold text-lg">LF</div>
+                <div>
+                    <span class="text-lg font-bold tracking-tight text-emeraldBrand-900 block leading-none">LUMINA</span>
+                    <span class="text-xs tracking-widest text-emeraldBrand-600 font-semibold uppercase">Frames & Events</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                <button onclick="switchTab('home')" id="nav-home" class="nav-link text-emeraldBrand-800 font-semibold transition-colors">Home</button>
+                <button onclick="switchTab('about')" id="nav-about" class="nav-link hover:text-emeraldBrand-800 transition-colors">About Us</button>
+                <button onclick="switchTab('team')" id="nav-team" class="nav-link hover:text-emeraldBrand-800 transition-colors">Team</button>
+                <button onclick="switchTab('events')" id="nav-events" class="nav-link hover:text-emeraldBrand-800 transition-colors">Events Done</button>
+                <button onclick="switchTab('testimonials')" id="nav-testimonials" class="nav-link hover:text-emeraldBrand-800 transition-colors">Testimonials</button>
+                <button onclick="switchTab('experience')" id="nav-experience" class="nav-link hover:text-emeraldBrand-800 transition-colors">Experience</button>
+                <button onclick="switchTab('contact')" id="nav-contact" class="nav-link hover:text-emeraldBrand-800 transition-colors">Contact</button>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="tel:9789310981" class="text-sm font-medium text-gray-700 flex items-center gap-2 hover:text-emeraldBrand-800">
+                    <i class="fa-solid fa-phone text-emeraldBrand-600"></i> +91 97893 10981
+                </a>
+                <button onclick="switchTab('contact')" class="bg-emeraldBrand-900 hover:bg-emeraldBrand-800 text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all shadow-sm">
+                    Book Consultation
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 focus:outline-none">
+                <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-sandBrand-200 px-4 pt-2 pb-6 space-y-3">
+            <button onclick="switchTab('home'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700">Home</button>
+            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700">About Us</button>
+            <button onclick="switchTab('team'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700">Team</button>
+            <button onclick="switchTab('events'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700">Events Done</button>
+            <button onclick="switchTab('testimonials'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700">Testimonials</button>
+            <button onclick="switchTab('experience'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700">Experience</button>
+            <button onclick="switchTab('contact'); toggleMobileMenu();" class="block w-full text-left py-2 font-medium text-gray-700">Contact</button>
+            <div class="pt-2 border-t border-gray-100 flex flex-col gap-3">
+                <a href="tel:9789310981" class="text-sm font-medium text-gray-700 flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-emeraldBrand-600"></i> +91 97893 10981
+                </a>
+                <button onclick="switchTab('contact'); toggleMobileMenu();" class="bg-emeraldBrand-900 text-white py-2.5 rounded-full text-sm font-medium text-center">
+                    Book Consultation
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Content Views -->
+    <main class="flex-grow">
+
+        <!-- HOME VIEW -->
+        <section id="view-home" class="tab-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Hero -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="inline-flex items-center gap-2 bg-emeraldBrand-100 text-emeraldBrand-900 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-sparkles"></i> Premium Photography & Event Curation
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 leading-[1.1]">
+                        Capturing Moments, <span class="text-emeraldBrand-700">Curating Timeless</span> Experiences.
+                    </h1>
+                    <p class="text-lg text-gray-600 max-w-xl">
+                        Based in T. Nagar, Chennai, Lumina Frames & Events delivers world-class wedding photography, corporate galas, and bespoke event management tailored with elegance and precision.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="switchTab('events')" class="bg-emeraldBrand-900 hover:bg-emeraldBrand-800 text-white px-7 py-3.5 rounded-full font-medium transition-all shadow-sm">
+                            Explore Our Portfolio
+                        </button>
+                        <button onclick="switchTab('about')" class="bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 px-7 py-3.5 rounded-full font-medium transition-all">
+                            Our Full History
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-sandBrand-100 aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Luxury Wedding Event" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-sandBrand-200 flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-emeraldBrand-100 text-emeraldBrand-800 flex items-center justify-center font-bold text-xl">8+</div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-medium">Years of Excellence</p>
+                            <p class="text-sm font-bold text-gray-800">500+ Events Curated</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Section Teasers -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-sandBrand-200 hover:shadow-md transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-emeraldBrand-100 text-emeraldBrand-800 flex items-center justify-center mb-6 text-xl">
+                        <i class="fa-solid fa-camera-retro"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Immaculate Photography</h3>
+                    <p class="text-gray-600 text-sm mb-6">From candid emotional wedding moments to sleek corporate headshots and fashion portfolios.</p>
+                    <button onclick="switchTab('events')" class="text-emeraldBrand-700 font-semibold text-sm hover:underline flex items-center gap-2">
+                        View Gallery <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-sandBrand-200 hover:shadow-md transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-emeraldBrand-100 text-emeraldBrand-800 flex items-center justify-center mb-6 text-xl">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Expert Team & Vision</h3>
+                    <p class="text-gray-600 text-sm mb-6">Led by seasoned creative directors, cinematographers, and meticulous event producers.</p>
+                    <button onclick="switchTab('team')" class="text-emeraldBrand-700 font-semibold text-sm hover:underline flex items-center gap-2">
+                        Meet The Team <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-sandBrand-200 hover:shadow-md transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-emeraldBrand-100 text-emeraldBrand-800 flex items-center justify-center mb-6 text-xl">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Proven Track Record</h3>
+                    <p class="text-gray-600 text-sm mb-6">Over 8 years of landmark event successes across South India with zero compromised deadlines.</p>
+                    <button onclick="switchTab('experience')" class="text-emeraldBrand-700 font-semibold text-sm hover:underline flex items-center gap-2">
+                        Explore Experience <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT US VIEW -->
+        <section id="view-about" class="tab-view hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-emeraldBrand-700 font-semibold text-sm uppercase tracking-wider block mb-2">Our Story & Heritage</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">The Lumina Frames Journey</h2>
+                <div class="w-16 h-1 bg-emeraldBrand-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-sm border border-sandBrand-200 space-y-8">
+                <div class="prose max-w-none text-gray-600 space-y-6">
+                    <p class="text-lg leading-relaxed font-medium text-gray-800">
+                        Founded in 2018 in the heart of T. Nagar, Chennai, <strong class="text-emeraldBrand-900">Lumina Frames & Events</strong> began with a singular vision: to bridge the gap between cinematic storytelling and meticulous event execution. 
+                    </p>
+                    <p>
+                        What started as a passionate two-person boutique studio capturing intimate family celebrations has grown into one of Chennai's premier visual production and full-service event curation houses. Our founders recognized that clients did not just want photographs or venue bookings—they wanted cohesive, stress-free narratives where every single frame and minute detail resonated with authenticity and luxury.
+                    </p>
+                    <h3 class="text-2xl font-bold text-gray-900 pt-4">Our Core Philosophy</h3>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+                        <li class="bg-sandBrand-50 p-4 rounded-xl border border-sandBrand-200 flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emeraldBrand-600 mt-1"></i>
+                            <div>
+                                <strong class="block text-gray-900 text-sm">Uncompromising Quality</strong>
+                                <span class="text-xs text-gray-500">Using state-of-the-art 4K cinema gear and professional lighting rigs.</span>
+                            </div>
+                        </li>
+                        <li class="bg-sandBrand-50 p-4 rounded-xl border border-sandBrand-200 flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emeraldBrand-600 mt-1"></i>
+                            <div>
+                                <strong class="block text-gray-900 text-sm">Client-First Transparency</strong>
+                                <span class="text-xs text-gray-500">Clear pricing, realistic timelines, and dedicated event producers.</span>
+                            </div>
+                        </li>
+                        <li class="bg-sandBrand-50 p-4 rounded-xl border border-sandBrand-200 flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emeraldBrand-600 mt-1"></i>
+                            <div>
+                                <strong class="block text-gray-900 text-sm">Seamless Coordination</strong>
+                                <span class="text-xs text-gray-500">End-to-end management from concept boards to final album delivery.</span>
+                            </div>
+                        </li>
+                        <li class="bg-sandBrand-50 p-4 rounded-xl border border-sandBrand-200 flex items-start gap-3">
+                            <i class="fa-solid fa-check text-emeraldBrand-600 mt-1"></i>
+                            <div>
+                                <strong class="block text-gray-900 text-sm">Artistic Innovation</strong>
+                                <span class="text-xs text-gray-500">Constantly evolving editing styles blending timeless tones with modern aesthetics.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TEAM MEMBERS VIEW -->
+        <section id="view-team" class="tab-view hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-emeraldBrand-700 font-semibold text-sm uppercase tracking-wider block mb-2">The Creative Force</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">Meet Our Leadership Team</h2>
+                <div class="w-16 h-1 bg-emeraldBrand-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-sandBrand-200 group">
+                    <div class="aspect-[4/5] overflow-hidden bg-sandBrand-100">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600" alt="Founder & Creative Director" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Ananya Sharma</h3>
+                        <p class="text-emeraldBrand-700 text-sm font-semibold mb-3">Founder & Principal Photographer</p>
+                        <p class="text-gray-600 text-sm">With over 10 years behind the lens, Ananya directs the visual tone and artistic excellence across all major productions.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-sandBrand-200 group">
+                    <div class="aspect-[4/5] overflow-hidden bg-sandBrand-100">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" alt="Head of Event Operations" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Karthik Rajan</h3>
+                        <p class="text-emeraldBrand-700 text-sm font-semibold mb-3">Head of Event Operations</p>
+                        <p class="text-gray-600 text-sm">Mastermind behind flawless schedules, vendor negotiations, and on-ground execution for high-capacity corporate and wedding events.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-sandBrand-200 group">
+                    <div class="aspect-[4/5] overflow-hidden bg-sandBrand-100">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600" alt="Senior Cinematographer" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900">Priya Natarajan</h3>
+                        <p class="text-emeraldBrand-700 text-sm font-semibold mb-3">Senior Cinematographer & Editor</p>
+                        <p class="text-gray-600 text-sm">Specializes in cinematic drone videography, emotional storytelling edits, and color grading that brings every milestone to life.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENTS DONE VIEW -->
+        <section id="view-events" class="tab-view hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-emeraldBrand-700 font-semibold text-sm uppercase tracking-wider block mb-2">Portfolio Showcase</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">Events Done & Gallery</h2>
+                <div class="w-16 h-1 bg-emeraldBrand-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 mb-10">
+                <button onclick="filterGallery('all')" class="gallery-btn px-5 py-2 rounded-full text-sm font-semibold bg-emeraldBrand-900 text-white transition-all">All Events</button>
+                <button onclick="filterGallery('wedding')" class="gallery-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 border border-sandBrand-200 hover:bg-sandBrand-100 transition-all">Weddings</button>
+                <button onclick="filterGallery('corporate')" class="gallery-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 border border-sandBrand-200 hover:bg-sandBrand-100 transition-all">Corporate Galas</button>
+                <button onclick="filterGallery('fashion')" class="gallery-btn px-5 py-2 rounded-full text-sm font-semibold bg-white text-gray-700 border border-sandBrand-200 hover:bg-sandBrand-100 transition-all">Fashion & Commercial</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Item 1 -->
+                <div class="gallery-item wedding group relative rounded-2xl overflow-hidden shadow-sm bg-sandBrand-100 aspect-[4/3] cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800" alt="Royal Chennai Wedding" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs uppercase font-semibold tracking-wider text-emeraldBrand-300">Wedding Photography</span>
+                        <h4 class="text-lg font-bold">Royal Chennai Reception</h4>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="gallery-item corporate group relative rounded-2xl overflow-hidden shadow-sm bg-sandBrand-100 aspect-[4/3] cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=800" alt="Tech Summit Corporate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs uppercase font-semibold tracking-wider text-emeraldBrand-300">Corporate Event</span>
+                        <h4 class="text-lg font-bold">Annual Tech Innovation Summit</h4>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="gallery-item fashion group relative rounded-2xl overflow-hidden shadow-sm bg-sandBrand-100 aspect-[4/3] cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=800" alt="Fashion Runway Shoot" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs uppercase font-semibold tracking-wider text-emeraldBrand-300">Fashion & Commercial</span>
+                        <h4 class="text-lg font-bold">Designer Spring Showcase</h4>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="gallery-item wedding group relative rounded-2xl overflow-hidden shadow-sm bg-sandBrand-100 aspect-[4/3] cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&q=80&w=800" alt="Traditional Rituals" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs uppercase font-semibold tracking-wider text-emeraldBrand-300">Wedding Photography</span>
+                        <h4 class="text-lg font-bold">Traditional Muhurtham Ceremony</h4>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="gallery-item corporate group relative rounded-2xl overflow-hidden shadow-sm bg-sandBrand-100 aspect-[4/3] cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800" alt="Brand Gala Dinner" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs uppercase font-semibold tracking-wider text-emeraldBrand-300">Corporate Gala</span>
+                        <h4 class="text-lg font-bold">Global Leadership Dinner</h4>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="gallery-item fashion group relative rounded-2xl overflow-hidden shadow-sm bg-sandBrand-100 aspect-[4/3] cursor-pointer" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800" alt="Editorial Portfolio" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6 text-white">
+                        <span class="text-xs uppercase font-semibold tracking-wider text-emeraldBrand-300">Fashion & Commercial</span>
+                        <h4 class="text-lg font-bold">Silk & Heritage Editorial</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS VIEW -->
+        <section id="view-testimonials" class="tab-view hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-emeraldBrand-700 font-semibold text-sm uppercase tracking-wider block mb-2">Client Praise</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">What Our Clients Say</h2>
+                <div class="w-16 h-1 bg-emeraldBrand-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-sandBrand-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm italic mb-6">"Lumina Frames captured our wedding in Chennai with breathtaking cinematic grace. Every single emotion was preserved perfectly. Outstanding team!"</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-sandBrand-100">
+                        <div class="w-10 h-10 rounded-full bg-emeraldBrand-100 text-emeraldBrand-800 font-bold flex items-center justify-center text-sm">SR</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-900">Swetha & Ramesh</h4>
+                            <p class="text-xs text-gray-500">Wedding Clients</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-sandBrand-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm italic mb-6">"We hired Lumina for our annual tech summit in T. Nagar. Their management and corporate event coverage were flawless and delivered on time."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-sandBrand-100">
+                        <div class="w-10 h-10 rounded-full bg-emeraldBrand-100 text-emeraldBrand-800 font-bold flex items-center justify-center text-sm">VM</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-900">Vignesh Menon</h4>
+                            <p class="text-xs text-gray-500">Corporate Director</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-sandBrand-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-4 text-sm">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm italic mb-6">"Absolute professionals! The fashion portfolio shoot exceeded all expectations. The lighting and styling guidance were world-class."</p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-sandBrand-100">
+                        <div class="w-10 h-10 rounded-full bg-emeraldBrand-100 text-emeraldBrand-800 font-bold flex items-center justify-center text-sm">DP</div>
+                        <div>
+                            <h4 class="font-bold text-sm text-gray-900">Divya Priya</h4>
+                            <p class="text-xs text-gray-500">Fashion Stylist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE VIEW -->
+        <section id="view-experience" class="tab-view hidden max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-emeraldBrand-700 font-semibold text-sm uppercase tracking-wider block mb-2">Milestones & Growth</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">8+ Years of Proven Expertise</h2>
+                <div class="w-16 h-1 bg-emeraldBrand-600 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+                <div class="bg-white p-6 rounded-2xl text-center border border-sandBrand-200 shadow-sm">
+                    <span class="text-3xl font-bold text-emeraldBrand-900 block mb-1">500+</span>
+                    <span class="text-xs text-gray-500 font-semibold uppercase">Events Completed</span>
+                </div>
+                <div class="bg-white p-6 rounded-2xl text-center border border-sandBrand-200 shadow-sm">
+                    <span class="text-3xl font-bold text-emeraldBrand-900 block mb-1">8+</span>
+                    <span class="text-xs text-gray-500 font-semibold uppercase">Years in Business</span>
+                </div>
+                <div class="bg-white p-6 rounded-2xl text-center border border-sandBrand-200 shadow-sm">
+                    <span class="text-3xl font-bold text-emeraldBrand-900 block mb-1">100%</span>
+                    <span class="text-xs text-gray-500 font-semibold uppercase">Client Satisfaction</span>
+                </div>
+                <div class="bg-white p-6 rounded-2xl text-center border border-sandBrand-200 shadow-sm">
+                    <span class="text-3xl font-bold text-emeraldBrand-900 block mb-1">4K</span>
+                    <span class="text-xs text-gray-500 font-semibold uppercase">Ultra HD Production</span>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="space-y-8 relative before:absolute before:inset-0 before:left-7 before:w-0.5 before:bg-sandBrand-200">
+                <div class="relative flex items-start gap-6">
+                    <div class="w-14 h-14 rounded-full bg-emeraldBrand-900 text-white font-bold flex items-center justify-center shrink-0 z-10">2026</div>
+                    <div class="bg-white p-6 rounded-2xl border border-sandBrand-200 shadow-sm flex-grow">
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">Expansion into Luxury Destination Events</h3>
+                        <p class="text-gray-600 text-sm">Scaling operations to cover destination weddings and multi-day corporate retreats across South India with advanced drone cinematics.</p>
+                    </div>
+                </div>
+                <div class="relative flex items-start gap-6">
+                    <div class="w-14 h-14 rounded-full bg-emeraldBrand-800 text-white font-bold flex items-center justify-center shrink-0 z-10">2022</div>
+                    <div class="bg-white p-6 rounded-2xl border border-sandBrand-200 shadow-sm flex-grow">
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">Studio Launch in T. Nagar, Chennai</h3>
+                        <p class="text-gray-600 text-sm">Established our dedicated indoor portrait and client consultation studio in the vibrant commercial hub of Chennai.</p>
+                    </div>
+                </div>
+                <div class="relative flex items-start gap-6">
+                    <div class="w-14 h-14 rounded-full bg-emeraldBrand-700 text-white font-bold flex items-center justify-center shrink-0 z-10">2018</div>
+                    <div class="bg-white p-6 rounded-2xl border border-sandBrand-200 shadow-sm flex-grow">
+                        <h3 class="text-lg font-bold text-gray-900 mb-1">Inception of Lumina Frames</h3>
+                        <p class="text-gray-600 text-sm">Started as a passionate boutique team capturing local weddings and family milestones with a pristine artistic standard.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT & BOOKING VIEW -->
+        <section id="view-contact" class="tab-view hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-emeraldBrand-700 font-semibold text-sm uppercase tracking-wider block mb-2">Get In Touch</span>
+                        <h2 class="text-3xl font-bold text-gray-900 tracking-tight">Let's Create Together</h2>
+                        <p class="text-gray-600 text-sm mt-3">Ready to book your wedding, corporate event, or fashion shoot? Reach out to us directly or fill out the consultation form.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 bg-white p-5 rounded-2xl border border-sandBrand-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-emeraldBrand-100 text-emeraldBrand-800 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase text-gray-500 font-bold tracking-wider">Email Us</h4>
+                                <a href="mailto:freelancer.uk@gmail.com" class="text-gray-900 font-semibold text-sm hover:text-emeraldBrand-700">freelancer.uk@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 bg-white p-5 rounded-2xl border border-sandBrand-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-emeraldBrand-100 text-emeraldBrand-800 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase text-gray-500 font-bold tracking-wider">Call / WhatsApp</h4>
+                                <a href="tel:9789310981" class="text-gray-900 font-semibold text-sm hover:text-emeraldBrand-700">+91 97893 10981</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 bg-white p-5 rounded-2xl border border-sandBrand-200 shadow-sm">
+                            <div class="w-10 h-10 rounded-full bg-emeraldBrand-100 text-emeraldBrand-800 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs uppercase text-gray-500 font-bold tracking-wider">Studio Location</h4>
+                                <p class="text-gray-900 font-semibold text-sm">T. Nagar, Chennai, Tamil Nadu, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl border border-sandBrand-200 shadow-sm">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Book a Consultation</h3>
+                    <p class="text-gray-600 text-sm mb-6">Fill out your event details below and our team will get back to you within 24 hours.</p>
+                    
+                    <div id="success-alert" class="hidden mb-6 bg-emeraldBrand-50 border border-emeraldBrand-200 text-emeraldBrand-900 px-4 py-3 rounded-xl text-sm flex items-center gap-3">
+                        <i class="fa-solid fa-circle-check text-emeraldBrand-700 text-lg"></i>
+                        <span>Thank you! Your inquiry has been saved and sent successfully. We will contact you shortly.</span>
+                    </div>
+
+                    <form id="booking-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Your Full Name</label>
+                                <input type="text" id="form-name" required class="w-full px-4 py-3 rounded-xl border border-sandBrand-200 focus:outline-none focus:border-emeraldBrand-600 text-sm bg-sandBrand-50">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Phone / WhatsApp Number</label>
+                                <input type="tel" id="form-phone" required class="w-full px-4 py-3 rounded-xl border border-sandBrand-200 focus:outline-none focus:border-emeraldBrand-600 text-sm bg-sandBrand-50" placeholder="+91 97893 10981">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Email Address</label>
+                                <input type="email" id="form-email" required class="w-full px-4 py-3 rounded-xl border border-sandBrand-200 focus:outline-none focus:border-emeraldBrand-600 text-sm bg-sandBrand-50" value="freelancer.uk@gmail.com">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Event Type</label>
+                                <select id="form-type" class="w-full px-4 py-3 rounded-xl border border-sandBrand-200 focus:outline-none focus:border-emeraldBrand-600 text-sm bg-sandBrand-50">
+                                    <option>Wedding Photography</option>
+                                    <option>Corporate Gala / Summit</option>
+                                    <option>Fashion & Commercial Shoot</option>
+                                    <option>Full Event Curation</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-gray-600 mb-1">Event Date & Message</label>
+                            <textarea id="form-message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-sandBrand-200 focus:outline-none focus:border-emeraldBrand-600 text-sm bg-sandBrand-50" placeholder="Tell us about your event date, venue, and specific requirements..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-emeraldBrand-900 hover:bg-emeraldBrand-800 text-white py-3.5 rounded-xl font-medium transition-all shadow-sm">
+                            Submit Inquiry
+                        </button>
+                    </form>
+
+                    <!-- Recent Inquiries Ledger (LocalStorage) -->
+                    <div id="inquiries-container" class="mt-8 pt-6 border-t border-sandBrand-200 hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500">Your Recent Saved Inquiries</h4>
+                            <button onclick="clearInquiries()" class="text-xs text-red-600 hover:underline">Clear History</button>
+                        </div>
+                        <div id="inquiries-list" class="space-y-2 text-xs"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-12 right-0 text-white text-2xl hover:text-emeraldBrand-300 focus:outline-none">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <img id="lightbox-img" src="" alt="Enlarged view" class="w-full max-h-[80vh] object-contain rounded-xl">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-sandBrand-200 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-full bg-emeraldBrand-900 flex items-center justify-center text-white font-bold text-sm">LF</div>
+                <span class="font-bold text-gray-900">Lumina Frames & Events</span>
+            </div>
+            <p class="text-xs text-gray-500">© 2026 Lumina Frames & Events, T. Nagar, Chennai. All rights reserved. | <a href="mailto:freelancer.uk@gmail.com" class="hover:underline">freelancer.uk@gmail.com</a></p>
+            <div class="flex items-center gap-4 text-gray-600">
+                <a href="tel:9789310981" class="w-9 h-9 rounded-full bg-sandBrand-100 flex items-center justify-center hover:bg-emeraldBrand-900 hover:text-white transition-all"><i class="fa-solid fa-phone text-xs"></i></a>
+                <a href="mailto:freelancer.uk@gmail.com" class="w-9 h-9 rounded-full bg-sandBrand-100 flex items-center justify-center hover:bg-emeraldBrand-900 hover:text-white transition-all"><i class="fa-solid fa-envelope text-xs"></i></a>
+                <a href="#" class="w-9 h-9 rounded-full bg-sandBrand-100 flex items-center justify-center hover:bg-emeraldBrand-900 hover:text-white transition-all"><i class="fa-brands fa-instagram text-xs"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-view').forEach(view => view.classList.add('hidden'));
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('text-emeraldBrand-800', 'font-semibold');
+                link.classList.add('hover:text-emeraldBrand-800');
+            });
+
+            const targetView = document.getElementById('view-' + tabId);
+            if (targetView) targetView.classList.remove('hidden');
+
+            const targetNav = document.getElementById('nav-' + tabId);
+            if (targetNav) {
+                targetNav.classList.add('text-emeraldBrand-800', 'font-semibold');
+                targetNav.classList.remove('hover:text-emeraldBrand-800');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            loadInquiries();
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function filterGallery(category) {
+            const buttons = document.querySelectorAll('.gallery-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-emeraldBrand-900', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700', 'border', 'border-sandBrand-200');
+            });
+            event.target.classList.remove('bg-white', 'text-gray-700', 'border', 'border-sandBrand-200');
+            event.target.classList.add('bg-emeraldBrand-900', 'text-white');
+
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = img.src;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('flex');
+            lightbox.classList.add('hidden');
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const email = document.getElementById('form-email').value;
+            const type = document.getElementById('form-type').value;
+            const message = document.getElementById('form-message').value;
+
+            const inquiry = { name, phone, email, type, message, date: new Date().toLocaleDateString() };
+            let inquiries = JSON.parse(localStorage.getItem('lumina_inquiries') || '[]');
+            inquiries.push(inquiry);
+            localStorage.setItem('lumina_inquiries', JSON.stringify(inquiries));
+
+            document.getElementById('success-alert').classList.remove('hidden');
+            document.getElementById('booking-form').reset();
+            document.getElementById('form-email').value = 'freelancer.uk@gmail.com';
+            
+            loadInquiries();
+            setTimeout(() => {
+                document.getElementById('success-alert').classList.add('hidden');
+            }, 5000);
+        }
+
+        function loadInquiries() {
+            const inquiries = JSON.parse(localStorage.getItem('lumina_inquiries') || '[]');
+            const container = document.getElementById('inquiries-container');
+            const list = document.getElementById('inquiries-list');
+
+            if (inquiries.length > 0) {
+                container.classList.remove('hidden');
+                list.innerHTML = inquiries.map((inq, idx) => `
+                    <div class="bg-sandBrand-50 p-3 rounded-xl border border-sandBrand-200 flex justify-between items-center">
+                        <div>
+                            <span class="font-bold text-gray-900">${inq.name}</span> (${inq.type}) - <span class="text-gray-500">${inq.phone}</span>
+                        </div>
+                        <span class="text-gray-400 text-[10px]">${inq.date}</span>
+                    </div>
+                `).join('');
+            } else {
+                container.classList.add('hidden');
+            }
+        }
+
+        // Initialize inquiries on load
+        window.onload = loadInquiries;
+    </script>
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiny Steps Studio | Interactive Baby Milestone & Cake Smash Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        buttercup: {
+                            50: '#FEFCE8',
+                            100: '#FEF9C3',
+                            200: '#FEF08A',
+                            400: '#FACC15',
+                            500: '#EAB308',
+                        },
+                        mintSoft: {
+                            50: '#F0FDF4',
+                            100: '#DCFCE7',
+                            200: '#BBF7D0',
+                            500: '#22C55E',
+                        },
+                        babySky: '#38BDF8',
+                        warmSlate: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        curly: ['Fredoka', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    animation: {
+                        'float-balloon': 'floatBalloon 4s ease-in-out infinite',
+                        'wiggle': 'wiggle 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        floatBalloon: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-15px) rotate(3deg)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #FEFCE8; color: #1E293B; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .bubble-badge {
+            background: linear-gradient(135deg, #FEF08A 0%, #BBF7D0 100%);
+        }
+    </style>
+</head>
+<body class="bg-buttercup-50 text-warmSlate antialiased selection:bg-buttercup-200">
+
+    <!-- Top Baby Care Ribbon -->
+    <div class="bg-mintSoft-100 border-b border-mintSoft-200 text-xs py-2 px-4 text-center text-mintSoft-500 font-bold">
+        <span>✨ 100% Organic Cotton Wraps • Temperature-Controlled 28°C Studio • Sanitized Between Every Baby</span>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-buttercup-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3">
+                <div class="w-11 h-11 rounded-2xl bg-buttercup-200 flex items-center justify-center text-warmSlate text-xl shadow-sm animate-wiggle">
+                    <i class="fa-solid fa-shapes text-amber-600"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-curly font-bold text-warmSlate tracking-tight">TINY <span class="text-amber-500">STEPS</span></span>
+                    <span class="block text-[10px] tracking-[0.2em] text-gray-500 uppercase font-semibold">Interactive Baby Studio</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-bold text-gray-600">
+                <a href="#interactive-milestones" class="hover:text-amber-600 transition">Age Explorer</a>
+                <a href="#theme-builder" class="hover:text-amber-600 transition">Theme Builder</a>
+                <a href="#checklist" class="hover:text-amber-600 transition">Session Wishlist</a>
+                <a href="#packages" class="hover:text-amber-600 transition">Pricing</a>
+            </nav>
+
+            <div>
+                <a href="#booking" class="px-5 py-2.5 rounded-full bg-amber-400 hover:bg-amber-500 text-warmSlate font-extrabold text-xs uppercase tracking-wider transition shadow-md shadow-amber-300/40">
+                    Book Studio Date
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 lg:py-24 overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white border border-buttercup-200 text-amber-600 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Interactive Studio Experience For Modern Parents</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-curly font-bold text-warmSlate leading-tight mb-6">
+                    Watch Them Grow, <br>
+                    <span class="text-amber-500 font-curly">Giggle, Smash & Splash!</span>
+                </h1>
+                <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
+                    Personalize your baby's photo session in real-time. Pick their age stage, test custom set themes, and select props with our interactive studio visualizer below.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-center gap-4">
+                    <a href="#interactive-milestones" class="w-full sm:w-auto px-8 py-4 rounded-full bg-amber-400 hover:bg-amber-500 text-warmSlate font-bold text-xs uppercase tracking-widest transition shadow-lg shadow-amber-300/50 text-center">
+                        Try Interactive Age Explorer
+                    </a>
+                    <a href="#theme-builder" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white border border-buttercup-300 hover:bg-buttercup-100 text-warmSlate font-bold text-xs uppercase tracking-widest transition text-center">
+                        Launch Theme Customizer
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Visual with Animated Floating Elements -->
+            <div class="relative">
+                <div class="rounded-3xl overflow-hidden border-8 border-white shadow-2xl relative z-10">
+                    <img id="heroBabyImg" src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=1000&q=80" alt="Newborn baby" class="w-full h-[500px] object-cover transition duration-500">
+                </div>
+
+                <!-- Floating Balloons & Badges -->
+                <div class="absolute -top-6 -right-6 z-20 bg-white p-4 rounded-2xl border border-buttercup-200 shadow-xl animate-float-balloon hidden sm:block">
+                    <div class="flex items-center space-x-3">
+                        <span class="text-2xl">🎂</span>
+                        <div>
+                            <span class="text-xs font-bold block text-warmSlate">Cake Smash Special</span>
+                            <span class="text-[10px] text-gray-500">Includes artisan cake & warm splash tub</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="absolute -bottom-6 -left-6 z-20 bg-white p-4 rounded-2xl border border-mintSoft-200 shadow-xl hidden sm:block">
+                    <div class="flex items-center space-x-2 text-xs font-bold text-emerald-700">
+                        <i class="fa-solid fa-shield-halved text-emerald-500 text-base"></i>
+                        <span>100% Gentle & Baby-Led Pacing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC FEATURE 1: Interactive Age Milestone Explorer -->
+    <section id="interactive-milestones" class="py-24 bg-white border-t border-buttercup-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-amber-600">Dynamic Age Explorer</span>
+                <h2 class="text-3xl sm:text-5xl font-curly font-bold text-warmSlate mt-2 mb-4">Choose Your Baby's Stage</h2>
+                <p class="text-gray-500 text-xs sm:text-sm">Click each milestone below to see tailored styling, ideal photoshoot timing, and photo previews.</p>
+            </div>
+
+            <!-- Milestone Tabs -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-4xl mx-auto mb-12">
+                <button onclick="selectMilestone(0, this)" class="milestone-btn p-4 rounded-2xl border-2 border-amber-400 bg-buttercup-100 text-center font-bold text-xs uppercase tracking-wider transition">
+                    <span class="text-2xl block mb-1">🍼</span>
+                    <span>Newborn (0-21 Days)</span>
+                </button>
+                <button onclick="selectMilestone(1, this)" class="milestone-btn p-4 rounded-2xl border-2 border-transparent bg-buttercup-50 hover:bg-buttercup-100 text-center font-bold text-xs uppercase tracking-wider transition">
+                    <span class="text-2xl block mb-1">🧸</span>
+                    <span>Tummy & Smiles (3-4 Mo)</span>
+                </button>
+                <button onclick="selectMilestone(2, this)" class="milestone-btn p-4 rounded-2xl border-2 border-transparent bg-buttercup-50 hover:bg-buttercup-100 text-center font-bold text-xs uppercase tracking-wider transition">
+                    <span class="text-2xl block mb-1">🪑</span>
+                    <span>The Sitter (6-8 Mo)</span>
+                </button>
+                <button onclick="selectMilestone(3, this)" class="milestone-btn p-4 rounded-2xl border-2 border-transparent bg-buttercup-50 hover:bg-buttercup-100 text-center font-bold text-xs uppercase tracking-wider transition">
+                    <span class="text-2xl block mb-1">🎂</span>
+                    <span>Cake Smash (1 Year)</span>
+                </button>
+            </div>
+
+            <!-- Dynamic Milestone Showcase Card -->
+            <div class="bg-buttercup-50 rounded-3xl border border-buttercup-200 p-8 sm:p-12 shadow-lg grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <span id="milestoneBadge" class="px-3.5 py-1 rounded-full bg-amber-200 text-amber-800 text-xs font-bold uppercase tracking-wider inline-block mb-3">
+                        Days 5 to 21
+                    </span>
+                    <h3 id="milestoneTitle" class="text-3xl font-curly font-bold text-warmSlate mb-4">
+                        The Sleepy Newborn Stage
+                    </h3>
+                    <p id="milestoneDesc" class="text-gray-600 text-sm leading-relaxed mb-6">
+                        Babies sleep soundly and naturally curl up into peaceful womb-like poses. We use ultra-soft cashmere wraps, heated beanbags, and organic rustic nests.
+                    </p>
+
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center text-xs font-semibold text-gray-700">
+                            <i class="fa-solid fa-clock text-amber-500 mr-3 text-sm"></i>
+                            <span id="milestoneDuration">Session Length: 2.5 to 3 Hours (unrushed with nursing pauses)</span>
+                        </div>
+                        <div class="flex items-center text-xs font-semibold text-gray-700">
+                            <i class="fa-solid fa-basket-shopping text-amber-500 mr-3 text-sm"></i>
+                            <span id="milestoneProps">Included Setups: 4 Custom Styled Nests & Hypoallergenic Wraps</span>
+                        </div>
+                        <div class="flex items-center text-xs font-semibold text-gray-700">
+                            <i class="fa-solid fa-people-roof text-amber-500 mr-3 text-sm"></i>
+                            <span id="milestoneFamily">Family Inclusion: Mom, Dad & Sibling cuddles included</span>
+                        </div>
+                    </div>
+
+                    <a href="#booking" class="inline-block px-7 py-3.5 rounded-full bg-amber-400 hover:bg-amber-500 text-warmSlate font-bold text-xs uppercase tracking-wider transition shadow-md shadow-amber-300/40">
+                        Check Availability For This Age
+                    </a>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden border-4 border-white shadow-xl h-80 sm:h-96">
+                    <img id="milestoneImage" src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=900&q=80" alt="Milestone stage" class="w-full h-full object-cover transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC FEATURE 2: Interactive Theme & Cake Smash Customizer -->
+    <section id="theme-builder" class="py-24 bg-buttercup-100/50 border-t border-buttercup-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-amber-600">Live Studio Customizer</span>
+                <h2 class="text-3xl sm:text-5xl font-curly font-bold text-warmSlate mt-2 mb-4">Design Your Baby's Set</h2>
+                <p class="text-gray-500 text-xs sm:text-sm">Click different theme presets to preview matching props, color palette swatches, and styling inclusions.</p>
+            </div>
+
+            <!-- Theme Preset Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-10">
+                <button onclick="setThemePreset('safari', this)" class="theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-400 text-warmSlate shadow-sm transition">
+                    🦁 Jungle Safari Adventure
+                </button>
+                <button onclick="setThemePreset('royal', this)" class="theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-gray-700 hover:bg-amber-100 transition">
+                    👑 Little Prince / Princess
+                </button>
+                <button onclick="setThemePreset('boho', this)" class="theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-gray-700 hover:bg-amber-100 transition">
+                    🌾 Boho Pampas & Clouds
+                </button>
+                <button onclick="setThemePreset('berry', this)" class="theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-gray-700 hover:bg-amber-100 transition">
+                    🍓 Sweet Berry Garden
+                </button>
+            </div>
+
+            <!-- Dynamic Theme Display Board -->
+            <div id="themeCard" class="bg-white rounded-3xl border border-buttercup-200 p-8 sm:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-5">
+                    <span id="themeTag" class="text-xs font-bold uppercase tracking-widest text-emerald-700">Theme 01</span>
+                    <h3 id="themeHeading" class="text-3xl font-curly font-bold text-warmSlate mt-1 mb-3">Jungle Safari Adventure</h3>
+                    <p id="themeSummary" class="text-xs text-gray-600 leading-relaxed mb-6">
+                        Lush sage eucalyptus garlands, handcrafted wooden wooden safari animals, woven rattan baskets, and golden warm lighting.
+                    </p>
+
+                    <!-- Swatches -->
+                    <div class="mb-6">
+                        <span class="text-xs font-bold text-gray-700 block mb-2 uppercase tracking-wider">Palette Swatches:</span>
+                        <div id="themeSwatches" class="flex space-x-3">
+                            <div class="w-8 h-8 rounded-full bg-[#15803D] ring-2 ring-white shadow"></div>
+                            <div class="w-8 h-8 rounded-full bg-[#D97706] ring-2 ring-white shadow"></div>
+                            <div class="w-8 h-8 rounded-full bg-[#FEF08A] ring-2 ring-white shadow"></div>
+                            <div class="w-8 h-8 rounded-full bg-[#F5EBE1] ring-2 ring-white shadow"></div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-buttercup-50 border border-buttercup-200 text-xs">
+                        <span class="font-bold text-warmSlate block mb-1"><i class="fa-solid fa-cake-candles text-amber-500 mr-1.5"></i> Included Smash Cake Design:</span>
+                        <span id="themeCakeDesc" class="text-gray-600">Organic low-sugar naked sponge with green leaf toppers and mini fondant lion.</span>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="rounded-2xl overflow-hidden border-4 border-buttercup-100 shadow-md h-80 sm:h-96">
+                        <img id="themeImage" src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=80" alt="Theme preview" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC FEATURE 3: Interactive Milestone Wishlist Checklist -->
+    <section id="checklist" class="py-24 bg-white border-t border-buttercup-200">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-[0.25em] text-amber-600">Session Customizer</span>
+                <h2 class="text-3xl sm:text-4xl font-curly font-bold text-warmSlate mt-2 mb-3">Build Your Baby's Shot Wishlist</h2>
+                <p class="text-gray-500 text-xs">Check off the moments you want captured. We'll automatically tally and save them for your booking consultation!</p>
+            </div>
+
+            <div class="bg-buttercup-50 rounded-3xl border border-buttercup-200 p-8 shadow-sm">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8" id="checklistOptions">
+                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-buttercup-200 cursor-pointer hover:border-amber-400 transition">
+                        <input type="checkbox" checked onchange="updateWishlistCount()" class="w-4 h-4 accent-amber-500">
+                        <span class="text-xs font-semibold text-gray-700">Tiny Macro Details (Eyelashes & Toes)</span>
+                    </label>
+                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-buttercup-200 cursor-pointer hover:border-amber-400 transition">
+                        <input type="checkbox" checked onchange="updateWishlistCount()" class="w-4 h-4 accent-amber-500">
+                        <span class="text-xs font-semibold text-gray-700">Baby Yawning & Stretching</span>
+                    </label>
+                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-buttercup-200 cursor-pointer hover:border-amber-400 transition">
+                        <input type="checkbox" checked onchange="updateWishlistCount()" class="w-4 h-4 accent-amber-500">
+                        <span class="text-xs font-semibold text-gray-700">Mom & Baby Gentle Heartbeat Hug</span>
+                    </label>
+                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-buttercup-200 cursor-pointer hover:border-amber-400 transition">
+                        <input type="checkbox" checked onchange="updateWishlistCount()" class="w-4 h-4 accent-amber-500">
+                        <span class="text-xs font-semibold text-gray-700">Dad's Strong Hands Holding Baby</span>
+                    </label>
+                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-buttercup-200 cursor-pointer hover:border-amber-400 transition">
+                        <input type="checkbox" onchange="updateWishlistCount()" class="w-4 h-4 accent-amber-500">
+                        <span class="text-xs font-semibold text-gray-700">Cake Smash Messy Fingers Reaction</span>
+                    </label>
+                    <label class="flex items-center space-x-3 bg-white p-3.5 rounded-xl border border-buttercup-200 cursor-pointer hover:border-amber-400 transition">
+                        <input type="checkbox" onchange="updateWishlistCount()" class="w-4 h-4 accent-amber-500">
+                        <span class="text-xs font-semibold text-gray-700">Warm Bubbly Vintage Tub Splash</span>
+                    </label>
+                </div>
+
+                <!-- Live Tally Indicator -->
+                <div class="flex flex-col sm:flex-row items-center justify-between p-4 bg-white rounded-2xl border border-buttercup-300 gap-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 font-bold">
+                            <span id="wishlistCount">4</span>
+                        </div>
+                        <div>
+                            <span class="text-xs font-bold text-warmSlate block">Moments Selected For Your Baby</span>
+                            <span class="text-[11px] text-gray-500">These will be pre-loaded into your booking consultation</span>
+                        </div>
+                    </div>
+                    <a href="#booking" class="px-5 py-2.5 rounded-full bg-amber-400 hover:bg-amber-500 text-warmSlate font-bold text-xs uppercase tracking-wider transition">
+                        Proceed With Selected Wishlist &rarr;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="py-20 bg-buttercup-50 border-t border-buttercup-200">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-600">Book The Studio</span>
+                <h2 class="text-3xl sm:text-4xl font-curly font-bold text-warmSlate mt-2 mb-3">Reserve Your Baby's Special Date</h2>
+                <p class="text-xs text-gray-500">We keep studio sessions limited to 2 babies per day to ensure maximum disinfection and unhurried peace.</p>
+            </div>
+
+            <form class="space-y-4 bg-white p-8 rounded-3xl border border-buttercup-200 shadow-md" onsubmit="event.preventDefault(); alert('Woohoo! Your customized baby session inquiry has been received. We cannot wait to meet your little star!');">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-warmSlate uppercase mb-1">Parent's Name</label>
+                        <input type="text" required placeholder="e.g. Jessica Taylor" class="w-full bg-buttercup-50 border border-buttercup-200 rounded-xl px-4 py-2.5 text-xs text-warmSlate focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-warmSlate uppercase mb-1">Baby's Name & Current Age</label>
+                        <input type="text" placeholder="e.g. Liam (Due in 4 weeks)" class="w-full bg-buttercup-50 border border-buttercup-200 rounded-xl px-4 py-2.5 text-xs text-warmSlate focus:outline-none focus:border-amber-400">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-warmSlate uppercase mb-1">Email</label>
+                        <input type="email" required placeholder="jessica@example.com" class="w-full bg-buttercup-50 border border-buttercup-200 rounded-xl px-4 py-2.5 text-xs text-warmSlate focus:outline-none focus:border-amber-400">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-warmSlate uppercase mb-1">Preferred Date</label>
+                        <input type="date" required class="w-full bg-buttercup-50 border border-buttercup-200 rounded-xl px-4 py-2.5 text-xs text-warmSlate focus:outline-none focus:border-amber-400">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 rounded-full bg-amber-400 hover:bg-amber-500 text-warmSlate font-bold text-xs uppercase tracking-widest transition shadow-md shadow-amber-300/40">
+                    Confirm & Send Customized Session Plan
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-buttercup-200 py-10 text-center text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-left">
+                <span class="font-curly font-bold text-warmSlate text-base">TINY STEPS STUDIO</span>
+                <p class="text-gray-400 text-[11px] mt-0.5">Palette 06: Buttercup Cream, Mint Sage & Honey Amber (Dynamic & Animated)</p>
+            </div>
+            <div>
+                &copy; 2026 Tiny Steps Interactive Baby Studio.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Milestone Data
+        const milestones = [
+            {
+                badge: "Days 5 to 21",
+                title: "The Sleepy Newborn Stage",
+                desc: "Babies sleep soundly and naturally curl up into peaceful womb-like poses. We use ultra-soft cashmere wraps, heated beanbags, and organic rustic nests.",
+                duration: "Session Length: 2.5 to 3 Hours (unrushed with nursing pauses)",
+                props: "Included Setups: 4 Custom Styled Nests & Hypoallergenic Wraps",
+                family: "Family Inclusion: Mom, Dad & Sibling cuddles included",
+                img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                badge: "Months 3 to 4",
+                title: "Tummy Time & First Giggles",
+                desc: "Baby is lifting their head with confidence, responding to parents' voices, flashing the first big smiles, and discovering their tiny hands.",
+                duration: "Session Length: 1.5 Hours",
+                props: "Included Setups: Textured play mats, pastel wooden rattles, mirror games",
+                family: "Family Inclusion: Interactive singing & tickle captures with parents",
+                img: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                badge: "Months 6 to 8",
+                title: "The Sitter Milestone",
+                desc: "Sitting up unsupported without crawling away yet! Chubby baby rolls, infectious belly laughs, clapping hands, and curious bright eyes.",
+                duration: "Session Length: 1.5 to 2 Hours",
+                props: "Included Setups: Rustic wooden crates, vintage rocking chairs, knit bloomer wardrobe",
+                family: "Family Inclusion: Mom tossing baby in the air & shoulder rides with Dad",
+                img: "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                badge: "12 Months (1 Year)",
+                title: "Cake Smash & Bubbly Splash",
+                desc: "The big celebration! Custom balloon garlands, organic bakery smash cake exploration, followed by a warm vintage clawfoot tub splash with rubber ducks.",
+                duration: "Session Length: 2 Hours (3 distinct stages)",
+                props: "Included Setups: Custom themed backdrop + Smash Cake + Bubble Bath",
+                family: "Family Inclusion: Pre-smash family formal portrait + messy cake fun",
+                img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=80"
+            }
+        ];
+
+        function selectMilestone(idx, btn) {
+            const data = milestones[idx];
+            document.getElementById('milestoneBadge').innerText = data.badge;
+            document.getElementById('milestoneTitle').innerText = data.title;
+            document.getElementById('milestoneDesc').innerText = data.desc;
+            document.getElementById('milestoneDuration').innerText = data.duration;
+            document.getElementById('milestoneProps').innerText = data.props;
+            document.getElementById('milestoneFamily').innerText = data.family;
+            document.getElementById('milestoneImage').src = data.img;
+
+            document.querySelectorAll('.milestone-btn').forEach(b => {
+                b.className = 'milestone-btn p-4 rounded-2xl border-2 border-transparent bg-buttercup-50 hover:bg-buttercup-100 text-center font-bold text-xs uppercase tracking-wider transition';
+            });
+            btn.className = 'milestone-btn p-4 rounded-2xl border-2 border-amber-400 bg-buttercup-100 text-center font-bold text-xs uppercase tracking-wider transition';
+        }
+
+        // Theme Data
+        const themes = {
+            safari: {
+                tag: "Theme 01",
+                title: "Jungle Safari Adventure",
+                desc: "Lush sage eucalyptus garlands, handcrafted wooden safari animals, woven rattan baskets, and golden warm lighting.",
+                cake: "Organic low-sugar naked sponge with green leaf toppers and mini fondant lion.",
+                img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=900&q=80",
+                swatches: ['#15803D', '#D97706', '#FEF08A', '#F5EBE1']
+            },
+            royal: {
+                tag: "Theme 02",
+                title: "Royal Prince / Princess",
+                desc: "Delicate gold crown motifs, antique ivory velvet pillows, soft champagne draping, and starry fairy lights.",
+                cake: "White vanilla buttercream cake with edible gold foil flakes and pearl accents.",
+                img: "https://images.unsplash.com/photo-1555252333-9f8e92e65df9?auto=format&fit=crop&w=900&q=80",
+                swatches: ['#D4AF37', '#EDE9FE', '#FFFFFF', '#1E1B4B']
+            },
+            boho: {
+                tag: "Theme 03",
+                title: "Boho Pampas & Clouds",
+                desc: "Feathery pampas grass, macrame dreamcatchers, terracotta pots, and natural neutral linen textiles.",
+                cake: "Semi-naked textured oat cake with dried bunny tail florals.",
+                img: "https://images.unsplash.com/photo-1544126592-807ade215a0b?auto=format&fit=crop&w=900&q=80",
+                swatches: ['#C25E3E', '#EAE1D7', '#819875', '#FAF8F5']
+            },
+            berry: {
+                tag: "Theme 04",
+                title: "Sweet Berry Garden",
+                desc: "Fresh wild strawberry vine garlands, gingham picnic basket, pastel blush balloons, and floral bonnet.",
+                cake: "Pink strawberry swirl cake with fresh handpicked blueberries.",
+                img: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=80",
+                swatches: ['#F472B6', '#DC2626', '#FEF08A', '#FFFFFF']
+            }
+        };
+
+        function setThemePreset(key, btn) {
+            const t = themes[key];
+            document.getElementById('themeTag').innerText = t.tag;
+            document.getElementById('themeHeading').innerText = t.title;
+            document.getElementById('themeSummary').innerText = t.desc;
+            document.getElementById('themeCakeDesc').innerText = t.cake;
+            document.getElementById('themeImage').src = t.img;
+
+            const swatchDiv = document.getElementById('themeSwatches');
+            swatchDiv.innerHTML = t.swatches.map(c => `<div class="w-8 h-8 rounded-full ring-2 ring-white shadow" style="background-color: ${c}"></div>`).join('');
+
+            document.querySelectorAll('.theme-btn').forEach(b => {
+                b.className = 'theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white text-gray-700 hover:bg-amber-100 transition';
+            });
+            btn.className = 'theme-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-400 text-warmSlate shadow-sm transition';
+        }
+
+        // Wishlist counter
+        function updateWishlistCount() {
+            const checked = document.querySelectorAll('#checklistOptions input[type="checkbox"]:checked').length;
+            document.getElementById('wishlistCount').innerText = checked;
+        }
+    </script>
+
+</body>
+</html>
+
